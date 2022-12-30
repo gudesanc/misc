@@ -1,12 +1,10 @@
-package org.gds.misc.encryption;
+package org.gds.misc.encryption.plainjava;
 
 import javax.crypto.Cipher;
 import javax.crypto.EncryptedPrivateKeyInfo;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.cert.CertificateFactory;
@@ -15,7 +13,10 @@ import java.security.spec.*;
 import java.util.Base64;
 
 /**
- * Hello world!
+ * EncryptTextWithKeyAndCertificate
+ *
+ * N.B. con la chiave RSA si possono decriptare
+ * solamente dati < 256 byte (i.e lunghezza chiave privata diviso 8 (2048/8 = 256 bytes)
  */
 public class EncryptTextWithKeyAndCertificate {
     public static void main(String[] args) throws Exception {

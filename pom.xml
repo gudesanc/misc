@@ -19,12 +19,23 @@
   </properties>
 
   <dependencies>
+    <!--
+        BC - Mail da jdk8 in su
+    -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcmail-jdk18on</artifactId>
+      <version>1.72</version>
     </dependency>
+    <!-- ...per i messaggi SMIME -->
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+
+
+
   </dependencies>
 
   <build>
