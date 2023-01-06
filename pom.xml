@@ -20,6 +20,7 @@
 
   <dependencies>
     <!--
+        Encription *** SMIME
         BC - Mail da jdk8 in su
     -->
     <dependency>
@@ -33,9 +34,20 @@
       <artifactId>javax.mail</artifactId>
       <version>1.6.2</version>
     </dependency>
-
-
-
+    <!--
+      QRCode
+      https://www.baeldung.com/java-generating-barcodes-qr-codes
+    -->
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>core</artifactId>
+      <version>3.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>javase</artifactId>
+      <version>3.3.0</version>
+    </dependency>
   </dependencies>
 
   <build>
