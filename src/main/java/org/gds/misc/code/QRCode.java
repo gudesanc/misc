@@ -16,7 +16,7 @@ public class QRCode {
 
 
     public static void main(String[] args) throws Exception {
-        String url="https://sites.google.com/icviasantisavarino.edu.it/openday/home";
+        String url="https://sites.google.com/icviasantisavarino.edu.it/openday/secondaria";
         BufferedImage img = generateQRCodeImage(url);
         File outputfile = new File("/tmp/qrcode.png");
         ImageIO.write(img, "png", outputfile);
