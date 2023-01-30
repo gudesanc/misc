@@ -14,7 +14,7 @@ public class TrasformXLSToListaProcura {
 
     public static void main(String[] args) throws Exception {
         TrasformXLSToListaProcura trasformer = new TrasformXLSToListaProcura();
-        List<ProcuraInfoData> records = trasformer.leggiFileExcel("/home/gustavo/dev/github/misc/src/main/resources/poi/QUESTURA_104.xlsx");
+        List<ProcuraInfoData> records = trasformer.leggiFileExcel("/tmp/AAA.xlsx");//"/home/gustavo/dev/github/misc/src/main/resources/poi/QUESTURA_104.xlsx");
         System.out.println("Letti "+records.size()+" elementi dal file excel");
         trasformer.toFileProcura(records);
         System.out.println("Processamento concluso");
@@ -67,7 +67,7 @@ public class TrasformXLSToListaProcura {
                     content.append("Z000");
                 }
                 content.append(StringUtils.rightPad("",72)); // Paternita'
-                content.append(item.getSesso().name());
+                content.append(item.getSesso()!=null?item.getSesso().name():"-");
                 content.append(item.getCodiceFiscale());
                 content.append(StringUtils.rightPad("",7)); //Boh
                 content.append("\r\n"); // Newline
@@ -114,15 +114,35 @@ class ProcuraInfoData {
         //  -8 SESSO
         //  -9 Codice Fiscale
         //
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//        this.cognome = getCellValue(row,0);
+//        this.nome = getCellValue(row,1);
+//        this.codiceBelfioreComuneItalianoNascita = getCellValue(row,2);
+//        this.comuneEsteroNascita = getCellValue(row,4);
+//        this.dataNascita = getCellValue(row,5)!=null?sdf.parse(getCellValue(row,5)):null;
+//        this.codiceBelfioreNazioneEsteraNascita = getCellValue(row,6);
+//        this.sesso = getCellValue(row,8)!=null?Sesso.valueOf(getCellValue(row,8)):null;
+//        this.codiceFiscale = getCellValue(row,9);
+
+        //----
+        // Formato effettivo:
+        // - COGNOME
+        // - NOME
+        // - DATA NASCITA (MM/dd/yyyy)
+        // - LUOGO NASCITA
+        // - C.F. TITOLARE
+        //
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         this.cognome = getCellValue(row,0);
-        this.nome = getCellValue(row,01);
-        this.codiceBelfioreComuneItalianoNascita = getCellValue(row,2);
-        this.comuneEsteroNascita = getCellValue(row,4);
-        this.dataNascita = getCellValue(row,5)!=null?sdf.parse(getCellValue(row,5)):null;
-        this.codiceBelfioreNazioneEsteraNascita = getCellValue(row,6);
-        this.sesso = getCellValue(row,8)!=null?Sesso.valueOf(getCellValue(row,8)):null;
-        this.codiceFiscale = getCellValue(row,9);
+        this.nome = getCellValue(row,1);
+        this.dataNascita =  getCellDateValue(row,2);
+        this.codiceBelfioreNazioneEsteraNascita = null;
+        this.codiceFiscale = getCellValue(row,4);
+
+        this.sesso = getSesso(codiceFiscale);
+        this.codiceBelfioreComuneItalianoNascita = getCodiceBelfiore(  codiceFiscale);
+        this.comuneEsteroNascita = null;//getCellValue(row,4);
+
     }
 
 
@@ -171,4 +191,25 @@ class ProcuraInfoData {
         return row.getCell(cellNum).getStringCellValue();
     }
 
+    private Date getCellDateValue(Row row, int cellNum){
+        if(row.getCell(cellNum)==null){
+            return null;
+        }
+        return row.getCell(cellNum).getDateCellValue();
+    }
+
+
+    private String getCodiceBelfiore(String cf){
+        return StringUtils.substring(cf,11,15);
+    }
+
+    private Sesso getSesso(String cf){
+        String giornoNascita = StringUtils.substring(cf,9,11);
+        if(giornoNascita==null){
+            return null;
+        }
+        return Integer.valueOf(giornoNascita)>40
+                ?Sesso.F
+                :Sesso.M;
+    }
 }
