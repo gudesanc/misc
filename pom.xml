@@ -4,66 +4,20 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.example</groupId>
-  <artifactId>TestEncription</artifactId>
+  <groupId>org.gds.misc</groupId>
+  <artifactId>poc</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-  <name>TestEncription</name>
+  <name>Proof Of Concept</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://www.java.net</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
-
-  <dependencies>
-    <!--
-        Encription *** SMIME
-        BC - Mail da jdk8 in su
-    -->
-    <dependency>
-      <groupId>org.bouncycastle</groupId>
-      <artifactId>bcmail-jdk18on</artifactId>
-      <version>1.72</version>
-    </dependency>
-    <!-- ...per i messaggi SMIME -->
-    <dependency>
-      <groupId>com.sun.mail</groupId>
-      <artifactId>javax.mail</artifactId>
-      <version>1.6.2</version>
-    </dependency>
-    <!--
-      QRCode
-      https://www.baeldung.com/java-generating-barcodes-qr-codes
-    -->
-    <dependency>
-      <groupId>com.google.zxing</groupId>
-      <artifactId>core</artifactId>
-      <version>3.3.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.zxing</groupId>
-      <artifactId>javase</artifactId>
-      <version>3.3.0</version>
-    </dependency>
-
-    <!--
-      Trasformazione excel in lista procura
-    -->
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.12.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.poi</groupId>
-      <artifactId>poi-ooxml</artifactId>
-      <version>5.2.3</version>
-    </dependency>
-  </dependencies>
-
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
@@ -119,4 +73,10 @@
       </plugin>
     </plugins>
   </build>
+  <modules>
+    <module>qrcode</module>
+    <module>excel-rms</module>
+    <module>encrypt-plain</module>
+    <module>encrypt-bouncy</module>
+  </modules>
 </project>

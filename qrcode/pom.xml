@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.gds.misc</groupId>
+  <artifactId>qrcode</artifactId>
+
+  <parent>
+    <groupId>org.gds.misc</groupId>
+    <artifactId>poc</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <name>QR Code </name>
+  <dependencies>
+    <!--
+      QRCode
+      https://www.baeldung.com/java-generating-barcodes-qr-codes
+    -->
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>core</artifactId>
+      <version>3.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>javase</artifactId>
+      <version>3.3.0</version>
+    </dependency>
+  </dependencies>
+</project>

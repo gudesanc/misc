@@ -1,36 +1,19 @@
 package org.gds.misc.encryption.bouncycastle;
 
-import org.bouncycastle.asn1.pkcs.EncryptedData;
-import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.RecipientInformation;
 import org.bouncycastle.cms.RecipientInformationStore;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
-import org.bouncycastle.cms.jcajce.JceKeyTransRecipientId;
 import org.bouncycastle.mail.smime.SMIMEEnveloped;
-import org.bouncycastle.mail.smime.SMIMESigned;
-import org.bouncycastle.mail.smime.SMIMEUtil;
 
 import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
-import javax.activation.FileTypeMap;
-import javax.crypto.Cipher;
-import javax.crypto.EncryptedPrivateKeyInfo;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
-import javax.mail.Authenticator;
-import javax.mail.Session;
 import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
 import javax.mail.util.ByteArrayDataSource;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.security.*;
+import java.security.KeyStore;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.security.spec.*;
-import java.util.Base64;
-import java.util.Enumeration;
-import java.util.Properties;
 
 /**
  *
@@ -50,11 +33,22 @@ public class DecryptSMIMEWithKeyAndCertificate {
 
     public static void main(String[] args) throws Exception {
         if(args==null || args.length<1){
-            System.out.println("Necessari 2 argomenti: 1) la password del p12, 2) il path del file da decriptare -Inserire la password come argomento del mail...");
+            System.out.println("Necessari 1 argomento:  la password del p12");
             System.exit(1);
         }
         char[] pwd = args[0].toCharArray();
-        decriptaFileSMIME(args[1],pwd);
+        //Creaiamo un file temporaneo con quello presente nelle risorse
+        File tmp = File.createTempFile("test", "enc");
+        InputStream is = DecryptSMIMEWithKeyAndCertificate.class.getResourceAsStream("/test.tsv.gz.enc");
+        FileOutputStream fos = new FileOutputStream(tmp);
+        byte[] buffer = new byte[1024];
+        int byteRead = -1;
+        while((byteRead=is.read(buffer))!=-1){
+            fos.write(buffer,0,byteRead);
+        }
+        fos.close();
+        System.out.println("File temporaneo con contenuto criptato creato: "+tmp.getAbsolutePath());
+        decriptaFileSMIME(tmp.getAbsolutePath(),pwd);
 
     }
 
