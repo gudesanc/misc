@@ -79,6 +79,9 @@
     <module>encrypt-plain</module>
     <module>encrypt-bouncy</module>
     <module>xdocreport-converter</module>
-    <module>encrypt-dd</module>
+    <module>encrypt-jasypt</module>
+    <module>drools</module>
+    <module>rest-json-quickstart</module>
+    <module>ruleunit-quarkus-example</module>
   </modules>
 </project>
