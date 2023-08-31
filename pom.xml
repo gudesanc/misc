@@ -78,5 +78,7 @@
     <module>excel-rms</module>
     <module>encrypt-plain</module>
     <module>encrypt-bouncy</module>
+    <module>xdocreport-converter</module>
+    <module>encrypt-dd</module>
   </modules>
 </project>
