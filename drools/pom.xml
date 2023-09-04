@@ -22,6 +22,7 @@
         <kogito.bom.artifact-id>kogito-bom</kogito.bom.artifact-id>
         <kogito.bom.version>1.43.0.Final</kogito.bom.version>
         <version.org.kie.kogito>1.43.0.Final</version.org.kie.kogito>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -98,4 +99,18 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>native</id>
+            <activation>
+                <property>
+                    <name>native</name>
+                </property>
+            </activation>
+            <properties>
+                <skipITs>false</skipITs>
+                <quarkus.package.type>native</quarkus.package.type>
+            </properties>
+        </profile>
+    </profiles>
 </project>

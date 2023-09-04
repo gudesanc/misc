@@ -1,0 +1,1301 @@
+<xm:modelloUnico inviabile="true" xmlns:xm="http://www.eng.it/suap/XMLModelloUnico">
+    <xm:procedimento codice="" id="1511696">
+        <xm:descrizione>ESERCIZI DI VICINATO - S.C.I.A. APERTURA</xm:descrizione>
+        <xm:discriminante id="1518816" codice="disIscrizioneTARI">
+            <xm:titolo>Iscrizione TARI</xm:titolo>
+            <xm:domanda>Si è in possesso del Codice Utente e Codice Utenza AMA relativi all'iscrizione TARI?</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="disIscrizioneTARIsi">
+                <xm:testoRisposta>Si</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="disIscrizioneTARIno">
+                <xm:testoRisposta>No</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1505730" codice="SettoreAlimentare">
+            <xm:titolo>Settore alimentare</xm:titolo>
+            <xm:domanda>viene svolta attività del settore alimentare?</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="SettoreAlimentareSI">
+                <xm:testoRisposta>Si</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="SettoreAlimentareNO">
+                <xm:testoRisposta>No</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1508115" codice="disVendCongIngrDettMerIngoConsDiff">
+            <xm:titolo>Vendita congiunta all'ingrosso e al dettaglio di merci ingombranti ed a consegna differita (ESERCIZI DI VICINATO - SETTORE ALIMENTARE E NON ALIMENTARE)</xm:titolo>
+            <xm:domanda>nell'esercizio viene svolta la vendita congiunta all'ingrosso e al dettaglio di merci ingombranti ed a consegna differita (comma 2 bis art. 24 L.R. n. 33/99)?</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="disVendCongIngrDettMerIngoConsDiffSI">
+                <xm:testoRisposta>SI</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="disVendCongIngrDettMerIngoConsDiffNO">
+                <xm:testoRisposta>NO</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1503780" codice="inseritoInCentroCommerciale">
+            <xm:titolo>Centro Commerciale</xm:titolo>
+            <xm:domanda>se inserito in un Centro Commerciale</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="si">
+                <xm:testoRisposta>si</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="no">
+                <xm:testoRisposta>no</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1505774" codice="1505774">
+            <xm:titolo>Attività inserita in una attività di panificazione</xm:titolo>
+            <xm:domanda>l'attività è inserita in una attività di panificazione?</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="1505775">
+                <xm:testoRisposta>Si</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="1505776">
+                <xm:testoRisposta>No</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1505778" codice="1505778">
+            <xm:titolo>Attività inserita in una attività di laboratorio</xm:titolo>
+            <xm:domanda>l'attività è inserita in una attività di laboratorio?</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="1505779">
+                <xm:testoRisposta>Si</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="1505780">
+                <xm:testoRisposta>No</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1511815" codice="discProdottiSpecifici">
+            <xm:titolo>Vendita prodotti Specifici (Tabella A punto 1.10 D.Lgs.222/2016)</xm:titolo>
+            <xm:domanda>selezionare un'opzione</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="discProdottiSpecificiSI">
+                <xm:testoRisposta>SI</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="discProdottiSpecificiNO">
+                <xm:testoRisposta>NO</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1511856" codice="disPrevenzioneIncendi">
+            <xm:titolo>Prevenzione Incendi</xm:titolo>
+            <xm:domanda>selezionare un'opzione</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="disPrevenzioneIncendiSup">
+                <xm:testoRisposta>attività con superficie totale lorda, comprensiva di servizi e depositi (es. magazzini), superiore a 400 mq</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="false" codice="disPrevenzioneIncendiAll151">
+                <xm:testoRisposta>attività che ricade in uno qualsiasi dei punti dell'Allegato I al D.P.R. n. 151/2011</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="disPrevenzioneIncendiNO">
+                <xm:testoRisposta>che l'attività svolta non è soggetta ai controlli di prevenzione incendi</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1511870" codice="disInsegna">
+            <xm:titolo>Insegna</xm:titolo>
+            <xm:domanda>L'attività prevede insegna esterna?</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="disInsegnaSI">
+                <xm:testoRisposta>Si</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="disInsegnaNO">
+                <xm:testoRisposta>No</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1507984" codice="DiscrImpattoAcustico">
+            <xm:titolo>Impatto Acustico</xm:titolo>
+            <xm:domanda>indicare il modello da presentare</xm:domanda>
+            <xm:rispostaDiscriminante checked="true" codice="DiscrImpattoAcusticoAS">
+                <xm:testoRisposta>modulo A/S - Dichiarazioni ai fini dell'applicazione degli artt. 1 e 4 comma 1 D.P.R. N. 227/11</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="false" codice="DiscrImpattoAcusticoAltriMod">
+                <xm:testoRisposta>altro tra: modulo B/S, Nulla Osta di Impatto Acustico (modulo C/S), modulo D/S</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:discriminante id="1508376" codice="discVenditaCoseAnticheUsate">
+            <xm:titolo>Vendita di cose antiche o usate</xm:titolo>
+            <xm:domanda>Si esercita il commercio di cose antiche o usate?</xm:domanda>
+            <xm:rispostaDiscriminante checked="false" codice="discVenditaCoseAnticheUsateSI">
+                <xm:testoRisposta>Si</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+            <xm:rispostaDiscriminante checked="true" codice="discVenditaCoseAnticheUsateNO">
+                <xm:testoRisposta>No</xm:testoRisposta>
+            </xm:rispostaDiscriminante>
+        </xm:discriminante>
+        <xm:intervento codice="IndicazioneUbicazioneRiferimento" id="1500037" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniTutteNecessarie" inviabile="true">
+            <xm:descrizione>UBICAZIONE ATTIVITA'</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1001105" codice="IndirizzoRoma" tipologiadichiarazione="4" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" validator="it.eng.get.web.dichiarazioni.indirizzi.IndirizzoRomaValidator" checked="true">
+                <xm:descrizione>Indirizzo</xm:descrizione>
+                <xm:titolo>Indirizzo</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema">
+                    <suap:field suap:fieldtype="HIDDEN" name="codVia" mandatory="false" suap:rownum="1">
+                        <suap:label>codVia</suap:label>
+                        <suap:value>71648</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="desVia" mandatory="true" suap:rownum="2">
+                        <suap:label>in via</suap:label>
+                        <suap:value>VIA DELLA MERCEDE</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="civico" mandatory="false" suap:rownum="3">
+                        <suap:label>Civico</suap:label>
+                        <suap:value>27</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="esponente" mandatory="false" suap:rownum="4">
+                        <suap:label>Esponente</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="interno" mandatory="false" suap:rownum="5">
+                        <suap:label>Interno</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="esponenteInterno" mandatory="false" suap:rownum="6">
+                        <suap:label>Esponente Interno</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="lotto" mandatory="false" suap:rownum="7">
+                        <suap:label>Lotto</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="scala" mandatory="false" suap:rownum="8">
+                        <suap:label>Scala</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="edificio" mandatory="false" suap:rownum="9">
+                        <suap:label>Edificio</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="cap" mandatory="true" suap:rownum="10">
+                        <suap:label>Cap</suap:label>
+                        <suap:value>00187</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="codMunicipio" mandatory="true" suap:rownum="11">
+                        <suap:label>codMunicipio</suap:label>
+                        <suap:value>1</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="desMunicipio" mandatory="false" suap:rownum="12">
+                        <suap:label>desMunicipio</suap:label>
+                        <suap:value>MUNICIPIO I</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="codASL" mandatory="false" suap:rownum="13">
+                        <suap:label>codASL</suap:label>
+                        <suap:value>1</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="desASL" mandatory="false" suap:rownum="14">
+                        <suap:label>desASL</suap:label>
+                        <suap:value>ASL RM/1</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="chilometro" mandatory="false" suap:rownum="15">
+                        <suap:label>Chilometro</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>it.eng.suap.validation.validators.field.range.RangeForNumberValidator</suap:validator>
+                        <suap:validationParameters>
+                            <suap:validatorParameter name="lt">
+                                <suap:value>10000</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="gt">
+                                <suap:value>0</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="hreftovalidate">
+                                <suap:value>*</suap:value>
+                            </suap:validatorParameter>
+                        </suap:validationParameters>
+                        <suap:pattern>TRE_DECIMALI_OBBLIGATORI</suap:pattern>
+                    </suap:field>
+                    <suap:field suap:fieldtype="CHECKBOX" name="senzaCivico" mandatory="false" suap:rownum="16">
+                        <suap:label>senzaCivico</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                </suap:href>
+                <xm:renderer class="it.eng.get.web.dichiarazioni.indirizzi.IndirizzoRomaRenderer"/>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1518816</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intModuloIscrizioneTARI" id="1518819" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>MODULO ISCRIZIONE TARI</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1518820" codice="dicModuloIscrizioneTARI" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" helpId="1518821" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Modulo AMA per iscrizione TARI</xm:descrizione>
+                <xm:titolo>Si allega il modulo inoltrato ad AMA per la regolare iscrizione TARI</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="FILE" name="fileModuloIscrizioneTARI" mandatory="true" graphicRappresentation="false">
+                        <suap:label>Modulo iscrizione TARI</suap:label>
+                        <suap:value>109384964</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="DOCUMENTO"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1518816</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intAltriIndirizziAttivita" id="1502336" validator="null" inviabile="true">
+            <xm:descrizione>ALTRI INDIRIZZI/CIVICI UBICAZIONE ATTIVITA'</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1502337" codice="IndirizziRoma" tipologiadichiarazione="4" maxGroupInstances="100" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" validator="it.eng.get.web.dichiarazioni.indirizzi.IndirizzoRomaValidator" checked="false">
+                <xm:descrizione><![CDATA[Indirizzo in Roma <br><i><strong>Nota:&nbsp;</strong>nel caso in cui l'attività ricopra più numeri civici e/o indirizzi, indicarli utilizzando la presente sezione.</i>]]></xm:descrizione>
+                <xm:titolo>Indirizzo in Roma</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema">
+                    <suap:field suap:fieldtype="HIDDEN" name="codVia" mandatory="false" suap:rownum="1">
+                        <suap:label>codVia</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="desVia" mandatory="true" suap:rownum="2">
+                        <suap:label>in via</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="civico" mandatory="false" suap:rownum="3">
+                        <suap:label>Civico</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="esponente" mandatory="false" suap:rownum="4">
+                        <suap:label>Esponente</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="interno" mandatory="false" suap:rownum="5">
+                        <suap:label>Interno</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="esponenteInterno" mandatory="false" suap:rownum="6">
+                        <suap:label>Esponente Interno</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="lotto" mandatory="false" suap:rownum="7">
+                        <suap:label>Lotto</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="scala" mandatory="false" suap:rownum="8">
+                        <suap:label>Scala</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="edificio" mandatory="false" suap:rownum="9">
+                        <suap:label>Edificio</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="cap" mandatory="true" suap:rownum="10">
+                        <suap:label>Cap</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="codMunicipio" mandatory="true" suap:rownum="11">
+                        <suap:label>codMunicipio</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="desMunicipio" mandatory="false" suap:rownum="12">
+                        <suap:label>desMunicipio</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="codASL" mandatory="false" suap:rownum="13">
+                        <suap:label>codASL</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="desASL" mandatory="false" suap:rownum="14">
+                        <suap:label>desASL</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="chilometro" mandatory="false" suap:rownum="15">
+                        <suap:label>Chilometro</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>it.eng.suap.validation.validators.field.range.RangeForNumberValidator</suap:validator>
+                        <suap:validationParameters>
+                            <suap:validatorParameter name="lt">
+                                <suap:value>10000</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="gt">
+                                <suap:value>0</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="hreftovalidate">
+                                <suap:value>*</suap:value>
+                            </suap:validatorParameter>
+                        </suap:validationParameters>
+                        <suap:pattern>TRE_DECIMALI_OBBLIGATORI</suap:pattern>
+                    </suap:field>
+                    <suap:field suap:fieldtype="CHECKBOX" name="senzaCivico" mandatory="false" suap:rownum="16">
+                        <suap:label>senzaCivico</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                </suap:href>
+                <xm:renderer class="it.eng.get.web.dichiarazioni.indirizzi.IndirizzoRomaRenderer"/>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intDatiCatastali" id="1511777" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>DATI CATASTALI</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1001106" codice="dichDatiCatastali" tipologiadichiarazione="0" maxGroupInstances="999" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Identificativi catastali</xm:descrizione>
+                <xm:titolo>Compilare gli identificativi catastali</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="NUMERIC" name="CATFOGLIO" mandatory="true" suap:rownum="2">
+                        <suap:label>Foglio</suap:label>
+                        <suap:value>478</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="CATNUMERO" mandatory="true" suap:rownum="4">
+                        <suap:label>Numero</suap:label>
+                        <suap:value>387</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="CATSUBALTERNO" mandatory="false" suap:rownum="5">
+                        <suap:label>Subalterno (se presente)</suap:label>
+                        <suap:value>4</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intTipologiaAttivita" id="1511780" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>TIPOLOGIA ATTIVITÀ</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1511781" codice="dichTipologiaAttivita" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Indicazione Tipologia Attività</xm:descrizione>
+                <xm:titolo>Il/la sottoscritto/a, SEGNALA l'avvio dell'esercizio commerciale di</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="RADIO" name="TIPOATTIVITA" mandatory="true">
+                        <suap:label>Tipologia Attività</suap:label>
+                        <suap:value>1</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="1" label="Vicinato" selected="true"/>
+                            <suap:allowedValue value="2" label="Vendita esclusivamente mediante apparecchi automatici" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intAteco" id="3000240" validator="null" inviabile="true">
+            <xm:descrizione>ATECO</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1502320" codice="814479" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Codifica dell'attività economica</xm:descrizione>
+                <xm:titolo>Codifica dell'attività economica</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="INPUT" name="txtCodAteco" mandatory="true" suap:rownum="2">
+                        <suap:label>codice ATECO</suap:label>
+                        <suap:value>477610</suap:value>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intSupVenVicinato" id="1508096" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniOpzionali" inviabile="true">
+            <xm:descrizione>SUPERFICI DI VENDITA (ESERCIZI DI VICINATO - SETTORE ALIMENTARE E NON ALIMENTARE)</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1508097" codice="dichSupVenAlimentare" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>settore alimentare</xm:descrizione>
+                <xm:titolo>superficie di vendita destinata alla vendita del settore alimentare</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="NUMERIC" name="numMqSupVenAlimentare" mandatory="true">
+                        <suap:label>mq.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern>DUE_DECIMALI</suap:pattern>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1508101" codice="dichSupVenNonAlimentare" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>settore NON alimentare</xm:descrizione>
+                <xm:titolo>superficie di vendita destinata alla vendita del settore NON alimentare</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="NUMERIC" name="numMqSupVenNonAlimentare" mandatory="true" helpId="-1">
+                        <suap:label>mq.</suap:label>
+                        <suap:value>10,00</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern>DUE_DECIMALI</suap:pattern>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1508106" codice="dichSupVenTabelleSpeciali" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" validator="it.eng.suap.validation.validators.dichiarazione.ValidatoreCampiOpzionali" checked="false">
+                <xm:descrizione>Tabelle Speciali (commercio in sede fissa)</xm:descrizione>
+                <xm:titolo>superfici destinate alla vendita per le Tabelle Speciali</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="NUMERIC" name="numGeneriMonopolioMq" mandatory="false">
+                        <suap:label>Generi di monopolio mq.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern>DUE_DECIMALI</suap:pattern>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="3" suap:fieldtype="NUMERIC" name="numFarmacieMq" mandatory="false">
+                        <suap:label>Farmacie mq.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern>DUE_DECIMALI</suap:pattern>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="4" suap:fieldtype="NUMERIC" name="numCarburantiMq" mandatory="false">
+                        <suap:label>Carburanti mq.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern>DUE_DECIMALI</suap:pattern>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="3001160" codice="venditaMangimiMQ" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>vendita di mangimi per animali (mq.)</xm:descrizione>
+                <xm:titolo>vendita di mangimi per animali</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="NUMERIC" name="mqvendmanganimvivi" mandatory="true">
+                        <suap:label>mq.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern>DUE_DECIMALI</suap:pattern>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="3001161" codice="VenditaAnimaliViviMQ" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>vendita di animali vivi (mq.)</xm:descrizione>
+                <xm:titolo>vendita di animali vivi</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="NUMERIC" name="mqvendanimvivi" mandatory="true">
+                        <suap:label>mq.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern>DUE_DECIMALI</suap:pattern>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1508108" codice="dichSupTotVen" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Totale superficie di vendita e del locale</xm:descrizione>
+                <xm:titolo>Superficie totale di vendita e del locale</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="NUMERIC" name="numSupTotVenMQ" mandatory="true">
+                        <suap:label>Superficie totale di vendita mq.</suap:label>
+                        <suap:value>8,00</suap:value>
+                        <suap:validator>it.eng.suap.validation.validators.field.range.RangeForNumberValidator</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern>DUE_DECIMALI</suap:pattern>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters>
+                            <suap:validatorParameter name="lt">
+                                <suap:value/>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="gt">
+                                <suap:value>0</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="le">
+                                <suap:value>250</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="ge">
+                                <suap:value/>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="hreftovalidate">
+                                <suap:value>*</suap:value>
+                            </suap:validatorParameter>
+                        </suap:validationParameters>
+                    </suap:field>
+                    <suap:field suap:rownum="3" suap:fieldtype="NUMERIC" name="numSupTotLocMQ" mandatory="true">
+                        <suap:label>Superficie del locale mq.</suap:label>
+                        <suap:value>74,00</suap:value>
+                        <suap:validator>it.eng.suap.validation.validators.field.range.HrefFieldNumberValidator</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern>DUE_DECIMALI</suap:pattern>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters>
+                            <suap:validatorParameter name="lt">
+                                <suap:value/>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="gt">
+                                <suap:value/>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="le">
+                                <suap:value/>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="ge">
+                                <suap:value>numSupTotVenMQ</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="hreftovalidate">
+                                <suap:value>*</suap:value>
+                            </suap:validatorParameter>
+                        </suap:validationParameters>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1508115</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intCarattereEsercizio" id="1511784" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniMutuamenteEsclusive" inviabile="true">
+            <xm:descrizione>CARATTERE ESERCIZIO</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1500267" codice="attivitaCaratterePermanente" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Attività Permanente</xm:descrizione>
+                <xm:titolo>Permanente</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1500268" codice="attivitaCarattereStagionale" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>Attività Stagionale</xm:descrizione>
+                <xm:titolo>Stagionale</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="DATE" name="dtStagionaleDal" mandatory="true" suap:rownum="2">
+                        <suap:label>dal</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="DATE" name="dtStagionaleAl" mandatory="true" suap:rownum="3">
+                        <suap:label>al</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1511787" codice="attivitaCarattereTemporaneo" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>Attività Temporanea</xm:descrizione>
+                <xm:titolo>Temporaneo</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="DATE" name="dtStagionaleDal" mandatory="true" suap:rownum="2" helpId="-1">
+                        <suap:label>dal</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="DATE" name="dtStagionaleAl" mandatory="true" suap:rownum="3" helpId="-1">
+                        <suap:label>al</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intEVAttPrevSec" id="1511656" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>COMMERCIO IN SEDE FISSA - INDICARE PER ESTESO, AI SENSI DEL D.P.R. 581/95, QUALUNQUE SIA LA SEZIONE COMPILATA, ATTIVITA' ESERCITATA O CHE SI INTENDE ESERCITARE FACENDO RIFERIMENTO AI PRODOTTI INCLUSI NELLA INFO - ( I )</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1511658" codice="aPrevalenteDic" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>indicare specializzazione principale</xm:descrizione>
+                <xm:titolo>indicare per esteso, l'attivita prevalente esercitata o che si intende esercitare</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="LIST" name="aPrevalente" mandatory="true" suap:rownum="4" helpId="1511662">
+                        <suap:label>Specializzazione principale</suap:label>
+                        <suap:value>31</suap:value>
+                        <suap:codvalue>31</suap:codvalue>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="16" label="ACQUARI" selected="false"/>
+                            <suap:allowedValue value="1" label="ALIMENTARI E CARNI" selected="false"/>
+                            <suap:allowedValue value="2" label="ALTRI ESERCIZI SPECIALIZZATI ALIMENTARI (DROGHERIE, SALUMERIE, PIZZICHERIE, CAFFE, ALTRO" selected="false"/>
+                            <suap:allowedValue value="17" label="ALTRI ESERCIZI SPECIALIZZATI NON ALIMENTARI (MACCHINE E ATTREZZATURE PER UFFICIO,OTTICA, FOTOGRAFIA, GIOIELLERIA, GIOCATTOLI, ARTICOLI SPORTIVI, ARTICOLI DA REGALO,COMBUSTIBILE, NATANTI, ALTRO" selected="false"/>
+                            <suap:allowedValue value="18" label="ARGENTERIA" selected="false"/>
+                            <suap:allowedValue value="19" label="ARTICOLI DA PRESEPIO,ADDOBBI NATALIZI" selected="false"/>
+                            <suap:allowedValue value="20" label="ARTICOLI DI ABBIGLIAMENTO E ACCESSORI, PELLICCERIE" selected="false"/>
+                            <suap:allowedValue value="21" label="ARTICOLI DI SECONDA MANO (LIBRI, MOBILI, INDUMENTI....)" selected="false"/>
+                            <suap:allowedValue value="22" label="ARTICOLI MEDICALI E ORTOPEDICI" selected="false"/>
+                            <suap:allowedValue value="23" label="ATTREZZATURE NAUTICHE" selected="false"/>
+                            <suap:allowedValue value="3" label="BEVANDE (VINI, OLI BIRRA E ALTRE)" selected="false"/>
+                            <suap:allowedValue value="24" label="CALZATURE ED ARTICOLI IN CUOIO" selected="false"/>
+                            <suap:allowedValue value="25" label="CAMICERIA" selected="false"/>
+                            <suap:allowedValue value="4" label="CARNE E PRODOTTI A BASE DI CARNE" selected="false"/>
+                            <suap:allowedValue value="26" label="COSMETICI E ARTICOLI DI PROFUMERIA" selected="false"/>
+                            <suap:allowedValue value="27" label="DISTRIBUTORI DI CARBURANTI" selected="false"/>
+                            <suap:allowedValue value="28" label="ELETTRODOMESTICI, RADIO, TELEVISORI, DISCHI, STRUMENTI MUSICALI" selected="false"/>
+                            <suap:allowedValue value="5" label="ERBORISTERIA" selected="false"/>
+                            <suap:allowedValue value="29" label="FARMACIE" selected="false"/>
+                            <suap:allowedValue value="30" label="FERRAMENTA, VERNICI, GIARDINAGGIO, ARTICOLI IGIENICO SANITARI E DA COSTRUZIONE" selected="false"/>
+                            <suap:allowedValue value="31" label="FIORI E PIANTE" selected="true"/>
+                            <suap:allowedValue value="32" label="FRUTTA E VERDURA" selected="false"/>
+                            <suap:allowedValue value="6" label="GELATERIA" selected="false"/>
+                            <suap:allowedValue value="7" label="GIRARROSTO" selected="false"/>
+                            <suap:allowedValue value="33" label="GOMMISTA" selected="false"/>
+                            <suap:allowedValue value="34" label="INFISSI IN ALLUMINIO" selected="false"/>
+                            <suap:allowedValue value="35" label="LIBRI, GIORNALI, CARTOLERIA" selected="false"/>
+                            <suap:allowedValue value="36" label="MOBILI, CASALINGHI E ARTICOLI DI ILLUMINAZIONE" selected="false"/>
+                            <suap:allowedValue value="37" label="MODELLI PER FONDERIA" selected="false"/>
+                            <suap:allowedValue value="8" label="PANE, PASTICCERIA, DOLCIUMI" selected="false"/>
+                            <suap:allowedValue value="9" label="PESCE FRESCO" selected="false"/>
+                            <suap:allowedValue value="10" label="PRODOTTI CASEARI" selected="false"/>
+                            <suap:allowedValue value="11" label="PRODOTTI ITTICI" selected="false"/>
+                            <suap:allowedValue value="12" label="PRODOTTI OLIVICOLI" selected="false"/>
+                            <suap:allowedValue value="13" label="PRODOTTI ORTOFRUTTICOLI" selected="false"/>
+                            <suap:allowedValue value="38" label="PRODOTTI TESSILI E BIANCHERIA" selected="false"/>
+                            <suap:allowedValue value="14" label="PRODOTTI VITIVINICOLI" selected="false"/>
+                            <suap:allowedValue value="39" label="TABACCO ED ALTRI GENERI DI MONOPOLIO" selected="false"/>
+                            <suap:allowedValue value="40" label="VETRI E CORNICI" selected="false"/>
+                            <suap:allowedValue value="15" label="YOGURTERIA" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1511660" codice="aSecondariaDic" tipologiadichiarazione="0" maxGroupInstances="999" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>indicare specializzazione secondaria</xm:descrizione>
+                <xm:titolo>indicare per esteso,  l'attivita secondaria esercitata o che si intende esercitare</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="LIST" name="aSecondaria" mandatory="true">
+                        <suap:label>Specializzazione secondaria</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:codvalue xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="16" label="ACQUARI" selected="false"/>
+                            <suap:allowedValue value="1" label="ALIMENTARI E CARNI" selected="false"/>
+                            <suap:allowedValue value="2" label="ALTRI ESERCIZI SPECIALIZZATI ALIMENTARI (DROGHERIE, SALUMERIE, PIZZICHERIE, CAFFE, ALTRO" selected="false"/>
+                            <suap:allowedValue value="17" label="ALTRI ESERCIZI SPECIALIZZATI NON ALIMENTARI (MACCHINE E ATTREZZATURE PER UFFICIO,OTTICA, FOTOGRAFIA, GIOIELLERIA, GIOCATTOLI, ARTICOLI SPORTIVI, ARTICOLI DA REGALO,COMBUSTIBILE, NATANTI, ALTRO" selected="false"/>
+                            <suap:allowedValue value="18" label="ARGENTERIA" selected="false"/>
+                            <suap:allowedValue value="19" label="ARTICOLI DA PRESEPIO,ADDOBBI NATALIZI" selected="false"/>
+                            <suap:allowedValue value="20" label="ARTICOLI DI ABBIGLIAMENTO E ACCESSORI, PELLICCERIE" selected="false"/>
+                            <suap:allowedValue value="21" label="ARTICOLI DI SECONDA MANO (LIBRI, MOBILI, INDUMENTI....)" selected="false"/>
+                            <suap:allowedValue value="22" label="ARTICOLI MEDICALI E ORTOPEDICI" selected="false"/>
+                            <suap:allowedValue value="23" label="ATTREZZATURE NAUTICHE" selected="false"/>
+                            <suap:allowedValue value="3" label="BEVANDE (VINI, OLI BIRRA E ALTRE)" selected="false"/>
+                            <suap:allowedValue value="24" label="CALZATURE ED ARTICOLI IN CUOIO" selected="false"/>
+                            <suap:allowedValue value="25" label="CAMICERIA" selected="false"/>
+                            <suap:allowedValue value="4" label="CARNE E PRODOTTI A BASE DI CARNE" selected="false"/>
+                            <suap:allowedValue value="26" label="COSMETICI E ARTICOLI DI PROFUMERIA" selected="false"/>
+                            <suap:allowedValue value="27" label="DISTRIBUTORI DI CARBURANTI" selected="false"/>
+                            <suap:allowedValue value="28" label="ELETTRODOMESTICI, RADIO, TELEVISORI, DISCHI, STRUMENTI MUSICALI" selected="false"/>
+                            <suap:allowedValue value="5" label="ERBORISTERIA" selected="false"/>
+                            <suap:allowedValue value="29" label="FARMACIE" selected="false"/>
+                            <suap:allowedValue value="30" label="FERRAMENTA, VERNICI, GIARDINAGGIO, ARTICOLI IGIENICO SANITARI E DA COSTRUZIONE" selected="false"/>
+                            <suap:allowedValue value="31" label="FIORI E PIANTE" selected="false"/>
+                            <suap:allowedValue value="32" label="FRUTTA E VERDURA" selected="false"/>
+                            <suap:allowedValue value="6" label="GELATERIA" selected="false"/>
+                            <suap:allowedValue value="7" label="GIRARROSTO" selected="false"/>
+                            <suap:allowedValue value="33" label="GOMMISTA" selected="false"/>
+                            <suap:allowedValue value="34" label="INFISSI IN ALLUMINIO" selected="false"/>
+                            <suap:allowedValue value="35" label="LIBRI, GIORNALI, CARTOLERIA" selected="false"/>
+                            <suap:allowedValue value="36" label="MOBILI, CASALINGHI E ARTICOLI DI ILLUMINAZIONE" selected="false"/>
+                            <suap:allowedValue value="37" label="MODELLI PER FONDERIA" selected="false"/>
+                            <suap:allowedValue value="8" label="PANE, PASTICCERIA, DOLCIUMI" selected="false"/>
+                            <suap:allowedValue value="9" label="PESCE FRESCO" selected="false"/>
+                            <suap:allowedValue value="10" label="PRODOTTI CASEARI" selected="false"/>
+                            <suap:allowedValue value="11" label="PRODOTTI ITTICI" selected="false"/>
+                            <suap:allowedValue value="12" label="PRODOTTI OLIVICOLI" selected="false"/>
+                            <suap:allowedValue value="13" label="PRODOTTI ORTOFRUTTICOLI" selected="false"/>
+                            <suap:allowedValue value="38" label="PRODOTTI TESSILI E BIANCHERIA" selected="false"/>
+                            <suap:allowedValue value="14" label="PRODOTTI VITIVINICOLI" selected="false"/>
+                            <suap:allowedValue value="39" label="TABACCO ED ALTRI GENERI DI MONOPOLIO" selected="false"/>
+                            <suap:allowedValue value="40" label="VETRI E CORNICI" selected="false"/>
+                            <suap:allowedValue value="15" label="YOGURTERIA" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intDichAntimafiaAltri" id="1511832" validator="null" inviabile="true">
+            <xm:descrizione>DICHIARAZIONI ANTIMAFIA DI ALTRE PERSONE</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1500247" codice="217502" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>Allegato A</xm:descrizione>
+                <xm:titolo>Allegato A</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="FILE" name="allegatoa" mandatory="true">
+                        <suap:label>Allegato A</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true">
+                            <suap:allowedValue value="DOCUMENTO"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intDichSoggettivi" id="1511798" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>DICHIARAZIONE REQUISITI SOGGETTIVI</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1511805" codice="dichRequisitiSoggettiviArt71" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Possesso requisiti soggettivi art.71 D. Lgs. 26/03/2010, n. 59</xm:descrizione>
+                <xm:titolo>di essere in possesso dei requisiti soggettivi previsti dall'art. 71 del D. Lgs. 26/03/2010, n. 59 e s.m.i</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1511807" codice="dichRequisitiSoggettiviDLgs159" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" helpId="1511806" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione><![CDATA[Possesso requisiti soggettivi D. Lgs. 159/2011 (antimafia)<br><br><em><strong>N.B.</strong> In caso di gestione societaria dell'attività si allega, inoltre, la modulistica sottoscritta dagli altri soci diversi dal rappresentante legale della società o comunque da colui che esercita l'attività, con la quale gli stessi dichiarano la non sussistenza nei propri confronti di cause di divieto, di decadenza o di sospensione di cui al D. Lgs. 159/2011 (ALLEGATO A)</em><br>&nbsp;<br>]]></xm:descrizione>
+                <xm:titolo>di essere in possesso dei requisiti soggettivi ai sensi del D. Lgs. 159/2011 (antimafia)</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1511797" codice="dichVarFattiCondizTit" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Variazione relativa a stati, fatti, condizioni e titolarità</xm:descrizione>
+                <xm:titolo>di impegnarsi a comunicare ogni variazione relativa a stati, fatti, condizioni e titolarità rispetto a quanto dichiarato</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intAltreDichiarazioniLocali" id="1511790" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>ALTRE DICHIARAZIONI RELATIVAMENTE AI LOCALI</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1511791" codice="dichAltreDichiarazioniLocali" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Rispetto regolamenti locali, norme urbanistiche e destinazioni d'uso</xm:descrizione>
+                <xm:titolo>Il/la sottoscritto/a dichiara, relativamente ai locali di esercizio, di aver rispettato i regolamenti locali di polizia urbana, annonaria e di igiene e sanità, i regolamenti edilizi e le norme urbanistiche nonché quelle relative alle destinazioni d'uso</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1500130" codice="711175" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>Altro</xm:descrizione>
+                <xm:titolo>Altro (Ulteriori dichiarazioni)</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="TEXTAREA" name="txtaltrospec" mandatory="true" suap:rownum="2">
+                        <suap:label>specificare</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator xsi:nil="true"/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1511811" codice="dichConformitaImpiantiDM22" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Dichiarazione conformità impianti D.M. 22 gennaio 2008 n.37</xm:descrizione>
+                <xm:titolo>- che tutti gli impianti installati nei locali sono conformi a quanto previsto dal D.M. 22 gennaio 2008 n.37</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1511812" codice="dichAmbitoCittaStorica" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>Dichiarazione per attività nell'ambito della Città Storica</xm:descrizione>
+                <xm:titolo>che trattasi di attività tutelata ai sensi dell'art.8 della D.A.C. n.47/2018, come modificata dalla D.A.C. n. 49/2019, svolta nei tessuti T1, T2, T3, T4, T5, ovunque localizzati e T6 localizzati all'interno del Sito UNESCO, e non vietata ai sensi dell'art. 11 della medesima D.A.C.</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="TEXTAREA" name="TXTAMBCSDI" mandatory="true" suap:rownum="2" helpId="-1">
+                        <suap:label>descrizione attività tutelata</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="90130" id="90130" validator="null" inviabile="true">
+            <xm:descrizione>AUTORIZZAZIONE SANITARIA ART.64 E DEL PUNTO 1.2 ALLEGATO 4  DEL  D.LGS N. 81/08</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1001222" codice="15563" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>possesso autorizzazione sanitaria art.64 e del punto 1.2 Allegato 4  del  D.Lgs N. 81/08</xm:descrizione>
+                <xm:titolo>di essere in possesso dell'autorizzazione sanitaria rilasciata al sottoscritto in deroga all'art. 6 D.P.R. n. 303/56, convertito nell'art. 64 e del punto 1.2 dell'Allegato 4  del D. Lgs. 81/08, rilasciata dal Servizio Prevenzione e Sicurezza negli Ambienti di Lavoro (indispensabile per adibire i locali di altezza non conforme alle norme urbanistiche a luogo di lavoro)</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="LIST" name="txtautsan64asl" mandatory="true" suap:rownum="2">
+                        <suap:label>ASL RM/</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:codvalue xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="1" label="Azienda Sanitaria Locale Roma 1 (ex A-E)" selected="false"/>
+                            <suap:allowedValue value="2" label="Azienda Sanitaria Locale Roma 2 (ex B-C)" selected="false"/>
+                            <suap:allowedValue value="3" label="Azienda Sanitaria Locale Roma 3 (ex D)" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="DATE" name="dtautsan64il" mandatory="true" suap:rownum="3">
+                        <suap:label>in data</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="90129" id="90129" validator="null" inviabile="true">
+            <xm:descrizione>AUTORIZZAZIONE SANITARIA ART.65 DEL D.LGS N. 81/08</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1001221" codice="608683" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>possesso autorizzazione sanitaria art.65 del D.Lgs N. 81/08</xm:descrizione>
+                <xm:titolo>di essere in possesso dell'autorizzazione sanitaria rilasciata al sottoscritto in deroga all'art. 8 D.P.R. n. 303/56, convertito nell'art. 65 del D. Lgs. N. 81/08, rilasciata dal Servizio Prevenzione e Sicurezza negli Ambienti di Lavoro (indispensabile per adibire i locali interrati a luogo di lavoro)</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="LIST" name="txtautsan65asl" mandatory="true" suap:rownum="2">
+                        <suap:label>ASL RM/</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:codvalue xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="1" label="Azienda Sanitaria Locale Roma 1 (ex A-E)" selected="false"/>
+                            <suap:allowedValue value="2" label="Azienda Sanitaria Locale Roma 2 (ex B-C)" selected="false"/>
+                            <suap:allowedValue value="3" label="Azienda Sanitaria Locale Roma 3 (ex D)" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="DATE" name="dtautsan65il" mandatory="true" suap:rownum="3">
+                        <suap:label>in data</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="ModAS" id="1507416" helpId="1507417" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniOpzionaliEsclusiva" inviabile="true">
+            <xm:descrizione>MODULO A/S - DICHIARAZIONI AI FINI DELL'APPLICAZIONE DEGLI ARTT. 1 E 4 COMMA 1 D.P.R. N. 227/11</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1507418" codice="SoggPMI" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Soggetto rientrante nelle PMI</xm:descrizione>
+                <xm:titolo>di rientrare nella categoria delle microimprese, piccole imprese e delle medie imprese (complessivamente definita PMI), ai sensi dell'art. 2 del Decreto del Ministero delle attività produttive del 18 aprile 2005.</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1507420" codice="CodAttEcoNO2347891012" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" validator="it.eng.suap.validation.validators.dichiarazione.ValidatoreCampiOpzionali" checked="true">
+                <xm:descrizione>Corrispondenza codifica attività economica e Categoria dell'allegato B al D.P.R. 227/11 (esclusi nn 2,3,4,7,8,9,10 e 12)</xm:descrizione>
+                <xm:titolo>che la codifica dell'attività economica corrisponde alla Categoria di seguito indicata di cui al numero sotto indicato dell'allegato B al D.P.R. 227/11, con esclusione delle categorie di cui ai nn. 2,3,4,7,8,9,10 e 12 di detto Allegato.</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="CHECKBOX" name="chkMAS1" mandatory="false">
+                        <suap:label>1. Attività alberghiera.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="3" suap:fieldtype="CHECKBOX" name="chkMAS5" mandatory="false">
+                        <suap:label>5. Attività turistica.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="4" suap:fieldtype="CHECKBOX" name="chkMAS6" mandatory="false">
+                        <suap:label>6. Attività sportive, escluse quelle motoristiche, quelle con rilevante presenza di pubblico in luoghi circoscritti e quelle con uso di armi da fuoco.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="5" suap:fieldtype="CHECKBOX" name="chkMAS11" mandatory="false">
+                        <suap:label>11. Agenzie di viaggio.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="7" suap:fieldtype="CHECKBOX" name="chkMAS13" mandatory="false">
+                        <suap:label>13. Attività di supporto alle imprese.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="8" suap:fieldtype="CHECKBOX" name="chkMAS14" mandatory="false">
+                        <suap:label>14. Call center.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="9" suap:fieldtype="CHECKBOX" name="chkMAS15" mandatory="false">
+                        <suap:label>15. Attività di intermediazione monetaria.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="10" suap:fieldtype="CHECKBOX" name="chkMAS16" mandatory="false">
+                        <suap:label>16. Attività di intermediazione finanziaria.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="11" suap:fieldtype="CHECKBOX" name="chkMAS17" mandatory="false">
+                        <suap:label>17. Attività di intermediazione Immobiliare.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="12" suap:fieldtype="CHECKBOX" name="chkMAS18" mandatory="false">
+                        <suap:label>18. Attività di intermediazione Assicurativa.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="13" suap:fieldtype="CHECKBOX" name="chkMAS19" mandatory="false">
+                        <suap:label>19. Attività di informatica - software.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="14" suap:fieldtype="CHECKBOX" name="chkMAS20" mandatory="false">
+                        <suap:label>20. Attività di informatica - house.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="15" suap:fieldtype="CHECKBOX" name="chkMAS21" mandatory="false">
+                        <suap:label>21. Attività di informatica - internet point.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="16" suap:fieldtype="CHECKBOX" name="chkMAS22" mandatory="false">
+                        <suap:label>22. Attività di acconciatore (parrucchiere, barbiere).</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="17" suap:fieldtype="CHECKBOX" name="chkMAS23" mandatory="false">
+                        <suap:label>23. Istituti di bellezza.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="18" suap:fieldtype="CHECKBOX" name="chkMAS24" mandatory="false">
+                        <suap:label>24. Estetica.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="19" suap:fieldtype="CHECKBOX" name="chkMAS25" mandatory="false">
+                        <suap:label>25. Centro massaggi e solarium.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="20" suap:fieldtype="CHECKBOX" name="chkMAS26" mandatory="false">
+                        <suap:label>26. Piercing e tatuaggi.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="21" suap:fieldtype="CHECKBOX" name="chkMAS27" mandatory="false">
+                        <suap:label>27. Laboratori veterinari.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="22" suap:fieldtype="CHECKBOX" name="chkMAS28" mandatory="false">
+                        <suap:label>28. Studi odontoiatrici e odontotecnici senza attività di analisi chimico-cliniche e ricerca.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="23" suap:fieldtype="CHECKBOX" name="chkMAS29" mandatory="false">
+                        <suap:label>29. Ospedali, case o istituti di cura, residenze socio-assistenziali e riabilitative con un numero di posti letto inferiore a 50, purché sprovvisti di laboratori di analisi e ricerca.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="24" suap:fieldtype="CHECKBOX" name="chkMAS31" mandatory="false">
+                        <suap:label>31. Lavanderie e stirerie.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="25" suap:fieldtype="CHECKBOX" name="chkMAS32" mandatory="false">
+                        <suap:label>32. Attività di vendita al dettaglio di generi vari.</suap:label>
+                        <suap:value>getcheck</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="26" suap:fieldtype="CHECKBOX" name="chkMAS33" mandatory="false">
+                        <suap:label>33. Laboratori artigianali per la produzione di dolciumi.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="27" suap:fieldtype="CHECKBOX" name="chkMAS34" mandatory="false">
+                        <suap:label>34. Laboratori artigianali per la produzione di gelati.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="28" suap:fieldtype="CHECKBOX" name="chkMAS35" mandatory="false">
+                        <suap:label>35. Laboratori artigianali per la produzione di pane.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="29" suap:fieldtype="CHECKBOX" name="chkMAS36" mandatory="false">
+                        <suap:label>36. Laboratori artigianali per la produzione di biscotti.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="30" suap:fieldtype="CHECKBOX" name="chkMAS37" mandatory="false">
+                        <suap:label>37. Laboratori artigianali per la produzione di prodotti alimentari freschi e per la conservazione o stagionatura di prodotti alimentari</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="31" suap:fieldtype="CHECKBOX" name="chkMAS38" mandatory="false">
+                        <suap:label>38. Macellerie sprovviste del reparto di macellazione.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="32" suap:fieldtype="CHECKBOX" name="chkMAS39" mandatory="false">
+                        <suap:label>39. Laboratori artigianali di sartoria e abbigliamento senza attività di lavaggi, tintura e finissaggio.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="33" suap:fieldtype="CHECKBOX" name="chkMAS40" mandatory="false">
+                        <suap:label>40. Laboratori artigianali di oreficeria, argenteria, bigiotteria, orologeria.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="34" suap:fieldtype="CHECKBOX" name="chkMAS41" mandatory="false">
+                        <suap:label>41. Esercizi commerciali di oreficeria, argenteria, bigiotteria, orologeria.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="35" suap:fieldtype="CHECKBOX" name="chkMAS42" mandatory="false">
+                        <suap:label>42. Liuteria.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="36" suap:fieldtype="CHECKBOX" name="chkMAS43" mandatory="false">
+                        <suap:label>43. Laboratori di restauro artistico.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="37" suap:fieldtype="CHECKBOX" name="chkMAS44" mandatory="false">
+                        <suap:label>44. Riparazione di beni di consumo.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="38" suap:fieldtype="CHECKBOX" name="chkMAS45" mandatory="false">
+                        <suap:label>45. Ottici.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="39" suap:fieldtype="CHECKBOX" name="chkMAS46" mandatory="false">
+                        <suap:label>46. Fotografi.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                    <suap:field suap:rownum="40" suap:fieldtype="CHECKBOX" name="chkMAS47" mandatory="false">
+                        <suap:label>47. Grafici.</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1507422" codice="CodAttEcoSI2347891012" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" validator="it.eng.suap.validation.validators.dichiarazione.ValidatoreCampiOpzionali" checked="false">
+                <xm:descrizione>Corrispondenza codifica attività economica e Categoria (nn 2,3,4,7,8,9,10 e 12)</xm:descrizione>
+                <xm:titolo>che la codifica dell'attività economica corrisponde alla Categoria dell'Allegato B al DPR 227/11, di cui al numero sotto indicato e che è svolta senza impianti di diffusione sonora o svolgimento di attività, di manifestazioni ed eventi con diffusione di musica o utilizzo di strumenti musicali:</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="CHECKBOX" name="chkMAS2" mandatory="false">
+                        <suap:label>n.2 (Attività Agro-turistica)</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator xsi:nil="true"/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="3" suap:fieldtype="CHECKBOX" name="chkMAS3" mandatory="false">
+                        <suap:label>n.3 (Attività di ristorazione collettiva e pubblica (ristoranti, trattorie, pizzerie comprese quelle da asporto, mense, bar)</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator xsi:nil="true"/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="4" suap:fieldtype="CHECKBOX" name="chkMAS4" mandatory="false">
+                        <suap:label>n.4 (Attività ricreative)</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator xsi:nil="true"/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="5" suap:fieldtype="CHECKBOX" name="chkMAS7" mandatory="false">
+                        <suap:label>n.7 (Attività culturale)</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator xsi:nil="true"/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="6" suap:fieldtype="CHECKBOX" name="chkMAS8" mandatory="false">
+                        <suap:label>n.8 (Attività operanti nel settore dello spettacolo)</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator xsi:nil="true"/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="7" suap:fieldtype="CHECKBOX" name="chkMAS9" mandatory="false">
+                        <suap:label>n.9 (Palestre)</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator xsi:nil="true"/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="8" suap:fieldtype="CHECKBOX" name="chkMAS10" mandatory="false">
+                        <suap:label>n.10 (Stabilimenti balneari)</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator xsi:nil="true"/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="9" suap:fieldtype="CHECKBOX" name="chkMAS12" mandatory="false">
+                        <suap:label>n.12 (Sale da gioco)</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator xsi:nil="true"/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1507984</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="115814" id="3000373" validator="null" inviabile="true">
+            <xm:descrizione>NOTE</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="3000380" codice="464307" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Normale">
+                <xm:descrizione>spazio riservato ad eventuali note</xm:descrizione>
+                <xm:titolo>di seguito possono essere inserite delle note</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:fieldtype="TEXTAREA" name="txtAreanote" mandatory="false" suap:rownum="2">
+                        <suap:label>campo libero</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator>null</suap:validator>
+                        <suap:allowedValues xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1511696</xm:discriminateIds>
+        </xm:intervento>
+        <xm:allegato idDocumento="455" obbligatorio="true" richiestoFirmato="false" type="DOCUMENTO" idAllegato="109385026">
+            <xm:descrizione>Ricevuta pagamento spese istruttoria</xm:descrizione>
+        </xm:allegato>
+        <xm:allegato idDocumento="1502680" obbligatorio="false" richiestoFirmato="false" type="DOCUMENTO" idAllegato="109385027">
+            <xm:descrizione>Altri allegati</xm:descrizione>
+        </xm:allegato>
+        <xm:allegato idDocumento="1511928" obbligatorio="false" richiestoFirmato="false" type="DOCUMENTO">
+            <xm:descrizione>Permesso di soggiorno in corso di validità per i cittadini di stati non appartenenti all'Unione Europea (se il permesso scade entro 30 giorni, copia della ricevuta della richiesta di rinnovo)</xm:descrizione>
+        </xm:allegato>
+        <xm:allegato idDocumento="-2" idAllegato="109384964" inFormaCartacea="false" obbligatorio="true" richiestoFirmato="false">
+            <xm:descrizione>Modulo iscrizione TARI(1)</xm:descrizione>
+        </xm:allegato>
+        <xm:allegato idDocumento="-2" idAllegato="" inFormaCartacea="false" obbligatorio="true" richiestoFirmato="false">
+            <xm:descrizione>Allegato A(1)</xm:descrizione>
+        </xm:allegato>
+        <xm:allegato idDocumento="-4" idDocumentoIntegrazione="314591" richiestoFirmato="false" idAllegato="109407607">
+            <xm:descrizione>Superfici di vendita</xm:descrizione>
+        </xm:allegato>
+        <xm:allegato idDocumento="-4" idDocumentoIntegrazione="314592" richiestoFirmato="false" idAllegato="109407609">
+            <xm:descrizione>Attività tutelata</xm:descrizione>
+        </xm:allegato>
+        <xm:pagamento>
+            <xm:oggettoSir descrizioneOggetto="COMMERCIO IN SEDE FISSA - ESERCIZI DI VICINATO - SCIA di apertura" tipoOggetto="DIS001"/>
+        </xm:pagamento>
+    </xm:procedimento>
+</xm:modelloUnico>

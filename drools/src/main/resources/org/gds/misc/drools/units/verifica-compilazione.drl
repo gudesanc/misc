@@ -20,6 +20,7 @@ import org.gds.misc.drools.model.Procedimento;
 import org.gds.misc.drools.model.Attivita;
 import org.gds.misc.drools.model.MacroAttivita;
 import org.gds.misc.drools.model.Errore;
+import org.gds.misc.drools.model.Validazione;
 import org.gds.misc.drools.model.Livello;
 import org.gds.misc.drools.org.gds.misc.drools.support.XPathHelper;
 
@@ -32,13 +33,16 @@ rule SmallDepositApprove when
 //      eval ($p == 'Ciao')
        $t: /tipoPratica[ attivita.macroAttivita.codice == 'CAP' ]
        and
-       $xml: /xml
+       $xmlDocument: /xmlDocument
        and
-       eval(XPathHelper.verifica($xml,'CIAO'));
+//       eval(XPathHelper.verifica($xml,'CIAO'));
+       eval(XPathHelper.
+//						ottieniValoreDaCampoInDichiarazione($xmlDocument,'intDatiCatastali','dichDatiCatastali', 'CATFOGLIO')!=null)
+						ottieniValoreDaCampoInDichiarazione($xmlDocument,null,null, 'CATFOGLIO')!=null)
 then
-    errori.add(new Errore(Livello.DICHIRAZIONE,"descrizione","codiceIntervento","codiceDichiarazione",null) );
+    validazione.addErroreDichiarazione("descrizione","codiceIntervento","codiceDichiarazione") ;
 end
 
 query Validazioni
-    $e: /errori
+    $e: /validazione[0]
 end

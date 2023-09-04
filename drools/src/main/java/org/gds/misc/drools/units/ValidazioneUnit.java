@@ -1,30 +1,28 @@
 package org.gds.misc.drools.units;
 
 import io.quarkus.logging.Log;
-import org.drools.ruleunits.api.DataSource;
-import org.drools.ruleunits.api.DataStore;
 import org.drools.ruleunits.api.RuleUnitData;
-import org.gds.misc.drools.model.Errore;
 import org.gds.misc.drools.model.TipoPratica;
+import org.gds.misc.drools.model.Validazione;
+import org.gds.misc.drools.org.gds.misc.drools.support.XMLDocumentInfo;
 
 public class ValidazioneUnit implements RuleUnitData {
     private String xml;
     private TipoPratica tipoPratica;
-    private DataStore<Errore> errori;
+    private Validazione validazione = new Validazione();
+    private XMLDocumentInfo xmlDocument;
+    private final Object lock = new Object();
 
 
     public ValidazioneUnit() {
-        this(DataSource.createStore());
-    }
 
-    public ValidazioneUnit(DataStore<Errore> errori) {
-        this.errori = errori;
     }
 
 
-    public DataStore<Errore> getErrori() {
-        Log.info("Ottengo errori: "+errori);
-        return errori;
+
+
+    public Validazione getValidazione(){
+        return validazione;
     }
 
     public String getXml() {
@@ -35,8 +33,18 @@ public class ValidazioneUnit implements RuleUnitData {
         return tipoPratica;
     }
 
-    public String leggi(String x){
-        Log.info("Leggo: "+x+"... da "+xml);
-        return x;
+    public XMLDocumentInfo getXmlDocument(){
+        Log.debug("Richiesta  XML Document");
+        synchronized (lock){
+            if(xmlDocument==null){
+                long start = System.currentTimeMillis();
+                xmlDocument = new XMLDocumentInfo(xml);
+                long end = System.currentTimeMillis();
+                Log.infof("Creato XML Document e XPathFactory %d (ms)",(end-start));
+            }
+            return xmlDocument;
+        }
     }
+
+
 }
