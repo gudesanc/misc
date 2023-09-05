@@ -25,18 +25,23 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import static org.gds.misc.xpath.SchemaConstants.NS_MODELLO_UNICO;
+import static org.gds.misc.xpath.SchemaConstants.NS_SUAP;
+
 public class XMLDocumentInfo {
     private final Document xmlDocument;
     private final XPathFactory xPathFactory;
     private final static Map<String,String> ns = new HashMap();
-    static {
-        ns.put("xm","http://www.eng.it/suap/XMLModelloUnico");
-        ns.put("suap","http://www.eng.it/suap/suapschema");
-    }
 
+    static {
+        ns.put("xm",NS_MODELLO_UNICO);
+        ns.put("suap",NS_SUAP);
+    }
     public XMLDocumentInfo(InputStream xml) throws RuntimeException {
         try {
-            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            dbFactory.setNamespaceAware(true);
+            DocumentBuilder builder = dbFactory.newDocumentBuilder();
             xmlDocument = builder.parse(new InputSource(xml));
             xPathFactory = XPathFactory.newInstance();
             System.out.println("XML input: "+toXMLString());
@@ -58,7 +63,7 @@ public class XMLDocumentInfo {
 
     private Object getXPathValure(String xPath, QName type){
         XPath x = xPathFactory.newXPath();
-//        x.setNamespaceContext(new SimpleNamespaceContext(ns));
+        x.setNamespaceContext(new SimpleNamespaceContext(ns));
         try {
             return x.compile(xPath)
                     .evaluate(xmlDocument,type);

@@ -1,4 +1,4 @@
-package org.gds.misc.drools.model;
+package org.gds.misc.drools.model.validazione;
 
 import java.util.ArrayList;
 import java.util.List;

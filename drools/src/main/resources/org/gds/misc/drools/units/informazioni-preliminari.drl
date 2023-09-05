@@ -13,18 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ /**
+ *
+ * Questa e' la unit rule che viene invocata prima della
+ * creazione della pratica e serve a verificare se devono
+ * essere fatte delle azioni (i.e. rimossi interventi e/o dichiarazioni)
+ * in base alla scelta delle discriminanti
+ *
+ */
 package org.gds.misc.drools.units;
-unit ValidazioneUnit;
+unit InformazioniPreliminariUnit;
 
 import org.gds.misc.drools.model.fact.Procedimento;
 import org.gds.misc.drools.model.fact.Attivita;
 import org.gds.misc.drools.model.fact.MacroAttivita;
-import org.gds.misc.drools.model.validazione.Errore;
-import org.gds.misc.drools.model.validazione.Validazione;
-import org.gds.misc.drools.model.validazione.Livello;
+import org.gds.misc.drools.model.preliminare.DichirazioneDaRimuovere;
+import org.gds.misc.drools.model.preliminare.InterventoDaRimuovere
 import org.gds.misc.drools.org.gds.misc.drools.support.XPathHelper;
 
-rule SmallDepositApprove when
+rule SmallDepodsitApprove when
 //    $p: /procedimento[ tipoPratica.attivita.macroAttivita.codice == 'CAP' ]
 //    $p: /procedimento[ xml == 'xxxX']
 //    $p: /tipoPratica[ attivita.macroAttivita.codice == 'CAP' ]
@@ -34,15 +41,15 @@ rule SmallDepositApprove when
        $t: /tipoPratica[ attivita.macroAttivita.codice == 'CAP' ]
        and
        $xmlDocument: /xmlDocument
-       and
+//       and
 //       eval(XPathHelper.verifica($xml,'CIAO'));
-       eval(XPathHelper.
+//       eval(XPathHelper.
 //						ottieniValoreDaCampoInDichiarazione($xmlDocument,'intDatiCatastali','dichDatiCatastali', 'CATFOGLIO')!=null)
-						ottieniValoreDaCampoInDichiarazione($xmlDocument,null,null, 'CATFOGLIO')!=null)
+//						ottieniValoreDaCampoInDichiarazione($xmlDocument,null,null, 'CATFOGLIO')!=null)
 then
-    validazione.addErroreDichiarazione("descrizione","codiceIntervento","codiceDichiarazione") ;
+    elementiDaRimuovere.append(new InterventoDaRimuovere("codiceIntervento")) ;
 end
 
-query Validazioni
-    $e: /validazione[0]
+query InformazioniPreliminari
+    daRimuovere: /elementiDaRimuovere
 end

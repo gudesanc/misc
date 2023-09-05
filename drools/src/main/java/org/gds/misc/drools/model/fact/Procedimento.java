@@ -1,4 +1,8 @@
-package org.gds.misc.drools.model;
+package org.gds.misc.drools.model.fact;
+
+import org.gds.misc.drools.model.validazione.Errore;
+import org.gds.misc.drools.model.validazione.Livello;
+import org.gds.misc.drools.model.validazione.Warning;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -16,18 +16,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class XMLDocumentInfo {
+public class XMLDocumentInfo implements SchemaConstants{
     private final Document xmlDocument;
     private final XPathFactory xPathFactory;
     private final static Map<String,String> ns = new HashMap();
+
     static {
-        ns.put("xm","http://www.eng.it/suap/XMLModelloUnico");
-        ns.put("suap","http://www.eng.it/suap/suapschema");
+        ns.put("xm",NS_MODELLO_UNICO);
+        ns.put("suap",NS_SUAP);
     }
 
     public XMLDocumentInfo(String xml) throws RuntimeException {
         try {
-            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            dbFactory.setNamespaceAware(true);
+            DocumentBuilder builder = dbFactory.newDocumentBuilder();
             xmlDocument = builder.parse(new InputSource(new StringReader(xml)));
             xPathFactory = XPathFactory.newInstance();
             Log.tracef("XML input: %s",xml);
@@ -37,17 +40,17 @@ public class XMLDocumentInfo {
     }
 
     public Node getNode(String xPathExpression){
-        return (Node) getXPathValure(xPathExpression,XPathConstants.NODE);
+        return (Node) getXPathObj(xPathExpression,XPathConstants.NODE);
 
     }
 
     public NodeList getNodeList(String xPathExpression){
-        return (NodeList) getXPathValure(xPathExpression,XPathConstants.NODESET);
+        return (NodeList) getXPathObj(xPathExpression,XPathConstants.NODESET);
     }
 
 
 
-    private Object getXPathValure(String xPath, QName type){
+    private Object getXPathObj(String xPath, QName type){
         XPath x = xPathFactory.newXPath();
         x.setNamespaceContext(new SimpleNamespaceContext(ns));
         try {

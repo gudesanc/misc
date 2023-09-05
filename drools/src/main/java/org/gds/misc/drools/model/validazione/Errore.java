@@ -1,4 +1,4 @@
-package org.gds.misc.drools.model;
+package org.gds.misc.drools.model.validazione;
 
 public record Errore(Livello livello, String descrizione, String codiceIntervento, String codiceDichirazione, String fieldName) {
 
