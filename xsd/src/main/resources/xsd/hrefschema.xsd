@@ -1,0 +1,193 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.eng.it/suap/suapschema"
+	xmlns="http://www.eng.it/suap/suapschema"
+	elementFormDefault="qualified">
+
+
+
+
+	<xsd:element name="href">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="field" minOccurs="1" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="filled" type="xsd:boolean" default="false"></xsd:attribute>
+			<xsd:attribute name="groupIndex" type="xsd:int" default="1"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+
+   <!-- ATTENZIONE: quando si aggiunge un attributo sul field bisogna gestirlo in:
+        1) taglib di visualizzazione su GET-SUAP-ADMIN-Weblayer
+        2) Gestione in GET-SUAP-ADMIN-Weblayer action AddHrefField e CaricaHrefField
+        3) taglib di visualizzazione su GET-SUAP-Weblayer
+        4) Duplicazione per le dichiarazioni ripetibili in GET-SUAP-Weblayer action
+           SubmitAction metodo addHref
+    -->
+	<xsd:element name="field">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="label" minOccurs="1" maxOccurs="1"></xsd:element>
+				<xsd:element name="value" maxOccurs="1" type="xsd:string" nillable="true"></xsd:element>
+				<xsd:element name="note" maxOccurs="1" type="xsd:string" nillable="true"></xsd:element>
+				<xsd:element name="codvalue" maxOccurs="1" type="xsd:string" nillable="true"></xsd:element>
+				<xsd:element name="validator" type="xsd:string" nillable="true"></xsd:element>
+				<xsd:element ref="renderer" minOccurs="0" maxOccurs="1"></xsd:element>
+				<xsd:element ref="allowedValues" minOccurs="0" maxOccurs="1"></xsd:element>
+                <xsd:element name="pattern" maxOccurs="1" type="xsd:string" nillable="true"></xsd:element>
+                <xsd:element ref="extraInfo" minOccurs="0" maxOccurs="1" ></xsd:element>
+                <xsd:element name="validationParameters" minOccurs="0" maxOccurs="1" type="validatorParametersType"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="name"  use="required" type="xsd:string"/>
+            <xsd:attribute ref="rownum" use="required"/>
+			<xsd:attribute ref="fieldtype" use="required" />
+			<xsd:attribute name="mandatory" type="xsd:boolean" default="false"></xsd:attribute>
+			<xsd:attribute name="size"  use="optional" type="xsd:int"/>
+			<xsd:attribute name="maxLength"  use="optional" type="xsd:int"/>
+            <xsd:attribute name="helpId" type="xsd:long" default="-1"></xsd:attribute>
+			<xsd:attribute name="graphicRappresentation" type="xsd:boolean" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+
+
+
+	<xsd:element name="extraInfo">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element ref="extraInfoContent" minOccurs="1" maxOccurs="unbounded"></xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+
+   <xsd:element name="extraInfoContent">
+      <xsd:complexType>
+         <xsd:sequence>
+			<xsd:element name="value" maxOccurs="1" type="xsd:string" nillable="true"></xsd:element>
+         </xsd:sequence>
+         <xsd:attribute name="label" use="required" type="xsd:string"></xsd:attribute>
+         <xsd:attribute name="mandatory" type="xsd:boolean" default="false"></xsd:attribute>
+      </xsd:complexType>
+   </xsd:element>
+
+	<xsd:element name="renderer">
+		<xsd:complexType>
+			<xsd:attribute name="ftltemplate" type="xsd:string" use="optional"></xsd:attribute>
+			<xsd:attribute name="class" type="xsd:string" use="optional"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+   <xsd:element name="label">
+      <xsd:simpleType>
+         <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"></xsd:minLength>
+         </xsd:restriction>
+      </xsd:simpleType>
+   </xsd:element>
+
+   <xsd:attribute name="rownum" default="1">
+      <xsd:simpleType>
+         <xsd:restriction base="xsd:int" >
+            <xsd:minInclusive value="1"></xsd:minInclusive>
+         </xsd:restriction>
+      </xsd:simpleType>
+   </xsd:attribute>
+
+	<!--
+		Utilizzato per indicare i possibili valori di un radio o di un select
+	 -->
+	<xsd:element name="allowedValues">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="allowedValue" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!--
+		Indica il possibile valore di un radio o di un select
+	 -->
+	<xsd:element name="allowedValue">
+		<xsd:complexType>
+			<xsd:sequence>
+                <!--  informazioni extra che possono essere associate all'allowedvalue -->
+                <xsd:element ref="additionalData" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+			<xsd:attribute name="value" type="xsd:string" use="optional"/>
+			<xsd:attribute name="label" type="xsd:string" use="optional"/>
+			<xsd:attribute name="selected" type="xsd:boolean" default="false"/>
+		</xsd:complexType>
+	</xsd:element>
+
+   <!-- informazioni extra per gli allowdvalue a cui è possibile associare: INPUT, TEXTAREA, FILE -->
+   <xsd:element name="additionalData">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element ref="label" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="value" maxOccurs="1" type="xsd:string" nillable="true"/>
+         </xsd:sequence>
+         <xsd:attribute ref="additionalType" use="required" />
+         <xsd:attribute name="mandatory" type="xsd:boolean" default="false"/>
+         <xsd:attribute name="name"  use="required" type="xsd:string"/>
+         <xsd:attribute name="inFormaCartacea" type="xsd:boolean" default="false"/>
+         <xsd:attribute name="tipoDocumento" type="xsd:string" use="optional"/>
+         <xsd:attribute name="pattern" type="xsd:string" use="optional"/>
+      </xsd:complexType>
+   </xsd:element>
+
+   <!-- possibili valori per il tipo di addionalData -->
+   <xsd:attribute name="additionalType" default="INPUT" type="AdditionalType">
+   </xsd:attribute>
+	<xsd:simpleType name="AdditionalType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="INPUT"></xsd:enumeration>
+			<xsd:enumeration value="TEXTAREA"></xsd:enumeration>
+			<xsd:enumeration value="DATE"></xsd:enumeration>
+			<xsd:enumeration value="FILE"></xsd:enumeration>
+			<xsd:enumeration value="FILE_FIRMATO_DIGITALE"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- ogni volta ke si aggiunge un fieldtype bisogna inserire la entry anche in FieldUtils.FieldtypeWrapper -->
+	<xsd:attribute name="fieldtype" default="INPUT" type="FieldType">
+	</xsd:attribute>
+	<xsd:simpleType name="FieldType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="INPUT"></xsd:enumeration>
+			<xsd:enumeration value="NUMERIC"></xsd:enumeration>
+			<xsd:enumeration value="CHECKBOX"></xsd:enumeration>
+			<xsd:enumeration value="DATE"></xsd:enumeration>
+			<xsd:enumeration value="DATE_RANGE"></xsd:enumeration>
+			<xsd:enumeration value="TIME_RANGE"></xsd:enumeration>
+			<xsd:enumeration value="RADIO"></xsd:enumeration>
+			<xsd:enumeration value="TEXTAREA"></xsd:enumeration>
+			<xsd:enumeration value="LIST"></xsd:enumeration>
+			<xsd:enumeration value="AUTOCOMPLETED_LIST"></xsd:enumeration>
+			<xsd:enumeration value="HIDDEN"></xsd:enumeration>
+			<xsd:enumeration value="FILE"></xsd:enumeration>
+			<xsd:enumeration value="FILE_FIRMATO_DIGITALE"></xsd:enumeration>
+			<xsd:enumeration value="READ_ONLY"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- ========================================== -->
+	<!--  Definizione degli elementi che consentono -->
+	<!--  l'inserimento dei parametri da utilizzare -->
+	<!--  in fase di validazione.                   -->
+	<!-- ========================================== -->
+	<xsd:complexType name="validatorParametersType">
+		<xsd:annotation>
+			<xsd:documentation>I paramatri utilizzati dal validatore per il singolo field, oltre alla lista dei singoli parametri nome - valore, c'e' anche il messaggio da mostrare nel caso la validazione non va a buon fine.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="validatorParameter" type="validatorParameterType" maxOccurs="unbounded"/>
+			<xsd:element name="validationFailureMessage" type="xsd:string" maxOccurs="1"/>
+		</xsd:sequence>
+
+	</xsd:complexType>
+	<xsd:complexType name="validatorParameterType">
+		<xsd:annotation><xsd:documentation>Il paramatro di validazione caratterizzato da un nome e da un valore</xsd:documentation></xsd:annotation>
+		<xsd:sequence><xsd:element name="value" type="xsd:string" maxOccurs="1" nillable="true"/></xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string"/>
+	</xsd:complexType>
+
+</xsd:schema>

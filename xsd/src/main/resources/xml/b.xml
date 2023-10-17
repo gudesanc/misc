@@ -1,0 +1,900 @@
+<xm:modelloUnico inviabile="true" xmlns:xm="http://www.eng.it/suap/XMLModelloUnico">
+    <xm:procedimento codice="" id="1535842">
+        <xm:descrizione>Adesione manifestazione di interesse diretta alla formazione dell'elenco delle strutture sportive per la fruizione dei voucher sportivi riconosciuti alle persone con disabilità e alle ragazze e ragazzi dai 5 ai 16 anni</xm:descrizione>
+        <xm:intervento codice="IndicazioneUbicazioneRiferimento" id="1536104" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>SEDE LEGALE E SEDE OPERATIVA ORGANISMO SPORTIVO</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535877" codice="dicIndirizzoSedeLegaleOS" tipologiadichiarazione="3" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" validator="it.eng.get.web.dichiarazioni.indirizzi.IndirizzoGenericoValidator" checked="true">
+                <xm:descrizione>Sede legale Organismo Sportivo</xm:descrizione>
+                <xm:titolo>ubicazione sede legale dell'Organismo Sportivo</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema">
+                    <suap:field suap:fieldtype="HIDDEN" name="provincia" mandatory="true" suap:rownum="1">
+                        <suap:label>Provincia</suap:label>
+                        <suap:value>RM</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="codComune" mandatory="true" suap:rownum="2">
+                        <suap:label>codComune</suap:label>
+                        <suap:value>58091</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="desComune" mandatory="false" suap:rownum="3">
+                        <suap:label>Residente a</suap:label>
+                        <suap:value>ROMA</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="codVia" mandatory="false" suap:rownum="4">
+                        <suap:label>codVia</suap:label>
+                        <suap:value>108812</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="desVia" mandatory="true" suap:rownum="5">
+                        <suap:label>in via</suap:label>
+                        <suap:value>VIA UMBERTO BOCCIONI</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="civico" mandatory="false" suap:rownum="6">
+                        <suap:label>Civico</suap:label>
+                        <suap:value>12</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="esponente" mandatory="false" suap:rownum="7">
+                        <suap:label>Esponente</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="interno" mandatory="false" suap:rownum="8">
+                        <suap:label>Interno</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="esponenteInterno" mandatory="false" suap:rownum="9">
+                        <suap:label>Esponente Interno</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="lotto" mandatory="false" suap:rownum="10">
+                        <suap:label>Lotto</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="scala" mandatory="false" suap:rownum="11">
+                        <suap:label>Scala</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="edificio" mandatory="false" suap:rownum="12">
+                        <suap:label>Edificio</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="cap" mandatory="true" suap:rownum="13">
+                        <suap:label>Cap</suap:label>
+                        <suap:value>00197</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="chilometro" mandatory="false" suap:rownum="14">
+                        <suap:label>Chilometro</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>it.eng.suap.validation.validators.field.range.RangeForNumberValidator</suap:validator>
+                        <suap:validationParameters>
+                            <suap:validatorParameter name="lt">
+                                <suap:value>10000</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="gt">
+                                <suap:value>0</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="hreftovalidate">
+                                <suap:value>*</suap:value>
+                            </suap:validatorParameter>
+                        </suap:validationParameters>
+                        <suap:pattern>TRE_DECIMALI_OBBLIGATORI</suap:pattern>
+                    </suap:field>
+                    <suap:field suap:fieldtype="CHECKBOX" name="senzaCivico" mandatory="false" suap:rownum="15">
+                        <suap:label>senzaCivico</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                </suap:href>
+                <xm:renderer class="it.eng.get.web.dichiarazioni.indirizzi.IndirizzoGenericoRenderer"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535876" codice="IndirizzoRoma" tipologiadichiarazione="4" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" validator="it.eng.get.web.dichiarazioni.indirizzi.IndirizzoRomaValidator" checked="true">
+                <xm:descrizione>Sede operativa Organismo Sportivo</xm:descrizione>
+                <xm:titolo>ubicazione sede operativa dell'Organismo Sportivo</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema">
+                    <suap:field suap:fieldtype="HIDDEN" name="codVia" mandatory="false" suap:rownum="1">
+                        <suap:label>codVia</suap:label>
+                        <suap:value>63434</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="desVia" mandatory="true" suap:rownum="2">
+                        <suap:label>in via</suap:label>
+                        <suap:value>VIA LIVORNO</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="civico" mandatory="false" suap:rownum="3">
+                        <suap:label>Civico</suap:label>
+                        <suap:value>61</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="esponente" mandatory="false" suap:rownum="4">
+                        <suap:label>Esponente</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="interno" mandatory="false" suap:rownum="5">
+                        <suap:label>Interno</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="esponenteInterno" mandatory="false" suap:rownum="6">
+                        <suap:label>Esponente Interno</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="lotto" mandatory="false" suap:rownum="7">
+                        <suap:label>Lotto</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="scala" mandatory="false" suap:rownum="8">
+                        <suap:label>Scala</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="edificio" mandatory="false" suap:rownum="9">
+                        <suap:label>Edificio</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="cap" mandatory="true" suap:rownum="10">
+                        <suap:label>Cap</suap:label>
+                        <suap:value>00162</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" name="codMunicipio" mandatory="true" suap:rownum="11">
+                        <suap:label>codMunicipio</suap:label>
+                        <suap:value>2</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="desMunicipio" mandatory="false" suap:rownum="12">
+                        <suap:label>desMunicipio</suap:label>
+                        <suap:value>MUNICIPIO II</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="codASL" mandatory="false" suap:rownum="13">
+                        <suap:label>codASL</suap:label>
+                        <suap:value>1</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="HIDDEN" name="desASL" mandatory="false" suap:rownum="14">
+                        <suap:label>desASL</suap:label>
+                        <suap:value>ASL RM/1</suap:value>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" name="chilometro" mandatory="false" suap:rownum="15">
+                        <suap:label>Chilometro</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>it.eng.suap.validation.validators.field.range.RangeForNumberValidator</suap:validator>
+                        <suap:validationParameters>
+                            <suap:validatorParameter name="lt">
+                                <suap:value>10000</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="gt">
+                                <suap:value>0</suap:value>
+                            </suap:validatorParameter>
+                            <suap:validatorParameter name="hreftovalidate">
+                                <suap:value>*</suap:value>
+                            </suap:validatorParameter>
+                        </suap:validationParameters>
+                        <suap:pattern>TRE_DECIMALI_OBBLIGATORI</suap:pattern>
+                    </suap:field>
+                    <suap:field suap:fieldtype="CHECKBOX" name="senzaCivico" mandatory="false" suap:rownum="16">
+                        <suap:label>senzaCivico</suap:label>
+                        <suap:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validator>null</suap:validator>
+                    </suap:field>
+                </suap:href>
+                <xm:renderer class="it.eng.get.web.dichiarazioni.indirizzi.IndirizzoRomaRenderer"/>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1535842</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intDichiarazioniOrganismoSportivo" id="1535847" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>DICHIARAZIONI ORGANISMO SPORTIVO</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535844" codice="dicManifestazioneSport" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Manifestazione di interesse voucher sport</xm:descrizione>
+                <xm:titolo>manifesta il proprio interesse all'inserimento nell'elenco delle strutture sportive per la fruizione dei voucher sportivi riconosciuti da Roma Capitale a persone con disabilità e ragazze e ragazzi dai 5 ai 16 anni, ai sensi della Determinazione Dirigenziale rep. QA/366 del 02.10.2023. prot. QA/50990 del 02.10.2023.</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535851" codice="dicFalsitaAttiDichiarazioniMendaci" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Falsità in atti e dichiarazioni mendaci</xm:descrizione>
+                <xm:titolo>di essere consapevole delle sanzioni penali richiamate dall'art. 76 del D.P.R. 28.12.2000 n. 445 in caso di dichiarazioni mendaci e delle conseguenze previste dall'art. 75 del D.P.R. del 28.12.2000 n. 445 per le ipotesi di falsità in atti e dichiarazioni mendaci</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535856" codice="dicDenominazioneOrganismoSportivo" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Informazioni Organismo Sportivo</xm:descrizione>
+                <xm:titolo>Informazioni inerenti l'Organismo Sportivo</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="INPUT" name="txtDenominazioneOS" mandatory="true" graphicRappresentation="false">
+                        <suap:label>Denominazione</suap:label>
+                        <suap:value>ASD "ASS AVOGADRO"</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="5" suap:fieldtype="INPUT" name="txtCodiceFiscaleOS" mandatory="true" graphicRappresentation="false">
+                        <suap:label>Codice Fiscale</suap:label>
+                        <suap:value>06781041006</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="6" suap:fieldtype="INPUT" name="txtPartitaIvaOS" mandatory="false" graphicRappresentation="false">
+                        <suap:label>Partita IVA (ove in possesso)</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="7" suap:fieldtype="INPUT" name="txtEmailOS" mandatory="false" graphicRappresentation="false">
+                        <suap:label>email (posta elettronica ordinaria)</suap:label>
+                        <suap:value>info.csenavogadro@gmail.com</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="8" suap:fieldtype="INPUT" name="txtPecOS" mandatory="true" graphicRappresentation="false">
+                        <suap:label>PEC (posta elettronica certificata)</suap:label>
+                        <suap:value>asd-avogadro@pec.it</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535848" codice="dicNaturaOrganismoSportivo" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Natura Organismo Sportivo</xm:descrizione>
+                <xm:titolo>di essere un organismo operante in ambito sportivo o nel campo della promozione di iniziative di rilevanza sociale come anche le associazioni di promozione sociale enti del terzo settore, che abbiano nel proprio Statuto un riferimento allo sviluppo e alla promozione della pratica sportiva, individuati dalle vigenti disposizioni normative in materia:</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="RADIO" name="naturaOrganismoSportivo" mandatory="true" graphicRappresentation="false">
+                        <suap:label>Natura Organismo Sportivo</suap:label>
+                        <suap:value>2</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="1" label="pubblico" selected="false"/>
+                            <suap:allowedValue value="2" label="privato" selected="true"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535853" codice="dicInserimentoElenchiVoucherSport" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Disponibilità inserimento elenco strutture sportive per fruizione voucher</xm:descrizione>
+                <xm:titolo>di essere disponibile ad essere inserito nell'elenco delle strutture sportive per la fruizione dei voucher sportivi riconosciuti dall'Amministrazione capitolina</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536036" codice="dicRegolaritaFiscaleContributiPrevidenzaOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Regolarità adempimenti fiscali, contributivi e previdenziali</xm:descrizione>
+                <xm:titolo>di essere in regola con gli adempimenti fiscali, contributivi e previdenziali, previsti dalla normativa vigente</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536038" codice="dicOccupazioneImmobiliPAOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Regolare occupazione immobili a destinazione sportiva di proprietà pubblica</xm:descrizione>
+                <xm:titolo>di non occupare senza titolo immobili a destinazione sportiva di proprietà di Roma Capitale, o in generale di proprietà pubblica</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536040" codice="dicAssenzaRevocheOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Assenza di provvedimenti di revoca della concessione di Impianti Sportivi Capitolini</xm:descrizione>
+                <xm:titolo>di non essere destinatario di provvedimenti di revoca della concessione di Impianti Sportivi capitolini</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536042" codice="dicLocaliImpiantiSportOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Regolarità locali e/o impianti Sportivi</xm:descrizione>
+                <xm:titolo>di avere in disponibilità l'utilizzo di locali e/o di Impianti Sportivi in regola con la normativa vigente</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1536044" codice="dicAutorizzazioniOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Autorizzazioni amministrative (per le sole strutture private)</xm:descrizione>
+                <xm:titolo>(per le sole strutture private) di essere in possesso di tutte le autorizzazioni per lo svolgimento dell'attività sportiva e di non avere procedure sospensive, inibitorie o sanzionatorie in corso</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536116" codice="dicForzaPolOrgSindacaleOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Forze Politiche e/o Organizzazioni Sindacali</xm:descrizione>
+                <xm:titolo>di non essere una Forza Politica e/o un'Organizzazione Sindacale</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536059" codice="dicPosizioniDebitorieRCOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Assenza posizioni debitorie nei confroni di Roma Capitale</xm:descrizione>
+                <xm:titolo>di non avere nei confronti di Roma Capitale, posizioni debitorie accertate in via definitiva, con sentenze o atti amministrativi che non sono più soggetti a impugnazione o posizioni debitorie risultanti da atti amministrativi aventi efficacia anche non esecutiva</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536061" codice="dicDistinzioniGenereOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Assenza distinzioni di genere</xm:descrizione>
+                <xm:titolo>di non prevedere nel proprio Atto Costitutivo o Statuto distinzioni di genere per l'accesso alla qualifica di dirigente, atleta, socio o socia, frequentatore o frequentatrice, operatore sportivo o operatrice sportiva</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536063" codice="dicStatoOrganismoSportivo" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Stato dell'Organismo Sportivo</xm:descrizione>
+                <xm:titolo>di non trovarsi in stato di liquidazione, ordinaria o coatta, o concordato preventivo, di non essere sottoposto a procedure concorsuali, di non avere in corso i relativi procedimenti di dichiarazione, per gli organismi nei cui confronti si applica la legge fallimentare</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536072" codice="dicAntimafiaOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Normativa antimafia</xm:descrizione>
+                <xm:titolo>di non trovarsi nelle ipotesi di divieto, decadenza o sospensione previste dalla normativa antimafia vigente</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536074" codice="dicLimitiContributiOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Beneficio contributi o altre agevolazioni pubbliche</xm:descrizione>
+                <xm:titolo>di non essere destinatario di provvedimenti che limitano la possibilità di ricevere contributi o altre agevolazioni pubbliche</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536076" codice="dicDisponibilitaAttivitaOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Disponibilità attività sportive</xm:descrizione>
+                <xm:titolo>di mettere a disposizione le proprie attività sportive a persone con disabilità e ragazzi e ragazze dai 5 ai 16 anni</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536078" codice="dicDisponibilitaVarieOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Disponibilità spazi, attrezzature e figure professionali</xm:descrizione>
+                <xm:titolo>di mettere a disposizione gli spazi e le attrezzature sportive e le figure professionali necessarie allo svolgimento delle attività sportive per le quali sta partecipando alla presente manifestazione di interesse</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536080" codice="dicIscrizioniConVoucherOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Accettazione iscrizioni soggetti assegnatari di voucher</xm:descrizione>
+                <xm:titolo>di accettare le richieste di iscrizione che gli verranno presentate dai soggetti assegnatari dei voucher messi a bando dall'Amministrazione mediante successiva procedura ad evidenza pubblica</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536082" codice="dicAccettazioneAvvisoPubblicoOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Accettazione condizioni Avviso Pubblico</xm:descrizione>
+                <xm:titolo>di accettare le condizioni previste nell'Avviso Pubblico per la Manifestazione di interesse approvato con Determinazione Dirigenziale rep.QA/366 del 02.10.2023</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535998" codice="dicImpegnoConvenzioneOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Impegno sottoscrizione Convenzione Contrattuale</xm:descrizione>
+                <xm:titolo>di impegnarsi a sottoscrivere a richiesta dell'Amministrazione, la Convenzione Contrattuale allegata al presente Avviso pubblico</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536000" codice="dicVariazionePEC" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Impegno comunicazione variazione PEC</xm:descrizione>
+                <xm:titolo>di impegnarsi a comunicare tempestivamente ogni variazione dell'indirizzo di posta elettronica certificata eletto a domicilio digitale</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1535842</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intConflittoInteresseOS" id="1536067" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniOpzionaliEsclusiva" inviabile="true">
+            <xm:descrizione>CONDIZIONE CONFLITTO DI INTERESSE</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1536065" codice="dicAssenzaConflittoInteresseOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Assenza di ipotesi di conflitto di interesse</xm:descrizione>
+                <xm:titolo>di non trovarsi in ipotesi di conflitto di interesse ai sensi della normativa in materia di prevenzione e repressione della corruzione e dell'illegalità nella Pubblica Amministrazione e non è a diretta conoscenza della sussistenza di relazioni di parentela e/o affinità - entro il secondo grado - tra i titolari, gli amministratori, i soci e i dipendenti del soggetto partecipante e i dirigenti e i dipendenti dell'Amministrazione Capitolina</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1536068" codice="dicPresenzaConflittoInteresseOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>Presenza di ipotesi di conflitto di interesse</xm:descrizione>
+                <xm:titolo>di trovarsi in ipotesi di conflitto di interesse ai sensi della normativa in materia di prevenzione e repressione della corruzione e dell'illegalità nella Pubblica Amministrazione e è a diretta conoscenza della sussistenza di relazioni di parentela e/o affinità - entro il secondo grado - tra i titolari, gli amministratori, i soci e i dipendenti del soggetto partecipante e i dirigenti e i dipendenti dell'Amministrazione Capitolina, specificando di seguito le generalità dei soggetti interessati ed i rispettivi dati anagrafici, nonché il grado di parentela e/o affinità</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="TEXTAREA" name="txtaSoggConflittoInteresseOS" mandatory="true" graphicRappresentation="false" helpId="-1">
+                        <suap:label>Generalità dei soggetti interessati ed i rispettivi dati anagrafici, nonché il grado di parentela e/o affinità</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1535842</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intAntiPantouflageOS" id="1536096" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniOpzionaliEsclusiva" inviabile="true">
+            <xm:descrizione>ANTI-PANTOUFLAGE</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1536100" codice="dicAssenzaPantouflageOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Assenza conferimento incarichi / conclusione contratti di lavoro con ex dipendenti Roma Capitale</xm:descrizione>
+                <xm:titolo>di non aver conferito incarichi né concluso contratti di lavoro autonomo o subordinato con ex dipendenti dell'Amministrazione Capitolina che negli ultimi tre anni di servizio hanno esercitato poteri autoritativi o negoziali per conto della stessa, che, in qualità di dipendenti dell'Organismo Sportivo, hanno concretamente svolto un ruolo nel procedimento cui si riferisce il presente atto</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1536102" codice="dicPresenzaPantouflageOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="false">
+                <xm:descrizione>Presenza conferimento incarichi / conclusione contratti di lavoro con ex dipendenti Roma Capitale</xm:descrizione>
+                <xm:titolo>di aver conferito incarichi e/o concluso contratti di lavoro autonomo o subordinato con ex dipendenti dell'Amministrazione Capitolina che negli ultimi tre anni di servizio hanno esercitato poteri autoritativi o negoziali per conto della stessa, che, in qualità di dipendenti dell'Organismo Sportivo, hanno concretamente svolto un ruolo nel procedimento cui si riferisce il presente atto e di indicarne di seguito i nominativi</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="TEXTAREA" name="txtaElencoNominativi" mandatory="true" graphicRappresentation="false">
+                        <suap:label>Elenco nominativi</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1536139" codice="dicPresaVisioneInformativaPrivacyOS" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" helpId="1536138" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Presa visione informativa privacy (Allegato H)</xm:descrizione>
+                <xm:titolo>Dichiaro di aver preso visione dell'informativa privacy ai sensi del Regolamento 679/2016/UE</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema"/>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1535842</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intCostiOrganismoSportivo" id="1535916" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>COSTI</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535917" codice="dicCostiOrganismoSportivo" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>costi previsti dall'Organismo Sportivo</xm:descrizione>
+                <xm:titolo>Elenco dei costi singoli previsti previsti dall'Organismo Sportivo</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="RADIO" name="lstCostiIscrizioneOS" mandatory="true" graphicRappresentation="false">
+                        <suap:label>iscrizione</suap:label>
+                        <suap:value>1</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true">
+                            <suap:allowedValue value="1" label="si (inserire valore €)" selected="true">
+                                <suap:additionalData suap:additionalType="INPUT" mandatory="true" name="" tipoDocumento="">
+                                    <suap:label xsi:nil="true"/>
+                                    <suap:value>30</suap:value>
+                                </suap:additionalData>
+                            </suap:allowedValue>
+                            <suap:allowedValue value="2" label="no" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="3" suap:fieldtype="RADIO" name="lstCostiAssicurazioneOS" mandatory="true" graphicRappresentation="false">
+                        <suap:label>assicurazione</suap:label>
+                        <suap:value>1</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="1" label="si (inserire valore €)" selected="true">
+                                <suap:additionalData suap:additionalType="INPUT" mandatory="true" name="" tipoDocumento="">
+                                    <suap:label xsi:nil="true"/>
+                                    <suap:value>11</suap:value>
+                                </suap:additionalData>
+                            </suap:allowedValue>
+                            <suap:allowedValue value="2" label="no" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1535842</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intAttivitaSportiveOS" id="1536016" helpId="1536141" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniOpzionali" inviabile="true">
+            <xm:descrizione>ELENCO ATTIVITÀ SPORTIVE OFFERTE</xm:descrizione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1536019" codice="dicAttivitaSportiveOS" tipologiadichiarazione="0" maxGroupInstances="100" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Attività sportive elenco A</xm:descrizione>
+                <xm:titolo>LE ATTIVITÀ SPORTIVE MESSE A DISPOSIZIONE DELLE PERSONE CON DISABILITÀ (ELENCO A) TITOLARI DEI VOUCHER SONO LE SEGUENTI</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="AUTOCOMPLETED_LIST" name="lstSportOS" mandatory="true" graphicRappresentation="false" helpId="-1">
+                        <suap:label>Attività sportiva</suap:label>
+                        <suap:value>29</suap:value>
+                        <suap:codvalue>29</suap:codvalue>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="1" label="AQUABIKE"/>
+                            <suap:allowedValue value="2" label="AQUAFITNESS"/>
+                            <suap:allowedValue value="3" label="AQUAGYM"/>
+                            <suap:allowedValue value="4" label="AQUASTEP"/>
+                            <suap:allowedValue value="5" label="AQUATRECKING"/>
+                            <suap:allowedValue value="6" label="ARTI MARZIALI"/>
+                            <suap:allowedValue value="7" label="ATLETICA"/>
+                            <suap:allowedValue value="8" label="ATTIVITA' MOTORIA PRESCOLARE"/>
+                            <suap:allowedValue value="9" label="BOCCE"/>
+                            <suap:allowedValue value="10" label="BODY BUILDING"/>
+                            <suap:allowedValue value="11" label="CALCIO A CINQUE"/>
+                            <suap:allowedValue value="12" label="CALCIO A OTTO"/>
+                            <suap:allowedValue value="13" label="CALCIO A SETTE"/>
+                            <suap:allowedValue value="14" label="CALCIO A UNDICI "/>
+                            <suap:allowedValue value="15" label="EQUITAZIONE"/>
+                            <suap:allowedValue value="16" label="GINNASTICA ARTISTICA"/>
+                            <suap:allowedValue value="17" label="GINNASTICA GENERALE"/>
+                            <suap:allowedValue value="18" label="GINNASTICA RITMICA"/>
+                            <suap:allowedValue value="19" label="GINNASTICA TERZA ETA'"/>
+                            <suap:allowedValue value="20" label="NUOTO"/>
+                            <suap:allowedValue value="21" label="PADDEL"/>
+                            <suap:allowedValue value="22" label="PALLACANESTRO/BASKET"/>
+                            <suap:allowedValue value="23" label="PALLANUOTO"/>
+                            <suap:allowedValue value="24" label="PALLAVOLO/VOLLEY"/>
+                            <suap:allowedValue value="25" label="RUGBY"/>
+                            <suap:allowedValue value="26" label="SCHERMA"/>
+                            <suap:allowedValue value="27" label="SALA ATTREZZI"/>
+                            <suap:allowedValue value="28" label="TENNIS"/>
+                            <suap:allowedValue value="29" label="Altro (specificare)"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="3" suap:fieldtype="INPUT" name="txtAltroSportOS" mandatory="false" graphicRappresentation="false">
+                        <suap:label>Descrizione Altro (se voce selezionata in elenco Attività sportiva)</suap:label>
+                        <suap:value>Tiro con l'arco per ragazzi con disabilità mentale</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="4" suap:fieldtype="NUMERIC" name="numPostiDisabiliSportOS" mandatory="true" graphicRappresentation="false" helpId="-1">
+                        <suap:label>POSTI DISPONIBILI PER PERSONE CON DISABILITÀ (indicare il numero esatto per ciascuna attività sportiva, indipendntemente dalla durata scelta 1,6, 9 mesi)</suap:label>
+                        <suap:value>15</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="6" suap:fieldtype="NUMERIC" name="numCostoBisettSportOS" mandatory="true" graphicRappresentation="false" helpId="-1">
+                        <suap:label>Costo a catalogo per singola sessione di un'attività sportiva, con frequenza 2 volte a settimana €</suap:label>
+                        <suap:value>31</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="10" suap:fieldtype="NUMERIC" name="numCostoAnnoSportOS" mandatory="true" graphicRappresentation="false" helpId="-1">
+                        <suap:label>Costo complessivo (comprensivo anche dei costi di iscrizione e assicurazione) in convenzione attività sportiva, con frequenza 2 volte a settimana,  durata 9 mesi €</suap:label>
+                        <suap:value>316</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+                <suap:href groupIndex="2" xmlns:suap="http://www.eng.it/suap/suapschema">
+                    <suap:field suap:fieldtype="AUTOCOMPLETED_LIST" mandatory="true" name="lstSportOS" suap:rownum="2" helpId="-1">
+                        <suap:label>Attività sportiva</suap:label>
+                        <suap:value>29</suap:value>
+                        <suap:codvalue>29</suap:codvalue>
+                        <suap:validator/>
+                        <suap:allowedValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <suap:allowedValue value="1" label="AQUABIKE"/>
+                            <suap:allowedValue value="2" label="AQUAFITNESS"/>
+                            <suap:allowedValue value="3" label="AQUAGYM"/>
+                            <suap:allowedValue value="4" label="AQUASTEP"/>
+                            <suap:allowedValue value="5" label="AQUATRECKING"/>
+                            <suap:allowedValue value="6" label="ARTI MARZIALI"/>
+                            <suap:allowedValue value="7" label="ATLETICA"/>
+                            <suap:allowedValue value="8" label="ATTIVITA' MOTORIA PRESCOLARE"/>
+                            <suap:allowedValue value="9" label="BOCCE"/>
+                            <suap:allowedValue value="10" label="BODY BUILDING"/>
+                            <suap:allowedValue value="11" label="CALCIO A CINQUE"/>
+                            <suap:allowedValue value="12" label="CALCIO A OTTO"/>
+                            <suap:allowedValue value="13" label="CALCIO A SETTE"/>
+                            <suap:allowedValue value="14" label="CALCIO A UNDICI "/>
+                            <suap:allowedValue value="15" label="EQUITAZIONE"/>
+                            <suap:allowedValue value="16" label="GINNASTICA ARTISTICA"/>
+                            <suap:allowedValue value="17" label="GINNASTICA GENERALE"/>
+                            <suap:allowedValue value="18" label="GINNASTICA RITMICA"/>
+                            <suap:allowedValue value="19" label="GINNASTICA TERZA ETA'"/>
+                            <suap:allowedValue value="20" label="NUOTO"/>
+                            <suap:allowedValue value="21" label="PADDEL"/>
+                            <suap:allowedValue value="22" label="PALLACANESTRO/BASKET"/>
+                            <suap:allowedValue value="23" label="PALLANUOTO"/>
+                            <suap:allowedValue value="24" label="PALLAVOLO/VOLLEY"/>
+                            <suap:allowedValue value="25" label="RUGBY"/>
+                            <suap:allowedValue value="26" label="SCHERMA"/>
+                            <suap:allowedValue value="27" label="SALA ATTREZZI"/>
+                            <suap:allowedValue value="28" label="TENNIS"/>
+                            <suap:allowedValue value="29" label="Altro (specificare)"/>
+                        </suap:allowedValues>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" mandatory="false" name="txtAltroSportOS" suap:rownum="3" helpId="-1">
+                        <suap:label>Descrizione Altro (se voce selezionata in elenco Attività sportiva)</suap:label>
+                        <suap:value>Tennis tavolo</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" mandatory="true" name="numPostiDisabiliSportOS" suap:rownum="4" helpId="-1">
+                        <suap:label>POSTI DISPONIBILI PER PERSONE CON DISABILITÀ (indicare il numero esatto per ciascuna attività sportiva, indipendntemente dalla durata scelta 1,6, 9 mesi)</suap:label>
+                        <suap:value>8</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" mandatory="true" name="numCostoBisettSportOS" suap:rownum="6" helpId="-1">
+                        <suap:label>Costo a catalogo per singola sessione di un'attività sportiva, con frequenza 2 volte a settimana €</suap:label>
+                        <suap:value>31</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" mandatory="true" name="numCostoAnnoSportOS" suap:rownum="10" helpId="-1">
+                        <suap:label>Costo complessivo (comprensivo anche dei costi di iscrizione e assicurazione) in convenzione attività sportiva, con frequenza 2 volte a settimana,  durata 9 mesi €</suap:label>
+                        <suap:value>316</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:dichiarazione mandatory="false" inviabile="true" id="1536027" codice="dicAttivitaSportiveOS" tipologiadichiarazione="0" maxGroupInstances="100" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" checked="true">
+                <xm:descrizione>Attività sportive elenco B</xm:descrizione>
+                <xm:titolo>LE ATTIVITÀ SPORTIVE MESSE A DISPOSIZIONE DELLE RAGAZZE E RAGAZZI DAI 5 AI 16 ANNI (ELENCO B) TITOLARI DEI VOUCHER SONO LE SEGUENTI</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="AUTOCOMPLETED_LIST" name="lstSportOS" mandatory="true" graphicRappresentation="false" helpId="-1">
+                        <suap:label>Attività sportiva</suap:label>
+                        <suap:value>8</suap:value>
+                        <suap:codvalue>8</suap:codvalue>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="1" label="AQUABIKE" selected="false"/>
+                            <suap:allowedValue value="2" label="AQUAFITNESS" selected="false"/>
+                            <suap:allowedValue value="3" label="AQUAGYM" selected="false"/>
+                            <suap:allowedValue value="4" label="AQUASTEP" selected="false"/>
+                            <suap:allowedValue value="5" label="AQUATRECKING" selected="false"/>
+                            <suap:allowedValue value="6" label="ARTI MARZIALI" selected="false"/>
+                            <suap:allowedValue value="7" label="ATLETICA" selected="false"/>
+                            <suap:allowedValue value="8" label="ATTIVITA' MOTORIA PRESCOLARE" selected="false"/>
+                            <suap:allowedValue value="9" label="BOCCE" selected="false"/>
+                            <suap:allowedValue value="10" label="BODY BUILDING" selected="false"/>
+                            <suap:allowedValue value="11" label="CALCIO A CINQUE" selected="false"/>
+                            <suap:allowedValue value="12" label="CALCIO A OTTO" selected="false"/>
+                            <suap:allowedValue value="13" label="CALCIO A SETTE" selected="false"/>
+                            <suap:allowedValue value="14" label="CALCIO A UNDICI " selected="false"/>
+                            <suap:allowedValue value="15" label="EQUITAZIONE" selected="false"/>
+                            <suap:allowedValue value="16" label="GINNASTICA ARTISTICA" selected="false"/>
+                            <suap:allowedValue value="17" label="GINNASTICA GENERALE" selected="false"/>
+                            <suap:allowedValue value="18" label="GINNASTICA RITMICA" selected="false"/>
+                            <suap:allowedValue value="19" label="NUOTO" selected="false"/>
+                            <suap:allowedValue value="20" label="PADDEL" selected="false"/>
+                            <suap:allowedValue value="21" label="PALLACANESTRO/BASKET" selected="false"/>
+                            <suap:allowedValue value="22" label="PALLANUOTO" selected="false"/>
+                            <suap:allowedValue value="23" label="PALLAVOLO/VOLLEY" selected="false"/>
+                            <suap:allowedValue value="24" label="RUGBY" selected="false"/>
+                            <suap:allowedValue value="25" label="SALA ATTREZZI" selected="false"/>
+                            <suap:allowedValue value="26" label="SCHERMA" selected="false"/>
+                            <suap:allowedValue value="27" label="TENNIS" selected="false"/>
+                            <suap:allowedValue value="28" label="Altro (specificare)" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="3" suap:fieldtype="INPUT" name="txtAltroSportOS" mandatory="false" graphicRappresentation="false">
+                        <suap:label>Descrizione Altro (se voce selezionata in elenco Attività sportiva)</suap:label>
+                        <suap:value>attività ludico-motoria prescuola</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="4" suap:fieldtype="NUMERIC" name="numPostiRagazziSportOS" mandatory="true" graphicRappresentation="false" helpId="-1">
+                        <suap:label>POSTI DISPONIBILI PER RAGAZZE E RAGAZZI DAI 5 AI 16 ANNI (indicare il numero esatto per ciascuna attività sportiva, indipendntemente dalla durata scelta 1,6, 9 mesi)</suap:label>
+                        <suap:value>15</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="6" suap:fieldtype="NUMERIC" name="numCostoBisettSportOS" mandatory="true" graphicRappresentation="false" helpId="-1">
+                        <suap:label>Costo a catalogo per singola sessione di un'attività sportiva, con frequenza 2 volte a settimana €</suap:label>
+                        <suap:value>16</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="10" suap:fieldtype="NUMERIC" name="numCostoAnnoSportOS" mandatory="true" graphicRappresentation="false" helpId="-1">
+                        <suap:label>Costo complessivo (comprensivo anche dei costi di iscrizione e assicurazione) in convenzione attività sportiva, con frequenza 2 volte a settimana,  durata 9 mesi €</suap:label>
+                        <suap:value>366</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+                <suap:href groupIndex="2" xmlns:suap="http://www.eng.it/suap/suapschema">
+                    <suap:field suap:fieldtype="AUTOCOMPLETED_LIST" mandatory="true" name="lstSportOS" suap:rownum="2" helpId="-1">
+                        <suap:label>Attività sportiva</suap:label>
+                        <suap:value>23</suap:value>
+                        <suap:codvalue>23</suap:codvalue>
+                        <suap:validator/>
+                        <suap:allowedValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <suap:allowedValue value="1" label="AQUABIKE" selected="false"/>
+                            <suap:allowedValue value="2" label="AQUAFITNESS" selected="false"/>
+                            <suap:allowedValue value="3" label="AQUAGYM" selected="false"/>
+                            <suap:allowedValue value="4" label="AQUASTEP" selected="false"/>
+                            <suap:allowedValue value="5" label="AQUATRECKING" selected="false"/>
+                            <suap:allowedValue value="6" label="ARTI MARZIALI" selected="false"/>
+                            <suap:allowedValue value="7" label="ATLETICA" selected="false"/>
+                            <suap:allowedValue value="8" label="ATTIVITA' MOTORIA PRESCOLARE" selected="false"/>
+                            <suap:allowedValue value="9" label="BOCCE" selected="false"/>
+                            <suap:allowedValue value="10" label="BODY BUILDING" selected="false"/>
+                            <suap:allowedValue value="11" label="CALCIO A CINQUE" selected="false"/>
+                            <suap:allowedValue value="12" label="CALCIO A OTTO" selected="false"/>
+                            <suap:allowedValue value="13" label="CALCIO A SETTE" selected="false"/>
+                            <suap:allowedValue value="14" label="CALCIO A UNDICI " selected="false"/>
+                            <suap:allowedValue value="15" label="EQUITAZIONE" selected="false"/>
+                            <suap:allowedValue value="16" label="GINNASTICA ARTISTICA" selected="false"/>
+                            <suap:allowedValue value="17" label="GINNASTICA GENERALE" selected="false"/>
+                            <suap:allowedValue value="18" label="GINNASTICA RITMICA" selected="false"/>
+                            <suap:allowedValue value="19" label="NUOTO" selected="false"/>
+                            <suap:allowedValue value="20" label="PADDEL" selected="false"/>
+                            <suap:allowedValue value="21" label="PALLACANESTRO/BASKET" selected="false"/>
+                            <suap:allowedValue value="22" label="PALLANUOTO" selected="false"/>
+                            <suap:allowedValue value="23" label="PALLAVOLO/VOLLEY" selected="false"/>
+                            <suap:allowedValue value="24" label="RUGBY" selected="false"/>
+                            <suap:allowedValue value="25" label="SALA ATTREZZI" selected="false"/>
+                            <suap:allowedValue value="26" label="SCHERMA" selected="false"/>
+                            <suap:allowedValue value="27" label="TENNIS" selected="false"/>
+                            <suap:allowedValue value="28" label="Altro (specificare)" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" mandatory="false" name="txtAltroSportOS" suap:rownum="3" helpId="-1">
+                        <suap:label>Descrizione Altro (se voce selezionata in elenco Attività sportiva)</suap:label>
+                        <suap:value>corso di pallavolo per scuole medie (under 14)</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" mandatory="true" name="numPostiRagazziSportOS" suap:rownum="4" helpId="-1">
+                        <suap:label>POSTI DISPONIBILI PER RAGAZZE E RAGAZZI DAI 5 AI 16 ANNI (indicare il numero esatto per ciascuna attività sportiva, indipendntemente dalla durata scelta 1,6, 9 mesi)</suap:label>
+                        <suap:value>15</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" mandatory="true" name="numCostoBisettSportOS" suap:rownum="6" helpId="-1">
+                        <suap:label>Costo a catalogo per singola sessione di un'attività sportiva, con frequenza 2 volte a settimana €</suap:label>
+                        <suap:value>31</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" mandatory="true" name="numCostoAnnoSportOS" suap:rownum="10" helpId="-1">
+                        <suap:label>Costo complessivo (comprensivo anche dei costi di iscrizione e assicurazione) in convenzione attività sportiva, con frequenza 2 volte a settimana,  durata 9 mesi €</suap:label>
+                        <suap:value>316</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                </suap:href>
+                <suap:href groupIndex="3" xmlns:suap="http://www.eng.it/suap/suapschema">
+                    <suap:field suap:fieldtype="AUTOCOMPLETED_LIST" mandatory="true" name="lstSportOS" suap:rownum="2" helpId="-1">
+                        <suap:label>Attività sportiva</suap:label>
+                        <suap:value>23</suap:value>
+                        <suap:codvalue>23</suap:codvalue>
+                        <suap:validator/>
+                        <suap:allowedValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <suap:allowedValue value="1" label="AQUABIKE" selected="false"/>
+                            <suap:allowedValue value="2" label="AQUAFITNESS" selected="false"/>
+                            <suap:allowedValue value="3" label="AQUAGYM" selected="false"/>
+                            <suap:allowedValue value="4" label="AQUASTEP" selected="false"/>
+                            <suap:allowedValue value="5" label="AQUATRECKING" selected="false"/>
+                            <suap:allowedValue value="6" label="ARTI MARZIALI" selected="false"/>
+                            <suap:allowedValue value="7" label="ATLETICA" selected="false"/>
+                            <suap:allowedValue value="8" label="ATTIVITA' MOTORIA PRESCOLARE" selected="false"/>
+                            <suap:allowedValue value="9" label="BOCCE" selected="false"/>
+                            <suap:allowedValue value="10" label="BODY BUILDING" selected="false"/>
+                            <suap:allowedValue value="11" label="CALCIO A CINQUE" selected="false"/>
+                            <suap:allowedValue value="12" label="CALCIO A OTTO" selected="false"/>
+                            <suap:allowedValue value="13" label="CALCIO A SETTE" selected="false"/>
+                            <suap:allowedValue value="14" label="CALCIO A UNDICI " selected="false"/>
+                            <suap:allowedValue value="15" label="EQUITAZIONE" selected="false"/>
+                            <suap:allowedValue value="16" label="GINNASTICA ARTISTICA" selected="false"/>
+                            <suap:allowedValue value="17" label="GINNASTICA GENERALE" selected="false"/>
+                            <suap:allowedValue value="18" label="GINNASTICA RITMICA" selected="false"/>
+                            <suap:allowedValue value="19" label="NUOTO" selected="false"/>
+                            <suap:allowedValue value="20" label="PADDEL" selected="false"/>
+                            <suap:allowedValue value="21" label="PALLACANESTRO/BASKET" selected="false"/>
+                            <suap:allowedValue value="22" label="PALLANUOTO" selected="false"/>
+                            <suap:allowedValue value="23" label="PALLAVOLO/VOLLEY" selected="false"/>
+                            <suap:allowedValue value="24" label="RUGBY" selected="false"/>
+                            <suap:allowedValue value="25" label="SALA ATTREZZI" selected="false"/>
+                            <suap:allowedValue value="26" label="SCHERMA" selected="false"/>
+                            <suap:allowedValue value="27" label="TENNIS" selected="false"/>
+                            <suap:allowedValue value="28" label="Altro (specificare)" selected="false"/>
+                        </suap:allowedValues>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="INPUT" mandatory="false" name="txtAltroSportOS" suap:rownum="3" helpId="-1">
+                        <suap:label>Descrizione Altro (se voce selezionata in elenco Attività sportiva)</suap:label>
+                        <suap:value>mini\microvolley</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" mandatory="true" name="numPostiRagazziSportOS" suap:rownum="4" helpId="-1">
+                        <suap:label>POSTI DISPONIBILI PER RAGAZZE E RAGAZZI DAI 5 AI 16 ANNI (indicare il numero esatto per ciascuna attività sportiva, indipendntemente dalla durata scelta 1,6, 9 mesi)</suap:label>
+                        <suap:value>20</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" mandatory="true" name="numCostoBisettSportOS" suap:rownum="6" helpId="-1">
+                        <suap:label>Costo a catalogo per singola sessione di un'attività sportiva, con frequenza 2 volte a settimana €</suap:label>
+                        <suap:value>31</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                    <suap:field suap:fieldtype="NUMERIC" mandatory="true" name="numCostoAnnoSportOS" suap:rownum="10" helpId="-1">
+                        <suap:label>Costo complessivo (comprensivo anche dei costi di iscrizione e assicurazione) in convenzione attività sportiva, con frequenza 2 volte a settimana,  durata 9 mesi €</suap:label>
+                        <suap:value>316</suap:value>
+                        <suap:validator/>
+                        <suap:extraInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <suap:validationParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1535842</xm:discriminateIds>
+        </xm:intervento>
+        <xm:intervento codice="intPresentazione" id="1535896" validator="it.eng.suap.validation.validators.intervento.ValidatoreDichiarazioniObbligatorie" inviabile="true">
+            <xm:descrizione>PRESENTAZIONE MANIFESTAZIONE DI INTERESSE</xm:descrizione>
+            <xm:dichiarazione mandatory="true" inviabile="true" id="1535897" codice="dicPresentazione" tipologiadichiarazione="0" maxGroupInstances="1" minGroupInstances="1" xm:tipodichiarazione="Spuntabile" validator="it.eng.suap.validation.validators.dichiarazione.ValidatoreCampiOpzionali" checked="true">
+                <xm:descrizione>dichiarazione del richiedente</xm:descrizione>
+                <xm:titolo>il sottoscritto dichiara</xm:titolo>
+                <suap:href groupIndex="1" xmlns:suap="http://www.eng.it/suap/suapschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <suap:field suap:rownum="2" suap:fieldtype="CHECKBOX" name="chkPoteriFirmaOS" mandatory="false" graphicRappresentation="false">
+                        <suap:label>di essere titolare di specifici poteri di firma</suap:label>
+                        <suap:value>getcheck</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="3" suap:fieldtype="CHECKBOX" name="chkRappresentanzaOS" mandatory="false" graphicRappresentation="false">
+                        <suap:label>di essere rappresentante dell'Organismo Sportivo</suap:label>
+                        <suap:value xsi:nil="true"/>
+                        <suap:validator/>
+                        <suap:allowedValues xsi:nil="true"/>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                    <suap:field suap:rownum="4" suap:fieldtype="RADIO" name="lstProcuraOS" mandatory="true" graphicRappresentation="false">
+                        <suap:label>la presentazione avviene per procura</suap:label>
+                        <suap:value>2</suap:value>
+                        <suap:validator/>
+                        <suap:allowedValues>
+                            <suap:allowedValue value="1" label="si" selected="false">
+                                <suap:additionalData suap:additionalType="FILE" mandatory="true" name="" tipoDocumento="DOCUMENTO">
+                                    <suap:label>procura e documento di identità del rappresentante/mandante e del procuratore</suap:label>
+                                </suap:additionalData>
+                            </suap:allowedValue>
+                            <suap:allowedValue value="2" label="no" selected="true"/>
+                        </suap:allowedValues>
+                        <suap:pattern xsi:nil="true"/>
+                        <suap:extraInfo xsi:nil="true"/>
+                        <suap:validationParameters xsi:nil="true"/>
+                    </suap:field>
+                </suap:href>
+            </xm:dichiarazione>
+            <xm:discriminateIds>1535842</xm:discriminateIds>
+        </xm:intervento>
+        <xm:allegato idDocumento="444" obbligatorio="true" richiestoFirmato="false" type="DOCUMENTO" idAllegato="109543202">
+            <xm:descrizione>Copia di un documento di identità del richiedente in corso di validità</xm:descrizione>
+        </xm:allegato>
+        <xm:allegato idDocumento="1536084" obbligatorio="true" richiestoFirmato="true" type="DOCUMENTO" idAllegato="109543197">
+            <xm:descrizione>Modello per la Dichiarazione di esenzione/assoggettabilità a ritenuta d'acconto (Allegato A)</xm:descrizione>
+        </xm:allegato>
+        <xm:allegato idDocumento="1536086" obbligatorio="true" richiestoFirmato="true" type="DOCUMENTO" idAllegato="109543199">
+            <xm:descrizione>Modello 45 Ragioneria Generale (Allegato B)</xm:descrizione>
+        </xm:allegato>
+        <xm:allegato idDocumento="1536088" obbligatorio="true" richiestoFirmato="true" type="DOCUMENTO" idAllegato="109543201">
+            <xm:descrizione>Modello 'Excel nominativi' debitamente compilato ai fini degli accertamenti ai sensi dell'art. 53 comma 16-ter del D.Lgs. 165/2001 (Allegato C)</xm:descrizione>
+        </xm:allegato>
+    </xm:procedimento>
+</xm:modelloUnico>

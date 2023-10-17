@@ -83,6 +83,7 @@
     <module>drools</module>
     <module>rest-json-quickstart</module>
     <module>ruleunit-quarkus-example</module>
-      <module>xpath</module>
+    <module>xpath</module>
+    <module>xsd</module>
   </modules>
 </project>

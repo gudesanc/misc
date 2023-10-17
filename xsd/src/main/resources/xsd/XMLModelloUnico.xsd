@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:anag="http://www.eng.it/suap/anagrafica"
+	targetNamespace="http://www.eng.it/suap/XMLModelloUnico"
+	xmlns:mu="http://www.eng.it/suap/XMLModelloUnico"
+	xmlns:href="http://www.eng.it/suap/suapschema"
+	xmlns:val="http://www.eng.it/suap/validationSchema"
+	xmlns:get="http://www.eng.it/suap/pratica" elementFormDefault="qualified">
+	<xsd:import namespace="http://www.eng.it/suap/suapschema" schemaLocation="./hrefschema.xsd"/>
+
+
+	<xsd:element name="error">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="message" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="fieldId" type="xsd:string"></xsd:attribute>
+			<xsd:attribute ref="mu:elementlevel"></xsd:attribute>
+            <xsd:attribute ref="mu:source" use="optional"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="warning">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="message" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="fieldId" type="xsd:string"></xsd:attribute>
+			<xsd:attribute ref="mu:elementlevel"></xsd:attribute>
+            <xsd:attribute ref="mu:source" use="optional"></xsd:attribute>
+			<xsd:attribute name="tipo" type="xsd:string"></xsd:attribute>
+			<xsd:attribute name="natura" type="xsd:string"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:attribute name="elementlevel" type="mu:ElementLevel">
+	</xsd:attribute>
+
+	<xsd:simpleType name="ElementLevel">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ALLEGATO"></xsd:enumeration>
+			<xsd:enumeration value="FIELD"></xsd:enumeration>
+			<xsd:enumeration value="DICHIARAZIONE"></xsd:enumeration>
+			<xsd:enumeration value="INTERVENTO"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+	<xsd:attribute name="source" type="mu:Source">
+   </xsd:attribute>
+	<xsd:simpleType name="Source">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SUAP"></xsd:enumeration>
+			<xsd:enumeration value="MOTORE_DI_REGOLE"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+	<xsd:attribute name="groupType" type="mu:GroupType">
+	</xsd:attribute>
+
+	<xsd:simpleType name="GroupType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="NORMAL"></xsd:enumeration>
+			<xsd:enumeration value="MUTUAL_EXCLUSIVE"></xsd:enumeration>
+			<xsd:enumeration value="ACTIVABLE"></xsd:enumeration>
+			<xsd:enumeration value="OTHER"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:element name="gruppoDichiarazioni">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="mu:dichiarazione" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="groupName" type="xsd:string"></xsd:attribute>
+			<xsd:attribute ref="mu:groupType" default="NORMAL"/>
+			<xsd:attribute name="selected" type="xsd:boolean" default="false"></xsd:attribute>
+			<xsd:attribute name="renderer" type="xsd:string"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="renderer">
+		<xsd:complexType>
+			<xsd:attribute name="ftltemplate" type="xsd:string" use="optional"></xsd:attribute>
+			<xsd:attribute name="class" type="xsd:string" use="optional"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="modelloUnico"  >
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="mu:procedimento" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:long"></xsd:attribute>
+			<xsd:attribute name="inviabile" type="xsd:boolean" default="false"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="procedimento">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="descrizione" type="xsd:string"></xsd:element>
+				<xsd:element name="discriminante" type="mu:discriminanteType" maxOccurs="unbounded"></xsd:element>
+				<xsd:element ref="mu:intervento" maxOccurs="unbounded"></xsd:element>
+				<xsd:element ref="mu:allegato" maxOccurs="unbounded" ></xsd:element>
+                <xsd:element ref="mu:error" maxOccurs="unbounded"/>
+				<xsd:element name="pagamento" type="mu:pagamentoType" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="pagamentoRilascioTitolo" type="mu:pagamentoType" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="relazioneTecnica" type="mu:riferimentoRelazioneTecnicaType" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:long" use="required"></xsd:attribute>
+			<xsd:attribute name="codice" type="xsd:string" use="required"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ente">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="descrizione" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:long" use="required"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="allegato">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="descrizione" type="xsd:string"
+					minOccurs="1" maxOccurs="1">
+				</xsd:element>
+				<xsd:element ref="mu:storicoAllegato" minOccurs="0"
+					maxOccurs="unbounded">
+				</xsd:element>
+				<xsd:element name="rifintervento" type="xsd:string"
+					minOccurs="1" maxOccurs="unbounded">
+				</xsd:element>
+				<xsd:element name="discriminateIds" type="xsd:long"
+					minOccurs="0" maxOccurs="unbounded">
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="idDocumento" type="xsd:string"
+				use="required">
+			</xsd:attribute>
+			<xsd:attribute name="idAllegato" type="xsd:string"
+				use="optional">
+			</xsd:attribute>
+			<xsd:attribute name="obbligatorio" type="xsd:boolean"
+				use="required">
+			</xsd:attribute>
+			<xsd:attribute name="richiedeIntegrazione"
+				type="xsd:boolean">
+			</xsd:attribute>
+			<xsd:attribute name="richiestoFirmato" type="xsd:boolean"></xsd:attribute>
+			<xsd:attribute name="inFormaCartacea" type="xsd:boolean"
+				default="false">
+			</xsd:attribute>
+			<xsd:attribute name="type" type="xsd:string"></xsd:attribute>
+			<xsd:attribute name="idDocumentoIntegrazione" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>L'identificativo del documento di integrazione al quale fa riferimento questo allegato</xsd:documentation>
+				</xsd:annotation></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="storicoAllegato">
+		<xsd:complexType >
+			<xsd:attribute name="idAllegato" type="xsd:string"  use="required"></xsd:attribute>
+			<xsd:attribute name="dataStoricizzazione"   type="xsd:dateTime" use="required"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="intervento">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="descrizione" type="xsd:string" maxOccurs="1"></xsd:element>
+				<xsd:element ref="mu:ente" maxOccurs="1"></xsd:element>
+				<xsd:element ref="mu:dichiarazione" maxOccurs="unbounded"></xsd:element>
+				<xsd:element ref="mu:gruppoDichiarazioni" maxOccurs="unbounded"></xsd:element>
+				<xsd:element ref="mu:renderer" minOccurs="0" maxOccurs="1"></xsd:element>
+				<xsd:element ref="mu:error" maxOccurs="unbounded"/>
+				<xsd:element name="discriminateIds" type="xsd:long"  minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:long" use="required"></xsd:attribute>
+			<xsd:attribute name="codice" type="xsd:string" use="required"></xsd:attribute>
+			<xsd:attribute name="mandatory" type="xsd:boolean" default="false"></xsd:attribute>
+			<xsd:attribute name="validator" type="xsd:string"></xsd:attribute>
+			<xsd:attribute name="inviabile" type="xsd:boolean" default="false"></xsd:attribute>
+            <xsd:attribute name="helpId" type="xsd:long" default="-1"></xsd:attribute>
+			<xsd:attribute name="gruppoIntervento" type="xsd:string"></xsd:attribute>
+			<xsd:attribute name="transientInterventoClonedBy"  type="xsd:long" use="optional">
+				<xsd:annotation>
+				<xsd:documentation>Indica l'eventual id dell'intevento
+									dal quale e' stato clonato al runtime
+				</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="dichiarazione">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="descrizione" type="xsd:string"></xsd:element>
+				<xsd:element name="titolo" type="xsd:string"></xsd:element>
+				<xsd:element ref="href:href" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+				<xsd:element ref="mu:renderer" minOccurs="0" maxOccurs="1"></xsd:element>
+				<xsd:element ref="mu:warning" maxOccurs="unbounded"></xsd:element>
+				<xsd:element ref="mu:error" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:long" use="required"></xsd:attribute>
+			<xsd:attribute name="codice" type="xsd:string" use="required"></xsd:attribute>
+            <xsd:attribute name="mandatory" type="xsd:boolean" default="false"></xsd:attribute>
+			<xsd:attribute name="inviabile" type="xsd:boolean" default="false"></xsd:attribute>
+			<xsd:attribute name="checked" type="xsd:boolean" use="optional"></xsd:attribute>
+			<xsd:attribute ref="mu:tipodichiarazione" use="optional" default="Normale"></xsd:attribute>
+			<xsd:attribute name="tipologiadichiarazione" type="xsd:string" use="optional"></xsd:attribute>
+			<xsd:attribute name="validator" type="xsd:string"></xsd:attribute>
+			<xsd:attribute name="minGroupInstances" type="xsd:int" default="1"></xsd:attribute>
+			<xsd:attribute name="maxGroupInstances" type="xsd:int" default="1"></xsd:attribute>
+            <xsd:attribute name="helpId" type="xsd:long" default="-1"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<!-- ATTENZIONE:
+		l'aggiunta di un enumeration comporta la modifica alla validazione.
+		Vericare le classi:
+		- /GET-SUAP-WebLayer/src/main/java/it/eng/suap/web/action/compilazione/utils/PraticaValidator.java
+	-->
+	<xsd:attribute name="tipodichiarazione" default="Normale" type="mu:TipoDichiarazione">
+	</xsd:attribute>
+	<xsd:simpleType name="TipoDichiarazione">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Normale"></xsd:enumeration>
+			<xsd:enumeration value="Spuntabile"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="rispostaDiscriminanteType">
+		<xsd:annotation><xsd:documentation>Risposta associata ad una discriminate</xsd:documentation> </xsd:annotation>
+		<xsd:sequence>
+      		<xsd:element name="testoRisposta" type="xsd:string">
+      			<xsd:annotation><xsd:documentation>Il testo della risposta della discriminante</xsd:documentation> </xsd:annotation>
+      		</xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="checked" type="xsd:boolean" use="optional">
+    		<xsd:annotation><xsd:documentation>Indica se la risposta e' stata o meno selezionata</xsd:documentation></xsd:annotation>
+    	</xsd:attribute>
+        <xsd:attribute name="codice" type="xsd:string" use="optional">
+            <xsd:annotation><xsd:documentation>Il codice della risposta</xsd:documentation></xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="valoreImpostatoUtente" type="xsd:string" use="optional">
+            <xsd:annotation><xsd:documentation>Il valore impostato dall'utente (indicato come string per gestire i null)</xsd:documentation></xsd:annotation>
+        </xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="discriminanteType">
+		<xsd:annotation><xsd:documentation>definizione del tipo discriminate</xsd:documentation> </xsd:annotation>
+		<xsd:sequence>
+      		<xsd:element name="titolo" type="xsd:string" maxOccurs="1">
+      			<xsd:annotation><xsd:documentation>Il titolo della discriminante</xsd:documentation> </xsd:annotation>
+      		</xsd:element>
+      		<xsd:element name="domanda" type="xsd:string" maxOccurs="1">
+      			<xsd:annotation><xsd:documentation>Il testo della domanda della discriminante</xsd:documentation> </xsd:annotation>
+      		</xsd:element>
+      		<xsd:element name="rispostaDiscriminante" type="mu:rispostaDiscriminanteType" maxOccurs="unbounded">
+      			<xsd:annotation><xsd:documentation>...le risposte associate a questa discriminante</xsd:documentation> </xsd:annotation>
+      		</xsd:element>
+    	</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:long" use="required">
+			<xsd:annotation><xsd:documentation>L'id della discriminante</xsd:documentation></xsd:annotation>
+    	</xsd:attribute>
+        <xsd:attribute name="codice" type="xsd:string" use="required">
+            <xsd:annotation><xsd:documentation>Il codice della discriminante</xsd:documentation></xsd:annotation>
+        </xsd:attribute>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="pagamentoType">
+		<xsd:annotation><xsd:documentation>definizione dei dati del pagamento associati alla pratica</xsd:documentation> </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="oggettoSir" type="mu:oggettoSirType" />
+			<xsd:element name="voce" type="mu:vocePagamentoType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation><xsd:documentation>Le voci di pagamento che concorrono alla definizione del carrello</xsd:documentation> </xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="oggettoSirType">
+		<xsd:annotation><xsd:documentation>L'oggetto del pagamento cosi' come definito nel sistema riscossioni (SIR)</xsd:documentation> </xsd:annotation>
+		<xsd:attribute name="tipoOggetto" type="xsd:string" use="required">
+			<xsd:annotation><xsd:documentation>Il tipo oggetto in SIR</xsd:documentation></xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="descrizioneOggetto" type="xsd:string" use="required">
+			<xsd:annotation><xsd:documentation>La descrizione del tipo oggetto</xsd:documentation></xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="vocePagamentoType">
+		<xsd:annotation><xsd:documentation>definizione della voce pagamento che concorre alle spese per l'invio della pratica</xsd:documentation> </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="descrizione" type="xsd:string">
+				<xsd:annotation><xsd:documentation>La descrizione della voce pagamento</xsd:documentation> </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="importo" type="xsd:double">
+				<xsd:annotation><xsd:documentation>L'importo della voce pagamento</xsd:documentation> </xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:long" use="required">
+			<xsd:annotation><xsd:documentation>L'id della voce pagamento</xsd:documentation></xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cnc" type="xsd:string" use="required">
+			<xsd:annotation><xsd:documentation>Il codice CNC a cui e' associata la voce pagamento</xsd:documentation></xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="codice" type="xsd:string" use="required">
+			<xsd:annotation><xsd:documentation>Il codice della voce pagamento</xsd:documentation></xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:element name="relazioneTecnica">
+		<xsd:annotation>
+			<xsd:documentation>
+				Elemento che contiene i dati necessari alla compilazione di una relazione
+				tecnica. Una volta inviata questi dati vengono convertiti in riferimentoRelazioneTecnicaType.
+				Gli allegati contestuali alle dichiarazioni vengono in allegati normali che verrrano poi copiati nel
+				procedimento all'invio della Pratica.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="descrizione" type="xsd:string"></xsd:element>
+				<xsd:element name="titolo" type="xsd:string"></xsd:element>
+				<xsd:element ref="mu:intervento" maxOccurs="unbounded"></xsd:element>
+                <xsd:element ref="mu:error" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:long" use="required"></xsd:attribute>
+			<xsd:attribute name="codice" type="xsd:string" use="required"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="riferimentoRelazioneTecnicaType">
+		<xsd:annotation><xsd:documentation>definizione del riferimento alla relazione tecnica</xsd:documentation> </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="titolo" type="xsd:string"></xsd:element>
+			<xsd:element name="descrizione" type="xsd:string"></xsd:element>
+      		<xsd:element ref="mu:allegato" maxOccurs="unbounded">
+      			<xsd:annotation><xsd:documentation>gli allegati associati a questa relazione tecnica</xsd:documentation> </xsd:annotation>
+      		</xsd:element>
+    	</xsd:sequence>
+		<xsd:attribute name="tipoRelazioneTecnicaId" type="xsd:long" use="required">
+			<xsd:annotation><xsd:documentation>L'id della relazione tecnica richiesta</xsd:documentation></xsd:annotation>
+    	</xsd:attribute>
+        <xsd:attribute name="token" type="xsd:string">
+            <xsd:annotation><xsd:documentation>Il token utilizzato per identificare i dati della relazione compilati dal tecnico</xsd:documentation></xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="idAllegatoPratica" type="xsd:long">
+            <xsd:annotation><xsd:documentation>L'id dell'allegato pratica che corrisponde alla relazione compilata ed allegata dal tecnico</xsd:documentation></xsd:annotation>
+        </xsd:attribute>
+	</xsd:complexType>
+</xsd:schema>
