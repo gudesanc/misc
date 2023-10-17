@@ -1,6 +1,7 @@
 package it.gds.misc;
 
 import it.eng.suap.suapschema.Field;
+import it.eng.suap.suapschema.FieldType;
 import it.eng.suap.xmlmodellounico.*;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
@@ -12,9 +13,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class PraticaHelper {
+
     public static void main(String[] args) throws Exception{
         System.out.println("Ciao");
-        new PraticaHelper("xml/a.xml");
+        new PraticaHelper("xml/b.xml");
     }
 
     PraticaHelper(String fileName) throws Exception{
@@ -22,7 +24,15 @@ public class PraticaHelper {
         ModelloUnico modello = (ModelloUnico)ctx.createUnmarshaller().unmarshal(is);
         System.out.println(modello);
         List<Dichiarazione> dichiarazioni = findDichiarazioni(modello, "intAttivitaSportiveOS", "dicAttivitaSportiveOS");
-        dichiarazioni.forEach(d-> System.out.println(d.getDescrizione()));
+        dichiarazioni.forEach(d->{
+            if(TipoDichiarazione.NORMALE.equals(d.getTipodichiarazione())|| Boolean.TRUE.equals(d.isChecked())){
+                System.out.println("\n"+d.getDescrizione());
+                d.getHref().forEach(
+                        gruppo -> gruppo.getField().forEach(f-> System.out.println(f.getName()+ ": "+FieldUtils.estraiValore(f)))
+                );
+            }
+        });
+
     }
 
     public List<Dichiarazione> findDichiarazioni(ModelloUnico modello, String codiceIntervento, String codiceDichiarazione){
@@ -34,10 +44,8 @@ public class PraticaHelper {
                 .collect(Collectors.toList());
     }
 
-//
-//    private String readFieldValue(Field field){
-//        field.getFieldtype();
-//    }
+
+
 
     private static final JAXBContext ctx;
 
