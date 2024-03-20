@@ -85,5 +85,6 @@
     <module>ruleunit-quarkus-example</module>
     <module>xpath</module>
     <module>xsd</module>
+    <module>jkws</module>
   </modules>
 </project>
