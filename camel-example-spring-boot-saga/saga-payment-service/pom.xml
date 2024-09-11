@@ -52,6 +52,24 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jkube</groupId>
+				<artifactId>kubernetes-maven-plugin</artifactId>
+				<version>1.17.0</version>
+				<configuration>
+					<resources>
+						<labels>
+							<all>
+								<property>
+									<name>csbexample</name>
+									<value>saga</value>
+								</property>
+							</all>
+						</labels>
+						<namespace>jentetest</namespace>
+					</resources>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

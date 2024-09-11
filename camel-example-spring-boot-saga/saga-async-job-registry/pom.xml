@@ -27,8 +27,8 @@
 		<version>4.4.0</version>
 	</parent>
 
-	<artifactId>saga-train</artifactId>
-	<name>Camel SB Examples :: Saga :: Train Service</name>
+	<artifactId>saga-async-job-registry</artifactId>
+	<name>Camel SB Examples :: Saga :: Async Job Registry</name>
 	<description>Train Service</description>
 
 	<properties>

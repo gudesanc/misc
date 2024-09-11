@@ -15,14 +15,6 @@
 ## limitations under the License.
 ## ---------------------------------------------------------------------------
 
-spring:
-  spring:
-    artemis:
-      mode: native
-      host: localhost
-      port: 61616
-      user: admin
-      password: pwd
 camel:
   servlet:
     mapping:
@@ -40,8 +32,9 @@ camel:
     lra.enabled: true
   springboot:
     main-run-controller: true
-    name: Camel-saga
+    name: Saga-Orchestator
 example.services:
+  async-job-registry: async-job-registry
   train: saga-train-service
   flight: saga-flight-service
 logging:

@@ -22,26 +22,13 @@ import org.apache.camel.model.SagaPropagation;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TrainRoute extends RouteBuilder {
+public class JobRegistryRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("jms:queue:{{example.services.train}}")
-            .saga()
-                .propagation(SagaPropagation.MANDATORY)
-                .option("id", header("id"))
-                .compensation("direct:cancelPurchase")
-                .log("Buying train #${header.id}")
-                .delay(5000)
-                    .asyncDelayed()
-                .end()
-                .to("jms:queue:{{example.services.payment}}?exchangePattern=InOut" +
-                        "&replyTo={{example.services.payment}}.train.reply")
-                .log("Payment for train #${header.id} done with transaction ${body}")
-            .end();
-
-        from("direct:cancelPurchase")
-                .log("Train purchase #${header.id} has been cancelled due to payment failure");
+        from("jms:queue:{{example.services.async-job-registry}}")
+                .log("Ricevuto evento: ${body}")
+                .end();
     }
 
 }

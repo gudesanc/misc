@@ -25,15 +25,16 @@ camel:
       test-connection-on-startup: true
       concurrent-consumers: 5
   lra:
-    enabled: true
+    enabled: false
     coordinator-url: http://localhost:8080
     local-participant-url: http://localhost:${server.port}/api
   service:
-    lra.enabled: true
+    lra.enabled: false
   springboot:
     main-run-controller: true
-    name: Camel-train
+    name: Job-Async-Register
 example.services:
+  async-job-registry: async-job-registry
   train: saga-train-service
   payment: saga-payment-service
 logging:
