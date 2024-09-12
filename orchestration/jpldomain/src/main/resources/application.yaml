@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: jpl
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /v1/jpl/swagger-ui.html
+  api-docs:
+    path: /v1/jpl-docs
+server:
+  port: 8180
