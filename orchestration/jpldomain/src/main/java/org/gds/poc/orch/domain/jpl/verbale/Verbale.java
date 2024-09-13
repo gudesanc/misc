@@ -2,6 +2,9 @@ package org.gds.poc.orch.domain.jpl.verbale;
 
 import org.gds.poc.orch.domain.jpl.common.Protocollo;
 
+import javax.xml.stream.events.DTD;
+import java.io.Serializable;
+
 public class Verbale {
     private String id;
     private String oggetto;
@@ -41,5 +44,9 @@ public class Verbale {
                 ", protocollo=" + protocollo +
                 ", stato=" + stato +
                 '}';
+    }
+
+    public DtoVerbale toDtoVerbale(){
+        return new DtoVerbale(id,oggetto,protocollo,stato);
     }
 }
