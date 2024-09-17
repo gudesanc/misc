@@ -18,6 +18,10 @@ public class Verbale {
     }
 
     public void consolida(Protocollo p){
+
+        if( ((int)(Math.random()*10000)%2)==0){
+            throw new UnsupportedOperationException("...e niente mod 2 non è stato superato");
+        }
         if(StatoVerbale.BOZZA.equals(stato)) {
             stato = StatoVerbale.CONSOLIDATO;
             protocollo = p;
