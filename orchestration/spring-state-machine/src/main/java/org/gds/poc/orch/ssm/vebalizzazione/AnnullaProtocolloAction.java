@@ -11,12 +11,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
-public class AcquisciProtocolloAction  extends GenericStateMachineAction<VerbalizzazioneContext> {
-    private final Logger log = LoggerFactory.getLogger(AcquisciProtocolloAction.class);
+public class AnnullaProtocolloAction extends GenericStateMachineAction<VerbalizzazioneContext> {
+    private final Logger log = LoggerFactory.getLogger(AnnullaProtocolloAction.class);
     private final ProtocolloService protocolloService;
-//    private final PersistInMemoryHandler handler;
 
-    public AcquisciProtocolloAction(WebClient.Builder webClientBuilder, ProtocolloService protocolloService) {
+    public AnnullaProtocolloAction(WebClient.Builder webClientBuilder, ProtocolloService protocolloService) {
         super(webClientBuilder,"http://localhost:8080/verbalizzazioni",VerbalizzazioneContext.class);
         this.protocolloService = protocolloService;
 
@@ -27,30 +26,29 @@ public class AcquisciProtocolloAction  extends GenericStateMachineAction<Verbali
     @Override
     public void execute(String uuid, final VerbalizzazioneContext businessCxt, BusinessStatus bs,StateContext<String, String> stateContext) {
 
-        log.atDebug().setMessage("Inizio acqusizione protocollo per uuid {}, businessCxt: {}, bs: {}")
+        log.atDebug().setMessage("Inizio annullamento protocollo per uuid {}, businessCxt: {}, bs: {}")
                 .addArgument(uuid)
                 .addArgument(businessCxt)
                 .addArgument(bs)
                 .log();
-        protocolloService.protocolla(new DtoCreaProtocollo("oggetto","mittente","destinatario"))
+        protocolloService.annullaProtocollo(businessCxt.getProtocollo())
                 .doOnSuccess(
                         s -> {
-                            log.atInfo().setMessage("Protocollo {} acqusito")
+                            log.atInfo().setMessage("Protocollo {} annullato")
                                     .addArgument(s).log();
-                            businessCxt.setProtocollo(s);
                             notificaEvento(uuid,
-                                    VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.PROTOCOLLO_ACQUISITO.name(),
+                                    VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.CAMBIATO_STATO_PROTOCOLLO.name(),
                                     businessCxt,
-                                    BusinessStatus.RUNNING);
+                                    BusinessStatus.FAILED);
                         }
                 ).doOnError(
                         e -> {
-                            log.atInfo().setMessage("Errore aquisizione protocollo {} ")
+                            log.atInfo().setMessage("Errore annullamento protocollo {} ")
                                     .addArgument(e).log();
                             notificaEvento(uuid,
-                                    VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.PROTOCOLLO_NON_ACQUISTO.name(),
+                                    VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.CAMBIATO_STATO_PROTOCOLLO.name(),
                                     businessCxt,
-                                    BusinessStatus.RUNNING);
+                                    BusinessStatus.FAILED);
                         }
                 ).subscribe();
 

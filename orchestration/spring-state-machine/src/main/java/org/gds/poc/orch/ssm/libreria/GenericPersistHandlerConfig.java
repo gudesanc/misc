@@ -7,7 +7,7 @@ import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.recipes.persist.PersistStateMachineHandler;
 
 @Configuration
-public class PersistHandlerConfig {
+public class GenericPersistHandlerConfig {
     @Autowired
     private StateMachine<String, String> stateMachine;
 

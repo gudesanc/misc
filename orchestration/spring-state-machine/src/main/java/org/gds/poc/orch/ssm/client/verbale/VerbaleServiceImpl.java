@@ -16,7 +16,7 @@ public class VerbaleServiceImpl implements VerbaleService {
     private final Logger log = LoggerFactory.getLogger(VerbaleServiceImpl.class);
     private final WebClient webClient;
 
-    public VerbaleServiceImpl(WebClient.Builder webClientBuilder, @Value("client.verbale.endpoint") String endpoint) {
+    public VerbaleServiceImpl(WebClient.Builder webClientBuilder, @Value("${client.verbale.endpoint}") String endpoint) {
         this.webClient = webClientBuilder.baseUrl(endpoint).build();
         log.atInfo().setMessage("Endpoint servizi protocollo: {}").addArgument(endpoint).log();
     }

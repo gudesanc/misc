@@ -2,6 +2,6 @@ server:
   port: 8080
 client:
   protocollo:
-    endpoint: http://localhost/8280
+    endpoint: http://localhost:8280
   verbale:
-    endpoint: http://localhost/8180
+    endpoint: http://localhost:8180

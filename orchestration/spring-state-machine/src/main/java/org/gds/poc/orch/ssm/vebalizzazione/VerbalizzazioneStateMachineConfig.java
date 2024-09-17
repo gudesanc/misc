@@ -1,11 +1,19 @@
 package org.gds.poc.orch.ssm.vebalizzazione;
 
 import jakarta.annotation.Resource;
+import org.gds.poc.orch.ssm.libreria.PersistInMemoryHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.config.EnableStateMachine;
 import org.springframework.statemachine.config.StateMachineConfigurerAdapter;
+import org.springframework.statemachine.config.builders.StateMachineConfigurationConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
+import org.springframework.statemachine.listener.StateMachineListenerAdapter;
+import org.springframework.statemachine.recipes.persist.PersistStateMachineHandler;
+import org.springframework.statemachine.state.State;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -15,16 +23,36 @@ import java.util.stream.Collectors;
 public class VerbalizzazioneStateMachineConfig extends StateMachineConfigurerAdapter<String, String> {
     @Resource
     private AcquisciProtocolloAction acquisciProtocolloAction;
+    @Resource
+    private AnnullaProtocolloAction annullaProtocolloAction;
+    @Resource
+    private PersistiProtocolloAction persistiProcolloAction;
+    @Resource
+    private AnnullaVerbaleAction annullaVerbaleAction;
+
+
+    @Override
+    public void configure(StateMachineConfigurationConfigurer<String, String> config)
+            throws Exception {
+        config
+                .withConfiguration()
+                .machineId("orch-verbalizzazione");
+    }
     /**
      * configure state
+     * NON METTERE STATI "END" ALTRIMENTI FINISCE LA STATE MACHINE ED AMEN :)
      */
     @Override
     public void configure(StateMachineStateConfigurer<String, String> states) throws Exception {
         states.withStates()
                 .initial(VerbalizzazioneStatusEnum.INIT.name())
-                .end(VerbalizzazioneStatusEnum.VERBALE_CONSOLIDATO.name())
-                .end(VerbalizzazioneStatusEnum.VERBALE_ANNULLATO.name())
-                .end(VerbalizzazioneStatusEnum.PROTOCOLLO_ANNULLATO.name())
+                .state(VerbalizzazioneStatusEnum.VERBALE_IN_BOZZA.name(),acquisciProtocolloAction)
+                .state(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name(),persistiProcolloAction)
+                .state(VerbalizzazioneStatusEnum.DA_ANNULLARE_PROTOCOLLO.name(),annullaProtocolloAction)
+                .state(VerbalizzazioneStatusEnum.DA_ANNULLARE_VERBALE.name(),annullaVerbaleAction)
+//                .end(VerbalizzazioneStatusEnum.VERBALE_CONSOLIDATO.name())
+//                .end(VerbalizzazioneStatusEnum.VERBALE_ANNULLATO.name())
+//                .end(VerbalizzazioneStatusEnum.PROTOCOLLO_ANNULLATO.name())
                 .states(Arrays.stream(VerbalizzazioneStatusEnum.values()).map(VerbalizzazioneStatusEnum::name).collect(Collectors.toSet()));
     }
 
@@ -36,18 +64,18 @@ public class VerbalizzazioneStateMachineConfig extends StateMachineConfigurerAda
         transitions
                 .withExternal()
                 .source(VerbalizzazioneStatusEnum.INIT.name()).target(VerbalizzazioneStatusEnum.VERBALE_IN_BOZZA.name())
-                    .event(VerbalizzazioneChangeEventEnum.START.name()).action(acquisciProtocolloAction)
+                    .event(VerbalizzazioneChangeEventEnum.START.name())
                 .and().withExternal()
-                .source(VerbalizzazioneStatusEnum.DA_ACQUISIRE_PROTOCOLLO.name()).target(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name())
+                .source(VerbalizzazioneStatusEnum.VERBALE_IN_BOZZA.name()).target(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name())
                     .event(VerbalizzazioneChangeEventEnum.PROTOCOLLO_ACQUISITO.name())
                 .and().withExternal()
-                .source(VerbalizzazioneStatusEnum.DA_ACQUISIRE_PROTOCOLLO.name()).target(VerbalizzazioneStatusEnum.DA_ANNULLARE_VERBALE.name())
+                .source(VerbalizzazioneStatusEnum.VERBALE_IN_BOZZA.name()).target(VerbalizzazioneStatusEnum.DA_ANNULLARE_VERBALE.name())
                     .event(VerbalizzazioneChangeEventEnum.PROTOCOLLO_NON_ACQUISTO.name())
                 .and().withExternal()
                 .source(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name()).target(VerbalizzazioneStatusEnum.VERBALE_CONSOLIDATO.name())
                     .event(VerbalizzazioneChangeEventEnum.PROTOCOLLO_IMPOSTATO_SU_VERBALE.name())
                 .and().withExternal()
-                .source(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name()).target(VerbalizzazioneStatusEnum.DA_ANNULLARE_VERBALE.name())
+                .source(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name()).target(VerbalizzazioneStatusEnum.DA_ANNULLARE_PROTOCOLLO.name())
                     .event(VerbalizzazioneChangeEventEnum.PRTOCOLLO_NON_IMPOSTATO_SU_VERBALE.name())
                 .and().withExternal()
                 .source(VerbalizzazioneStatusEnum.DA_ANNULLARE_VERBALE.name()).target(VerbalizzazioneStatusEnum.VERBALE_ANNULLATO.name())
@@ -61,7 +89,6 @@ public class VerbalizzazioneStateMachineConfig extends StateMachineConfigurerAda
     public enum VerbalizzazioneStatusEnum{
         INIT,
         VERBALE_IN_BOZZA,
-        DA_ACQUISIRE_PROTOCOLLO,
         DA_PERSISTERE_PROTOCOLLO,
         VERBALE_CONSOLIDATO,
         DA_ANNULLARE_VERBALE,

@@ -1,5 +1,10 @@
 package org.gds.poc.orch.ssm.libreria;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Processo gereric
  */
@@ -12,10 +17,11 @@ public class GenericStateMachineProcess {
     private String endPointManager;
     private ProcessType processType;
     private String parentUUID;
-    private String jsonSupportData;
     private BusinessStatus businessStatus;
+    private String jsonBusinessContext;
+    private List<String> history = new ArrayList<>();
 
-    public GenericStateMachineProcess(String businessId, String processName, String currentState, String machineId, String endPointManager, ProcessType processType, String parentUUID, String jsonSupportData, BusinessStatus businessStatus) {
+    public GenericStateMachineProcess(String businessId, String processName, String currentState, String machineId, String endPointManager, ProcessType processType, String parentUUID, String jsonBusinessContext, BusinessStatus businessStatus) {
         this.businessId = businessId;
         this.processName = processName;
         this.currentState = currentState;
@@ -23,8 +29,9 @@ public class GenericStateMachineProcess {
         this.endPointManager = endPointManager;
         this.processType = processType;
         this.parentUUID = parentUUID;
-        this.jsonSupportData = jsonSupportData;
+        this.jsonBusinessContext = jsonBusinessContext;
         this.businessStatus = businessStatus;
+        history.addLast(currentState);
     }
 
     public void setUuid(String uuid) {
@@ -63,9 +70,6 @@ public class GenericStateMachineProcess {
         return parentUUID;
     }
 
-    public String getJsonSupportData() {
-        return jsonSupportData;
-    }
 
     public BusinessStatus getBusinessStatus() {
         return businessStatus;
@@ -73,14 +77,23 @@ public class GenericStateMachineProcess {
 
     public void setCurrentState(String currentState) {
         this.currentState = currentState;
+        history.addLast(currentState);
     }
 
-    public void setJsonSupportData(String jsonSupportData) {
-        this.jsonSupportData = jsonSupportData;
+    public String getJsonBusinessContext() {
+        return jsonBusinessContext;
+    }
+
+    public void setJsonBusinessContext(String jsonBusinessContext) {
+        this.jsonBusinessContext = jsonBusinessContext;
     }
 
     public void setBusinessStatus(BusinessStatus businessStatus) {
         this.businessStatus = businessStatus;
+    }
+
+    public List<String> getHistory() {
+        return history.stream().toList();
     }
 
     @Override
@@ -94,7 +107,7 @@ public class GenericStateMachineProcess {
                 ", endPointManager='" + endPointManager + '\'' +
                 ", processType=" + processType +
                 ", parentUUID='" + parentUUID + '\'' +
-                ", jsonSupportData='" + jsonSupportData + '\'' +
+                ", jsonBusinessContext='" + jsonBusinessContext + '\'' +
                 ", businessStatus=" + businessStatus +
                 '}';
     }

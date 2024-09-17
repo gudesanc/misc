@@ -1,65 +1,57 @@
 package org.gds.poc.orch.ssm.vebalizzazione;
 
 import jakarta.annotation.Resource;
-import org.gds.poc.orch.ssm.Order;
-import org.gds.poc.orch.ssm.OrderService;
 import org.gds.poc.orch.ssm.client.verbale.DtoCreaVerbale;
-import org.gds.poc.orch.ssm.client.verbale.DtoVerbale;
 import org.gds.poc.orch.ssm.client.verbale.VerbaleService;
 import org.gds.poc.orch.ssm.libreria.BusinessStatus;
-import org.gds.poc.orch.ssm.libreria.GenericStateMachineProcess;
+import org.gds.poc.orch.ssm.libreria.GenericSateMachineController;
 import org.gds.poc.orch.ssm.libreria.PersistInMemoryHandler;
 import org.gds.poc.orch.ssm.libreria.ProcessType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
-public class VerbalizzazioneController {
+@RequestMapping("/verbalizzazioni")
+public class VerbalizzazioneController extends GenericSateMachineController<VerbalizzazioneContext>{
 
     @Resource
     private final VerbaleService verbaleService;
-    @Resource
-    private final PersistInMemoryHandler persistInMemoryHandler;
-
     public VerbalizzazioneController(VerbaleService verbaleService, PersistInMemoryHandler persistInMemoryHandler) {
+        super(persistInMemoryHandler);
         this.verbaleService = verbaleService;
-        this.persistInMemoryHandler = persistInMemoryHandler;
     }
 
-    @PostMapping("/verbalizzazione")
-    public DtoAvvioProcesso verbalizza(DtoCreaVerbale verbaleDaVerbalizzare){
-        verbaleService.creaVerbale(verbaleDaVerbalizzare)
+    @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Mono<DtoAvvioProcesso> verbalizza(DtoCreaVerbale verbaleDaVerbalizzare){
+        final DtoAvvioProcesso procInfo = new DtoAvvioProcesso();
+        return verbaleService.creaVerbale(verbaleDaVerbalizzare)
                 .doOnSuccess( v -> {
-                            String uuid = persistInMemoryHandler.createNewProcess(VerbalizzazioneController.create(v.id()));
-                            persistInMemoryHandler.change(
-                                    uuid,
-                                    VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.START.name(),
-                                    BusinessStatus.RUNNING,
-                                    null
-                            );
-                        }
-                        );
-
-/*                .doOnError()
-        Order o =orderService.create();
-        System.out.println("Order：" + o);
-        return getResponse(o);*/
+                    VerbalizzazioneContext ctx = new VerbalizzazioneContext();
+                    ctx.setIdVerbale(v.id());
+                    ctx.setOggettoVerbale(verbaleDaVerbalizzare.oggetto());
+                    String uuid = createNewProcess(
+                            v.id(),
+                            VerbalizzazioneStateMachineConfig.VerbalizzazioneStatusEnum.INIT.name(),
+                            "machineId",
+                            "verbalizzazione",
+                            "endpoint",
+                            ctx,
+                            ProcessType.SYNC_ORCHESTRATION,null);
+                    procInfo.setIdVerbale(v.id());
+                    procInfo.setUuidProcesso(uuid);
+                    notificaEvento(uuid,
+                            VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.START.name(),
+                            ctx,
+                            BusinessStatus.RUNNING
+                    );
+                })
+                .then(Mono.defer(()->  Mono.just(procInfo)));
     }
 
 
-    private static GenericStateMachineProcess create(String idVerbale){
-        return new GenericStateMachineProcess(idVerbale,
-                "verbalizzazione",
-                    VerbalizzazioneStateMachineConfig.VerbalizzazioneStatusEnum.INIT.name(),
-                "machineId",
-                "endpoint",
-                ProcessType.SYNC_ORCHESTRATION,
-                null,
-                null,
-                BusinessStatus.RUNNING
-                );
-    }
+
 
 }

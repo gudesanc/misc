@@ -16,7 +16,7 @@ public class ProtocolloServiceImpl implements ProtocolloService {
     private final Logger log = LoggerFactory.getLogger(ProtocolloServiceImpl.class);
     private final WebClient webClient;
 
-    public ProtocolloServiceImpl(WebClient.Builder webClientBuilder, @Value("client.protocollo.endpoint") String endpoint) {
+    public ProtocolloServiceImpl(WebClient.Builder webClientBuilder, @Value("${client.protocollo.endpoint}") String endpoint) {
         this.webClient = webClientBuilder.baseUrl(endpoint).build();
         log.atInfo().setMessage("Endpoint servizi protocollo: {}").addArgument(endpoint).log();
     }
