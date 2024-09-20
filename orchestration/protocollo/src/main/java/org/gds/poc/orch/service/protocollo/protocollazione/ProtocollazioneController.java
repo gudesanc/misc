@@ -36,10 +36,23 @@ public class ProtocollazioneController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Mono<ResponseEntity<Mono<Protocollo>>> annullaProtocolla(@RequestBody Protocollo protocollo){
+    public Mono<ResponseEntity<Mono<Protocollo>>> annullaProtocollo(@RequestBody Protocollo protocollo){
+        return annulla(protocollo);
+    }
+
+    @DeleteMapping(value = "/{struttura}/{anno}/{progressivo}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public Mono<ResponseEntity<Mono<Protocollo>>> annullaProtocollo(
+            @PathVariable("struttura") String struttura, @PathVariable("anno") int anno, @PathVariable("progressivo") int progressivo){
+        Protocollo protocollo = new Protocollo(struttura, anno, progressivo);
+        return annulla(protocollo);
+    }
+
+    private Mono<ResponseEntity<Mono<Protocollo>>> annulla(Protocollo protocollo){
         log.atInfo().setMessage("Richiesta annullamento protocollo: {}").addArgument(protocollo).log();
         return Mono.just(
-                ResponseEntity.status(HttpStatus.CREATED)
+                ResponseEntity.status(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(protocollazioneService.annullaProtocollo(protocollo))
         );

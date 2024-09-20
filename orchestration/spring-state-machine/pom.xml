@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.gds.misc.poc</groupId>
-    <artifactId>spring-state-machine-order</artifactId>
+    <artifactId>spring-state-machine-orchestraton</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-state-machine-cli</name>
-    <description>Order Management with Spring Statemachine</description>
+    <name>spring-state-machine-orchestraton</name>
+    <description>Gestione Orchestrazione con Spring Statemachine</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -43,6 +43,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.statemachine</groupId>
+            <artifactId>spring-statemachine-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

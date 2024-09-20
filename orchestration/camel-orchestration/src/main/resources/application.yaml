@@ -5,3 +5,16 @@ client:
     endpoint: http://localhost:8280
   verbale:
     endpoint: http://localhost:8180
+camel:
+  springboot:
+    tracing: false
+management:
+  server:
+    port: 9080
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

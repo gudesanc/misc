@@ -7,5 +7,14 @@ springdoc:
     path: /v1/jpl/swagger-ui.html
   api-docs:
     path: /v1/jpl-docs
+  show-actuator: true
+#  use-management-port: true
 server:
   port: 8180
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  server:
+    port: 9180

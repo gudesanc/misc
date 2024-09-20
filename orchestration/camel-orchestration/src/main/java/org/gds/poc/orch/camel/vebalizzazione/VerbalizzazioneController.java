@@ -10,11 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/verbalizzazioni")
 public class VerbalizzazioneController{
+
+
 
     @Resource
     private final VerbaleService verbaleService;
@@ -26,20 +31,27 @@ public class VerbalizzazioneController{
 
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<DtoAvvioProcesso> verbalizza(DtoCreaVerbale verbaleDaVerbalizzare){
-        final DtoAvvioProcesso procInfo = new DtoAvvioProcesso();
-        return verbaleService.creaVerbale(verbaleDaVerbalizzare)
-                .doOnSuccess( v -> {
-                    VerbalizzazioneContext ctx = new VerbalizzazioneContext();
-                    ctx.setIdVerbale(v.id());
-                    ctx.setOggettoVerbale(verbaleDaVerbalizzare.oggetto());
-                    String uuid = UUID.randomUUID().toString();;
-                    procInfo.setIdVerbale(v.id());
-                    procInfo.setUuidProcesso(uuid);
-                    producerTemplate.
-                            sendBodyAndHeader("direct:start-verbalizzazione",
-                                    ctx,"X-UUID-OPERAZIONE",uuid);
-                })
-                .then(Mono.defer(()->  Mono.just(procInfo)));
+        String uuid = UUID.randomUUID().toString();;
+        Map<String, Object> headers = new HashMap<>();
+        headers.put(VerbalizzazioneRoute.X_UUID_OPERAZIONE,uuid);
+        producerTemplate.sendBodyAndHeaders("seda:start-verbalizzazione",
+                verbaleDaVerbalizzare,
+                headers
+        );
+        return Mono.just(new DtoAvvioProcesso(uuid));
+//        return verbaleService.creaVerbale(verbaleDaVerbalizzare)
+//                .doOnSuccess( v -> {
+//
+//                    ctx.setIdVerbale(v.id());
+//                    ctx.setOggettoVerbale(verbaleDaVerbalizzare.oggetto());
+//                    String uuid = UUID.randomUUID().toString();;
+//                    procInfo.setIdVerbale(v.id());
+//                    procInfo.setUuidProcesso(uuid);
+//                    producerTemplate.
+//                            sendBodyAndHeader("seda:start-verbalizzazione",
+//                                    ctx,"X-UUID-OPERAZIONE",uuid);
+//                })
+//                .then(Mono.defer(()->  Mono.just(procInfo)));
     }
 
 

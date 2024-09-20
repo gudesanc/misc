@@ -7,4 +7,5 @@
     </root>
     <logger name="org.gds" level="INFO"/>
     <logger name="reactor.netty.http.client" level="OFF"/>
+    <logger name="org.apache.camel" level="INFO"/>
 </configuration>
