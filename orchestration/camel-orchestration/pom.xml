@@ -22,11 +22,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.gds.misc.poc</groupId>
-	<artifactId>camel-orchestraton</artifactId>
+	<artifactId>camel-orchestration</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>camel-orchestraton</name>
+	<name>camel-orchestration</name>
 	<description>Gestione Orchestrazione con Camel </description>
 
 
@@ -105,11 +105,12 @@
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-jackson-starter</artifactId>
 		</dependency>
-		<!-- circuit breaker -->
+		<!-- circuit breaker
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-resilience4j-starter</artifactId>
 		</dependency>
+		-->
 	</dependencies>
 	<build>
 		<plugins>
@@ -124,6 +125,31 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<mainClass>org.gds.poc.orch.camel.Application</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jkube</groupId>
+				<artifactId>kubernetes-maven-plugin</artifactId>
+				<version>1.17.0</version>
+				<configuration>
+					<resources>
+						<labels>
+							<all>
+								<property>
+									<name>type</name>
+									<value>orch</value>
+								</property>
+								<property>
+									<name>dominio</name>
+									<value>jpl</value>
+								</property>
+							</all>
+						</labels>
+						<namespace>jentetest</namespace>
+					</resources>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

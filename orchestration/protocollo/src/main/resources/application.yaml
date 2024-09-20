@@ -9,3 +9,10 @@ springdoc:
     path: /v1/protocollo-docs
 server:
   port: 8280
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  server:
+    port: 9180

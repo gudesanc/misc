@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sagaactivemq-3-ingress.yaml-ingress
+  namespace: jentetest
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: active-mq.minikube
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jente-activemq
+                port:
+                  number: 8161
+    - host: lra-coordinator.minikube
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: lra-coordinator
+                port:
+                  number: 8080

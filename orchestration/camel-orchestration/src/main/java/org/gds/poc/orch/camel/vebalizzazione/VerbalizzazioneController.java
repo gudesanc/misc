@@ -5,6 +5,7 @@ import org.apache.camel.ProducerTemplate;
 import org.gds.poc.orch.camel.client.verbale.DtoCreaVerbale;
 import org.gds.poc.orch.camel.client.verbale.VerbaleService;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,12 @@ public class VerbalizzazioneController{
     private ProducerTemplate producerTemplate;
     public VerbalizzazioneController(VerbaleService verbaleService, ProducerTemplate producerTemplate) {
         this.verbaleService = verbaleService;
+    }
+
+    @GetMapping(value = "/stop")
+    public Mono<String> stop(){
+        System.exit(3);
+        return Mono.just("Addio :)");
     }
 
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

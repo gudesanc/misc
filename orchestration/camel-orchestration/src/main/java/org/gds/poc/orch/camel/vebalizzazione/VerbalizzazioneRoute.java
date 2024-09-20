@@ -12,6 +12,8 @@ import org.gds.poc.orch.camel.client.protocollo.DtoProtocollo;
 import org.gds.poc.orch.camel.client.verbale.DtoVerbale;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.TimeUnit;
+
 @Component
 public class VerbalizzazioneRoute extends RouteBuilder {
 
@@ -29,6 +31,7 @@ public class VerbalizzazioneRoute extends RouteBuilder {
         from("seda:start-verbalizzazione")
                 .routeId("orchestrazione-verbalizzazione")
                 .saga()
+                    .timeout(2, TimeUnit.MINUTES)
                     .option(X_UUID_OPERAZIONE,simple("${header."+X_UUID_OPERAZIONE+"}"))
                     .compensation("direct:verbalizzazione-concluso-fallimento")
                     .completion("direct:verbalizzazione-concluso-successo")
