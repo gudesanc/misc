@@ -1,9 +1,11 @@
 package org.gds.poc.orch.camel;
 
+import org.apache.camel.observation.starter.CamelObservation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@CamelObservation
 public class Application {
 
     public static void main(String[] args) {

@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-collector
+spec:
+  selector:
+    app: otel-collector
+  ports:
+  - name: pprof-extension
+    protocol: TCP
+    port: 1888
+    targetPort: 1888
+  - name: prometheus-metrics-expose
+    protocol: TCP
+    port: 8888
+    targetPort: 8888
+  - name: prometheus-exporter-metrics
+    protocol: TCP
+    port: 8889
+    targetPort: 8889
+  - name: health-check
+    protocol: TCP
+    port: 13133
+    targetPort: 13133
+  - name:  otlp-grpc-receiver
+    protocol: TCP
+    port: 4317
+    targetPort: 4317
+  - name: otlp-http-receiver
+    protocol: TCP
+    port: 4318
+    targetPort: 4318
+  - name: zpages-extension
+    protocol: TCP
+    port: 55679
+    targetPort: 55679
