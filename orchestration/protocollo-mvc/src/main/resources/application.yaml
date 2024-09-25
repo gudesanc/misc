@@ -1,16 +1,19 @@
 spring:
   application:
-    name: ssm-orchestator
+    name: protocollo-mvc
+logging:
+  pattern:
+    correlation: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}] "
+  include-application-name: false
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /v1/protocollo/swagger-ui.html
+  api-docs:
+    path: /v1/protocollo-docs
 server:
-  port: 8080
-client:
-  protocollo:
-    endpoint: http://localhost:8280
-  verbale:
-    endpoint: http://localhost:8180
+  port: 8280
 management:
-  server:
-    port: 9080
   endpoints:
     web:
       exposure:
@@ -27,6 +30,5 @@ management:
   tracing:
     sampling:
       probability: 1.0
-  endpoint:
-    health:
-      show-details: always
+  server:
+    port: 9180
