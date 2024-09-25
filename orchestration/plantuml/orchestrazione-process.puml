@@ -1,0 +1,76 @@
+@startuml
+actor       "BFF\nDomain"       as bff
+
+
+control "Orchestrator\nDomain" as orch
+queue queue as queue
+control "Orchestrator Manager\n<Common>" as mgr
+database    "Storage\nOrchestratorManager\n<Common>"    as db
+collections    "Cache\nOrchestratorManager\n<Common>"    as cache
+
+/'
+  Avvio del processo
+'/
+bff -> orch : Avvia Processo
+activate orch
+orch --> orch: genera UUID
+orch -> queue: Avvio nuovo processo
+queue -> mgr
+activate mgr
+orch --> bff: UUID
+deactivate orch
+mgr -> db: Salva nuovo record
+mgr -> cache: Aggiungi elemento in cache (TTL: 10 min)
+deactivate mgr
+
+/'
+ Eventi nell'avanzamento del processo
+'/
+
+group avanzamento
+orch -> queue: Aggiorna processo
+queue -> mgr
+activate mgr
+mgr -> db: aggiorna record
+mgr -> cache: aggiorna elemento in cache
+deactivate mgr
+
+/'
+ Polling per vedere lo stato del processo
+'/
+
+group polling (da capire chi lo fa :)
+bff -> orch : get stato processo
+activate orch
+activate orch
+orch -> cache: get stato processo
+orch -> mgr: get stato processo (se non trovato in cache)
+deactivate orch
+orch --> bff: stato processo
+deactivate orch
+end
+
+/'
+Conclusione Processo
+'/
+orch -> queue: fine processamento\n(invia rispultato)
+queue -> mgr
+activate mgr
+mgr -> db: aggiorna record\nstato e risultato
+mgr -> cache: aggiorna elemento in cache
+deactivate mgr
+
+/'
+Acquisizione risultato
+'/
+bff -> orch : get risultato
+activate orch
+activate orch
+orch -> cache: get risultato
+orch -> mgr: get risultato (se non trovato in cache)
+deactivate orch
+orch --> bff: risultato\nprocessamento
+deactivate orch
+
+end
+@enduml

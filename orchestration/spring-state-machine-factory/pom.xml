@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.gds.misc.poc</groupId>
-    <artifactId>spring-state-machine-orchestration</artifactId>
+    <artifactId>ssma-orchestration-factory</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-state-machine-orchestration</name>
+    <name>ssma-orchestration-factory</name>
     <description>Gestione Orchestrazione con Spring Statemachine</description>
 
     <parent>
@@ -32,14 +32,14 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <!-- Supporto per persistenza -->
-        <dependency>
-            <groupId>org.springframework.statemachine</groupId>
-            <artifactId>spring-statemachine-recipes-common</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.statemachine</groupId>-->
+<!--            <artifactId>spring-statemachine-recipes-common</artifactId>-->
+<!--        </dependency>-->
         <!-- Metric -->
         <dependency>
             <groupId>io.micrometer</groupId>
@@ -92,6 +92,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>org.gds.poc.orch.ssm.Application</mainClass>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.eclipse.jkube</groupId>
@@ -114,10 +117,6 @@
                         <namespace>jentetest</namespace>
                     </resources>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.graalvm.buildtools</groupId>
-                <artifactId>native-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

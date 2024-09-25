@@ -36,6 +36,26 @@ spec:
                 name: camel-orchestration
                 port:
                   number: 80                  
+    - host: saga-ssm.minikube
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: spring-state-machine-orchestration
+                port:
+                  number: 80 
+    - host: saga-ssm-factory.minikube
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ssma-orchestration-factory
+                port:
+                  number: 80                                    
     - host: prometheus.minikube
       http:
         paths:

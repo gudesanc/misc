@@ -23,6 +23,8 @@ data:
         endpoint: tempo:4317  # tempo container host and port
         tls:
           insecure: true
+      loki:
+        endpoint: "http://loki:3100/loki/api/v1/push"      
 
     extensions:
       # responsible for responding to health check calls on behalf of the collector.
