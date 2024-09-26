@@ -7,4 +7,5 @@
     </root>
     <logger name="org.gds" level="INFO"/>
     <logger name="reactor.netty.http.client" level="OFF"/>
+    <logger name="okhttp3.OkHttpClient" level="DEBUG"/>
 </configuration>

@@ -46,12 +46,16 @@ public abstract class GenericSateMachineController<T> {
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         log.atInfo().setMessage("Tempo creazione ed avvio state machine: {} (ms)").addArgument(duration).log();
+        machine.getExtendedState().getVariables().put(X_UUID_GENERIC, uuid);
+        machine.getExtendedState().getVariables().put(X_BUSINESS_CTX,json);
+        machine.getExtendedState().getVariables().put(X_BUSINESS_STATUS, BusinessStatus.RUNNING);
+
         //Mandiamo l'evento inizale...
         Message<String> msg =MessageBuilder
                 .withPayload(event)
-                .setHeader(X_UUID_GENERIC, uuid)
-                .setHeader(X_BUSINESS_CTX,json)
-                .setHeader(X_BUSINESS_STATUS, BusinessStatus.RUNNING)
+//                .setHeader(X_UUID_GENERIC, uuid)
+//                .setHeader(X_BUSINESS_CTX,json)
+//                .setHeader(X_BUSINESS_STATUS, BusinessStatus.RUNNING)
                 .build();
         machine.sendEvent(Mono.just(msg))
                 .subscribe(s->{

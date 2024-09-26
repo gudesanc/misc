@@ -67,7 +67,7 @@ public class ProtocolloServiceImpl implements ProtocolloService {
                             .log();
                     throw new UnsupportedOperationException("Error: " + bodyAsString);
 
-                }));
+                })).toBodilessEntity();
         log.atInfo().setMessage("Procollo {} annullato con successo")
                 .addArgument(protocollo)
                 .log();

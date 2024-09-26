@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @Configuration
-@EnableStateMachineFactory
+@EnableStateMachineFactory(name = "verbalizzazione")
 public class VerbalizzazioneStateMachineConfig extends StateMachineConfigurerAdapter<String, String> {
     @Resource
     private StateMachineLogListener stateMachineLogListener;    @Resource

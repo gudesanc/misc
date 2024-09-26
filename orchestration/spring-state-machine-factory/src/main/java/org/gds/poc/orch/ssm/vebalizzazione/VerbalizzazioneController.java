@@ -8,6 +8,7 @@ import org.gds.poc.orch.ssm.libreria.AvviaStateMachineRequest;
 import org.gds.poc.orch.ssm.libreria.BusinessStatus;
 import org.gds.poc.orch.ssm.libreria.GenericSateMachineController;
 import org.gds.poc.orch.ssm.libreria.ProcessType;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.statemachine.config.StateMachineFactory;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,8 @@ public class VerbalizzazioneController extends GenericSateMachineController<Verb
 
     @Resource
     private final VerbaleService verbaleService;
-    public VerbalizzazioneController(VerbaleService verbaleService, StateMachineFactory<String,String> factory) {
+    public VerbalizzazioneController(VerbaleService verbaleService,
+                                     @Qualifier( "verbalizzazione") StateMachineFactory<String,String> factory) {
         super(factory);
         this.verbaleService = verbaleService;
     }

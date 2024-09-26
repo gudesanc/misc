@@ -28,9 +28,12 @@ public abstract class GenericStateMachineAction<T> implements Action<String, Str
 
     @Override
     public final void execute(StateContext<String, String> stateContext) {
-        String uuid = (String) stateContext.getMessageHeader(GenericSateMachineController.X_UUID_GENERIC);
-        String jsonBusinessContext = (String) stateContext.getMessageHeader(GenericSateMachineController.X_BUSINESS_CTX);
-        BusinessStatus bs = (BusinessStatus) stateContext.getMessageHeader(GenericSateMachineController.X_BUSINESS_STATUS);
+//        String uuid = (String) stateContext.getMessageHeader(GenericSateMachineController.X_UUID_GENERIC);
+        String uuid = (String) stateContext.getExtendedState().getVariables().get(GenericSateMachineController.X_UUID_GENERIC);
+//        String jsonBusinessContext = (String) stateContext.getMessageHeader(GenericSateMachineController.X_BUSINESS_CTX);
+        String jsonBusinessContext = (String) stateContext.getExtendedState().getVariables().get(GenericSateMachineController.X_BUSINESS_CTX);
+//        BusinessStatus bs = (BusinessStatus) stateContext.getMessageHeader(GenericSateMachineController.X_BUSINESS_STATUS);
+        BusinessStatus bs = (BusinessStatus) stateContext.getExtendedState().getVariables().get(GenericSateMachineController.X_BUSINESS_STATUS);
         T businessCtx = null;
         if(jsonBusinessContext!=null){
             businessCtx = BusinessContextJsonSerializer.deserialize(jsonBusinessContext,businessCtxClass);
@@ -42,12 +45,19 @@ public abstract class GenericStateMachineAction<T> implements Action<String, Str
             json = BusinessContextJsonSerializer.serialize(actionResult.businessContext());
         }
 
+        stateContext.getExtendedState().getVariables().put(GenericSateMachineController.X_UUID_GENERIC, uuid);
+        if(json!=null){
+            stateContext.getExtendedState().getVariables().put(GenericSateMachineController.X_BUSINESS_CTX, json);
+        }
+        if(actionResult.nuovoBusinessStatus()!=null){
+            stateContext.getExtendedState().getVariables().put(GenericSateMachineController.X_BUSINESS_STATUS, actionResult.nuovoBusinessStatus());
+        }
         //Mandiamo l'evento inizale...
         Message<String> msg = MessageBuilder
                 .withPayload(actionResult.evento())
-                .setHeader(GenericSateMachineController.X_UUID_GENERIC, uuid)
-                .setHeader(GenericSateMachineController.X_BUSINESS_CTX,json)
-                .setHeader(GenericSateMachineController.X_BUSINESS_STATUS, actionResult.nuovoBusinessStatus())
+//                .setHeader(GenericSateMachineController.X_UUID_GENERIC, uuid)
+//                .setHeader(GenericSateMachineController.X_BUSINESS_CTX,json)
+//                .setHeader(GenericSateMachineController.X_BUSINESS_STATUS, actionResult.nuovoBusinessStatus())
                 .build();
         machine.sendEvent(Mono.just(msg))
                 .subscribe(s->{
