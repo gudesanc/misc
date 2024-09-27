@@ -14,6 +14,9 @@ public class OrchestrationProcess {
     @Id
     @Column(name = "UUID", nullable = false, length = 255)
     private String uuid;
+    @Version
+    @Column(name = "VERSION")
+    private Long version;
 
     @Column(name = "TENANT_ID", nullable = false, length = 255)
     private String tenantId;

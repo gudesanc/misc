@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/verbalizzazioni")
-public class VerbalizzazioneController extends GenericSateMachineController<VerbalizzazioneContext>{
+public class VerbalizzazioneController extends GenericSateMachineController<VerbalizzazioneContext,VerbalizzazioneResult>{
 
     @Resource
     private final VerbaleService verbaleService;
@@ -40,7 +40,7 @@ public class VerbalizzazioneController extends GenericSateMachineController<Verb
                 "verbalizzazione",
                 "endpoint",
                 ctx,
-                ProcessType.SYNC_ORCHESTRATION,null
+                ProcessType.PSEUDO_SYNCH,null
         );
 
         String uuid = createNewProcess(request, VerbalizzazioneStateMachineConfig.VerbalizzazioneEventEnum.START.name());

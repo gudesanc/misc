@@ -32,7 +32,7 @@ public class OrchestrationProcessServiceImpl implements OrchestrationProcessServ
                 nuovoProcesso.uuid(),nuovoProcesso.tenantId(),nuovoProcesso.ente(),
                 user,nuovoProcesso.area(),nuovoProcesso.procedura(),
                 nuovoProcesso.stateMachineID(),nuovoProcesso.domainOrchEndpoint(),
-                nuovoProcesso.stateMachineInitialState(), LocalDateTime.now(),
+                nuovoProcesso.stateMachineInitialState(), nuovoProcesso.creationTimestamp(),
                 nuovoProcesso.processType(),BusinessState.RUNNING,nuovoProcesso.parentUuid(),
                 nuovoProcesso.ctx()
         );
@@ -75,14 +75,14 @@ public class OrchestrationProcessServiceImpl implements OrchestrationProcessServ
                 processo.setResult(aggiornamentoProcesso.result());
             }
             if(processo.getBusinessState().isFinalState()){
-                processo.setEndTime(LocalDateTime.now());
+                processo.setEndTime(aggiornamentoProcesso.eventTimestamp());
             }
             processRepository.save(processo);
             LOG.atDebug().setMessage("Processo: {} aggiornato")
                     .addArgument(processo)
                     .log();
             OrchestrationProcessHistory history = new OrchestrationProcessHistory(
-                    aggiornamentoProcesso.uuid(),LocalDateTime.now(),
+                    aggiornamentoProcesso.uuid(),aggiornamentoProcesso.eventTimestamp(),
                     startBusinessState,processo.getBusinessState(),startSMState,processo.getStateMachinCurrentState());
             historyRepository.save(history);
             LOG.atDebug().setMessage("Record history: {} inserito")

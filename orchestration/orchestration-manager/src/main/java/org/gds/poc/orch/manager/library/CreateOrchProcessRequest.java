@@ -3,10 +3,14 @@ package org.gds.poc.orch.manager.library;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.time.LocalDateTime;
+
 public record CreateOrchProcessRequest(
 
         @NotBlank(message = "L'identificativo del processo di orchestrazione non può essere vuoto")
         String uuid,
+        @NotNull(message = "La data di creazione processo è obbligatoria")
+        LocalDateTime creationTimestamp,
         String parentUuid,
         @NotBlank(message = "L'identificativo del tenant è obbligatorio")
         String tenantId,

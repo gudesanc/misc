@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/notificazione")
-public class NotificazioneController extends GenericSateMachineController<NotificazioneContext>{
+public class NotificazioneController extends GenericSateMachineController<NotificazioneContext,Void>{
 
     public NotificazioneController(
                                      @Qualifier( "notificazione") StateMachineFactory<String,String> factory) {
@@ -32,7 +32,7 @@ public class NotificazioneController extends GenericSateMachineController<Notifi
                 "verbalizzazione",
                 "endpoint",
                 ctx,
-                ProcessType.SYNC_ORCHESTRATION,null
+                ProcessType.PSEUDO_SYNCH,null
         );
 
         String uuid = createNewProcess(request, NotificazioneStateMachineConfig.NotificazioneEventEnum.START.name());

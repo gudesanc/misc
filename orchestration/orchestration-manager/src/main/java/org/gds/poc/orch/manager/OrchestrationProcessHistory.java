@@ -15,6 +15,10 @@ public class OrchestrationProcessHistory {
     @Column(name = "ID", nullable = false)
     private Integer id;
 
+    @Version
+    @Column(name = "VERSION")
+    private Long version;
+
     @Column(name = "PROCESS_UUID", nullable = false)
     private String processUUID;
 

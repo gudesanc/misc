@@ -2,8 +2,7 @@ package org.gds.poc.orch.ssm.notificazione;
 
 import org.gds.poc.orch.ssm.client.protocollo.ProtocolloService;
 import org.gds.poc.orch.ssm.libreria.ActionResult;
-import org.gds.poc.orch.ssm.libreria.BusinessStatus;
-import org.gds.poc.orch.ssm.libreria.GenericStateMachineAction;
+import org.gds.poc.orch.ssm.libreria.BusinessState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.statemachine.StateContext;
@@ -11,12 +10,11 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class NotificazioneAnnullaProtocolloAction extends GenericStateMachineAction<NotificazioneContext> {
+public class NotificazioneAnnullaProtocolloAction extends AbstractNotificazioneAction{
     private final Logger log = LoggerFactory.getLogger(NotificazioneAnnullaProtocolloAction.class);
     private final ProtocolloService protocolloService;
 
     public NotificazioneAnnullaProtocolloAction( ProtocolloService protocolloService) {
-        super(NotificazioneContext.class);
         this.protocolloService = protocolloService;
 
     }
@@ -24,14 +22,14 @@ public class NotificazioneAnnullaProtocolloAction extends GenericStateMachineAct
 
 
     @Override
-    public ActionResult<NotificazioneContext> execute(String uuid, final NotificazioneContext businessCxt, BusinessStatus bs, StateContext<String, String> stateContext) {
+    public ActionResult<NotificazioneContext,Void> execute(String uuid, final NotificazioneContext businessCxt, BusinessState bs, StateContext<String, String> stateContext) {
 
         log.atDebug().setMessage("Inizio annullamento protocollo per uuid {}, businessCxt: {}, bs: {}")
                 .addArgument(uuid)
                 .addArgument(businessCxt)
                 .addArgument(bs)
                 .log();
-        ActionResult<NotificazioneContext> result;
+        ActionResult<NotificazioneContext,Void> result;
         try {
             protocolloService.annullaProtocollo(businessCxt.getProtocollo());
             log.atInfo().setMessage("{} Protocollo {} annullato")
@@ -42,7 +40,7 @@ public class NotificazioneAnnullaProtocolloAction extends GenericStateMachineAct
 
         }
         return new ActionResult<>(uuid, NotificazioneStateMachineConfig.NotificazioneEventEnum.NOTIFICA_CAMBIATO_STATO_PROTOCOLLO.name(),
-                businessCxt,BusinessStatus.FAILED);
+                businessCxt, BusinessState.FAILED);
 
     }
 }

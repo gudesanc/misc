@@ -1,9 +1,7 @@
 package org.gds.poc.orch.ssm.libreria;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Processo gereric
@@ -17,11 +15,11 @@ public class GenericStateMachineProcess {
     private String endPointManager;
     private ProcessType processType;
     private String parentUUID;
-    private BusinessStatus businessStatus;
+    private BusinessState businessStatus;
     private String jsonBusinessContext;
     private List<String> history = new ArrayList<>();
 
-    public GenericStateMachineProcess(String businessId, String processName, String currentState, String machineId, String endPointManager, ProcessType processType, String parentUUID, String jsonBusinessContext, BusinessStatus businessStatus) {
+    public GenericStateMachineProcess(String businessId, String processName, String currentState, String machineId, String endPointManager, ProcessType processType, String parentUUID, String jsonBusinessContext, BusinessState businessStatus) {
         this.businessId = businessId;
         this.processName = processName;
         this.currentState = currentState;
@@ -71,7 +69,7 @@ public class GenericStateMachineProcess {
     }
 
 
-    public BusinessStatus getBusinessStatus() {
+    public BusinessState getBusinessStatus() {
         return businessStatus;
     }
 
@@ -88,7 +86,7 @@ public class GenericStateMachineProcess {
         this.jsonBusinessContext = jsonBusinessContext;
     }
 
-    public void setBusinessStatus(BusinessStatus businessStatus) {
+    public void setBusinessStatus(BusinessState businessStatus) {
         this.businessStatus = businessStatus;
     }
 
