@@ -41,7 +41,7 @@ public class NotificazioneAnnullaProtocolloAction extends GenericStateMachineAct
                     .addArgument(uuid).addArgument(t).log();
 
         }
-        return new ActionResult<>(uuid, NotificazioneStateMachineConfig.NotificazioneChangeEventEnum.NOTIFICA_CAMBIATO_STATO_PROTOCOLLO.name(),
+        return new ActionResult<>(uuid, NotificazioneStateMachineConfig.NotificazioneEventEnum.NOTIFICA_CAMBIATO_STATO_PROTOCOLLO.name(),
                 businessCxt,BusinessStatus.FAILED);
 
     }

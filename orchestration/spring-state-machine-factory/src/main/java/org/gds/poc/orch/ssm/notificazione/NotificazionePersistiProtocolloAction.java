@@ -29,14 +29,14 @@ public class NotificazionePersistiProtocolloAction extends GenericStateMachineAc
             log.atInfo().setMessage("{} Notifica consolidato: {}")
                     .addArgument(uuid)
                     .addArgument(businessCtx.getIdNotifica()).log();
-            return new ActionResult<>(uuid, NotificazioneStateMachineConfig.NotificazioneChangeEventEnum.PROTOCOLLO_IMPOSTATO_SU_NOTIFICA.name(),
+            return new ActionResult<>(uuid, NotificazioneStateMachineConfig.NotificazioneEventEnum.PROTOCOLLO_IMPOSTATO_SU_NOTIFICA.name(),
                     businessCtx,BusinessStatus.COMPLETED);
 
         }else{
             log.atWarn().setMessage("{} Errore consolidamento notifica : {}")
                     .addArgument(uuid)
                     .addArgument("...non divisibile per 2").log();
-            return new ActionResult<>(uuid, NotificazioneStateMachineConfig.NotificazioneChangeEventEnum.PRTOCOLLO_NON_IMPOSTATO_SU_NOTIFICA.name(),businessCtx,BusinessStatus.RUNNING);
+            return new ActionResult<>(uuid, NotificazioneStateMachineConfig.NotificazioneEventEnum.PRTOCOLLO_NON_IMPOSTATO_SU_NOTIFICA.name(),businessCtx,BusinessStatus.RUNNING);
         }
     }
 }

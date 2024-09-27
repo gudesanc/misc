@@ -27,7 +27,7 @@ public class NotificazioneController extends GenericSateMachineController<Notifi
         ctx.setOggettoNotifica(notificazione.oggettoNotifica());
         AvviaStateMachineRequest<NotificazioneContext> request = new
                 AvviaStateMachineRequest<>(
-                NotificazioneStateMachineConfig.NotificazioneStatusEnum.INIT.name(),
+                NotificazioneStateMachineConfig.NotificazioneStateEnum.INIT.name(),
                 "machineId",
                 "verbalizzazione",
                 "endpoint",
@@ -35,7 +35,7 @@ public class NotificazioneController extends GenericSateMachineController<Notifi
                 ProcessType.SYNC_ORCHESTRATION,null
         );
 
-        String uuid = createNewProcess(request, NotificazioneStateMachineConfig.NotificazioneChangeEventEnum.START.name());
+        String uuid = createNewProcess(request, NotificazioneStateMachineConfig.NotificazioneEventEnum.START.name());
         return new DtoAvvioProcesso(uuid);
 
     }

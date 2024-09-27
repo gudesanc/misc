@@ -40,7 +40,7 @@ public class NotificazioneAcquisciProtocolloAction  extends GenericStateMachineA
                     .addArgument(protocollo).log();
             businessCxt.setProtocollo(protocollo);
             return new ActionResult<>(uuid,
-                    NotificazioneStateMachineConfig.NotificazioneChangeEventEnum.NOTIFICA_PROTOCOLLO_ACQUISITO.name(),
+                    NotificazioneStateMachineConfig.NotificazioneEventEnum.NOTIFICA_PROTOCOLLO_ACQUISITO.name(),
                     businessCxt,
                     BusinessStatus.RUNNING);
         }
@@ -49,7 +49,7 @@ public class NotificazioneAcquisciProtocolloAction  extends GenericStateMachineA
                     .addArgument(uuid)
                     .addArgument(t).log();
             return new ActionResult<>(uuid,
-                    NotificazioneStateMachineConfig.NotificazioneChangeEventEnum.NOTIFICA_PROTOCOLLO_NON_ACQUISTO.name(),
+                    NotificazioneStateMachineConfig.NotificazioneEventEnum.NOTIFICA_PROTOCOLLO_NON_ACQUISTO.name(),
                     businessCxt,
                     BusinessStatus.RUNNING);
         }

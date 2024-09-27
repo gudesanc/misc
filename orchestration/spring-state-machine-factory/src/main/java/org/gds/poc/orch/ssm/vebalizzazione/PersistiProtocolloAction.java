@@ -35,13 +35,13 @@ public class PersistiProtocolloAction extends GenericStateMachineAction<Verbaliz
         log.atInfo().setMessage("{} Verbale consolidato: {}")
                 .addArgument(uuid)
                 .addArgument(verbale).log();
-        return new ActionResult<>(uuid, VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.PROTOCOLLO_IMPOSTATO_SU_VERBALE.name(),
+        return new ActionResult<>(uuid, VerbalizzazioneStateMachineConfig.VerbalizzazioneEventEnum.PROTOCOLLO_IMPOSTATO_SU_VERBALE.name(),
                 businessCtx,BusinessStatus.COMPLETED);
         }catch (Throwable t){
             log.atWarn().setMessage("{} Errore consolidamento verbale : {}")
                     .addArgument(uuid)
                     .addArgument(t).log();
-            return new ActionResult<>(uuid, VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.PRTOCOLLO_NON_IMPOSTATO_SU_VERBALE.name(),businessCtx,BusinessStatus.RUNNING);
+            return new ActionResult<>(uuid, VerbalizzazioneStateMachineConfig.VerbalizzazioneEventEnum.PRTOCOLLO_NON_IMPOSTATO_SU_VERBALE.name(),businessCtx,BusinessStatus.RUNNING);
         }
     }
 }

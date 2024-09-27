@@ -37,6 +37,6 @@ public class AnnullaVerbaleAction extends GenericStateMachineAction<Verbalizzazi
                     .log();
         }
         return new ActionResult<>(uuid,
-                VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.CAMBIATO_STATO_VERBALE.name(),businessCtx,BusinessStatus.FAILED);
+                VerbalizzazioneStateMachineConfig.VerbalizzazioneEventEnum.CAMBIATO_STATO_VERBALE.name(),businessCtx,BusinessStatus.FAILED);
     }
 }

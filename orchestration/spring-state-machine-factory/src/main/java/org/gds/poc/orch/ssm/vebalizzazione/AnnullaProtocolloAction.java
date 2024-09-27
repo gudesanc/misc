@@ -1,6 +1,5 @@
 package org.gds.poc.orch.ssm.vebalizzazione;
 
-import org.gds.poc.orch.ssm.client.protocollo.DtoCreaProtocollo;
 import org.gds.poc.orch.ssm.client.protocollo.ProtocolloService;
 import org.gds.poc.orch.ssm.libreria.ActionResult;
 import org.gds.poc.orch.ssm.libreria.BusinessStatus;
@@ -9,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.statemachine.StateContext;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestClient;
 
 
 @Component
@@ -43,7 +41,7 @@ public class AnnullaProtocolloAction extends GenericStateMachineAction<Verbalizz
                     .addArgument(uuid).addArgument(t).log();
 
         }
-        return new ActionResult<>(uuid,VerbalizzazioneStateMachineConfig.VerbalizzazioneChangeEventEnum.CAMBIATO_STATO_PROTOCOLLO.name(),
+        return new ActionResult<>(uuid, VerbalizzazioneStateMachineConfig.VerbalizzazioneEventEnum.CAMBIATO_STATO_PROTOCOLLO.name(),
                 businessCxt,BusinessStatus.FAILED);
 
     }

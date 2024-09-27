@@ -2,9 +2,31 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
-    <root level="INFO">
-        <appender-ref ref="CONSOLE" />
-    </root>
+    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+        <http>
+            <url>http://loki:3100/loki/api/v1/push</url>
+        </http>
+        <format>
+            <label>
+                <pattern>app=${appName},host=${HOSTNAME},traceID=%X{traceId:-NONE},level=%level</pattern>
+            </label>
+            <message>
+                <pattern>${FILE_LOG_PATTERN}</pattern>
+            </message>
+            <sortByTime>true</sortByTime>
+        </format>
+    </appender>
+    <springProfile name="k8s">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="LOKI"/>
+        </root>
+    </springProfile>
+    <springProfile name="!k8">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </springProfile>
     <logger name="org.gds" level="INFO"/>
     <logger name="reactor.netty.http.client" level="OFF"/>
     <logger name="okhttp3.OkHttpClient" level="DEBUG"/>

@@ -42,15 +42,15 @@ public class NotificazioneStateMachineConfig extends StateMachineConfigurerAdapt
     @Override
     public void configure(StateMachineStateConfigurer<String, String> states) throws Exception {
         states.withStates()
-                .initial(NotificazioneStatusEnum.INIT.name())
-                .state(NotificazioneStatusEnum.NOTIFICA_IN_BOZZA.name(),notificazioneAcquisciProtocolloAction)
-                .state(NotificazioneStatusEnum.NOTIFICA_DA_PERSISTERE_PROTOCOLLO.name(),notificazionePersistiProtocolloAction)
-                .state(NotificazioneStatusEnum.NOTIFICA_DA_ANNULLARE_PROTOCOLLO.name(),notificazioneAnnullaProtocolloAction)
-                .state(NotificazioneStatusEnum.DA_ANNULLARE_NOTIFICA.name(),notificazioneAnnullaVerbaleAction)
-                .end(NotificazioneStatusEnum.NOTIFICA_CONSOLIDATO.name())
-                .end(NotificazioneStatusEnum.NOTIFICA_ANNULLATA.name())
-                .end(NotificazioneStatusEnum.NOTIFICA_PROTOCOLLO_ANNULLATO.name())
-                .states(Arrays.stream(NotificazioneStatusEnum.values()).map(NotificazioneStatusEnum::name).collect(Collectors.toSet()));
+                .initial(NotificazioneStateEnum.INIT.name())
+                .state(NotificazioneStateEnum.NOTIFICA_IN_BOZZA.name(),notificazioneAcquisciProtocolloAction)
+                .state(NotificazioneStateEnum.NOTIFICA_DA_PERSISTERE_PROTOCOLLO.name(),notificazionePersistiProtocolloAction)
+                .state(NotificazioneStateEnum.NOTIFICA_DA_ANNULLARE_PROTOCOLLO.name(),notificazioneAnnullaProtocolloAction)
+                .state(NotificazioneStateEnum.DA_ANNULLARE_NOTIFICA.name(),notificazioneAnnullaVerbaleAction)
+                .end(NotificazioneStateEnum.NOTIFICA_CONSOLIDATO.name())
+                .end(NotificazioneStateEnum.NOTIFICA_ANNULLATA.name())
+                .end(NotificazioneStateEnum.NOTIFICA_PROTOCOLLO_ANNULLATO.name())
+                .states(Arrays.stream(NotificazioneStateEnum.values()).map(NotificazioneStateEnum::name).collect(Collectors.toSet()));
     }
 
     /**
@@ -60,30 +60,30 @@ public class NotificazioneStateMachineConfig extends StateMachineConfigurerAdapt
     public void configure(StateMachineTransitionConfigurer<String, String> transitions) throws Exception {
         transitions
                 .withExternal()
-                .source(NotificazioneStatusEnum.INIT.name()).target(NotificazioneStatusEnum.NOTIFICA_IN_BOZZA.name())
-                    .event(NotificazioneChangeEventEnum.START.name())
+                .source(NotificazioneStateEnum.INIT.name()).target(NotificazioneStateEnum.NOTIFICA_IN_BOZZA.name())
+                    .event(NotificazioneEventEnum.START.name())
                 .and().withExternal()
-                .source(NotificazioneStatusEnum.NOTIFICA_IN_BOZZA.name()).target(NotificazioneStatusEnum.NOTIFICA_DA_PERSISTERE_PROTOCOLLO.name())
-                    .event(NotificazioneChangeEventEnum.NOTIFICA_PROTOCOLLO_ACQUISITO.name())
+                .source(NotificazioneStateEnum.NOTIFICA_IN_BOZZA.name()).target(NotificazioneStateEnum.NOTIFICA_DA_PERSISTERE_PROTOCOLLO.name())
+                    .event(NotificazioneEventEnum.NOTIFICA_PROTOCOLLO_ACQUISITO.name())
                 .and().withExternal()
-                .source(NotificazioneStatusEnum.NOTIFICA_IN_BOZZA.name()).target(NotificazioneStatusEnum.DA_ANNULLARE_NOTIFICA.name())
-                    .event(NotificazioneChangeEventEnum.NOTIFICA_PROTOCOLLO_NON_ACQUISTO.name())
+                .source(NotificazioneStateEnum.NOTIFICA_IN_BOZZA.name()).target(NotificazioneStateEnum.DA_ANNULLARE_NOTIFICA.name())
+                    .event(NotificazioneEventEnum.NOTIFICA_PROTOCOLLO_NON_ACQUISTO.name())
                 .and().withExternal()
-                .source(NotificazioneStatusEnum.NOTIFICA_DA_PERSISTERE_PROTOCOLLO.name()).target(NotificazioneStatusEnum.NOTIFICA_CONSOLIDATO.name())
-                    .event(NotificazioneChangeEventEnum.PROTOCOLLO_IMPOSTATO_SU_NOTIFICA.name())
+                .source(NotificazioneStateEnum.NOTIFICA_DA_PERSISTERE_PROTOCOLLO.name()).target(NotificazioneStateEnum.NOTIFICA_CONSOLIDATO.name())
+                    .event(NotificazioneEventEnum.PROTOCOLLO_IMPOSTATO_SU_NOTIFICA.name())
                 .and().withExternal()
-                .source(NotificazioneStatusEnum.NOTIFICA_DA_PERSISTERE_PROTOCOLLO.name()).target(NotificazioneStatusEnum.DA_ANNULLARE_NOTIFICA.name())
-                    .event(NotificazioneChangeEventEnum.PRTOCOLLO_NON_IMPOSTATO_SU_NOTIFICA.name())
+                .source(NotificazioneStateEnum.NOTIFICA_DA_PERSISTERE_PROTOCOLLO.name()).target(NotificazioneStateEnum.DA_ANNULLARE_NOTIFICA.name())
+                    .event(NotificazioneEventEnum.PRTOCOLLO_NON_IMPOSTATO_SU_NOTIFICA.name())
                 .and().withExternal()
-                .source(NotificazioneStatusEnum.DA_ANNULLARE_NOTIFICA.name()).target(NotificazioneStatusEnum.NOTIFICA_ANNULLATA.name())
-                    .event(NotificazioneChangeEventEnum.CAMBIATO_STATO_NOTIFICA.name())
+                .source(NotificazioneStateEnum.DA_ANNULLARE_NOTIFICA.name()).target(NotificazioneStateEnum.NOTIFICA_ANNULLATA.name())
+                    .event(NotificazioneEventEnum.CAMBIATO_STATO_NOTIFICA.name())
                 .and().withExternal()
-                .source(NotificazioneStatusEnum.NOTIFICA_DA_ANNULLARE_PROTOCOLLO.name()).target(NotificazioneStatusEnum.NOTIFICA_PROTOCOLLO_ANNULLATO.name())
-                    .event(NotificazioneChangeEventEnum.CAMBIATO_STATO_NOTIFICA.name())
+                .source(NotificazioneStateEnum.NOTIFICA_DA_ANNULLARE_PROTOCOLLO.name()).target(NotificazioneStateEnum.NOTIFICA_PROTOCOLLO_ANNULLATO.name())
+                    .event(NotificazioneEventEnum.CAMBIATO_STATO_NOTIFICA.name())
         ;
     }
 
-    public enum NotificazioneStatusEnum{
+    public enum NotificazioneStateEnum {
         INIT,
         NOTIFICA_IN_BOZZA,
         NOTIFICA_DA_PERSISTERE_PROTOCOLLO,
@@ -94,7 +94,7 @@ public class NotificazioneStateMachineConfig extends StateMachineConfigurerAdapt
         NOTIFICA_PROTOCOLLO_ANNULLATO
     }
 
-    public enum NotificazioneChangeEventEnum{
+    public enum NotificazioneEventEnum {
         START,
         NOTIFICA_PROTOCOLLO_ACQUISITO,
         NOTIFICA_PROTOCOLLO_NON_ACQUISTO,

@@ -41,15 +41,15 @@ public class VerbalizzazioneStateMachineConfig extends StateMachineConfigurerAda
     @Override
     public void configure(StateMachineStateConfigurer<String, String> states) throws Exception {
         states.withStates()
-                .initial(VerbalizzazioneStatusEnum.INIT.name())
-                .state(VerbalizzazioneStatusEnum.VERBALE_IN_BOZZA.name(),acquisciProtocolloAction)
-                .state(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name(),persistiProcolloAction)
-                .state(VerbalizzazioneStatusEnum.DA_ANNULLARE_PROTOCOLLO.name(),annullaProtocolloAction)
-                .state(VerbalizzazioneStatusEnum.DA_ANNULLARE_VERBALE.name(),annullaVerbaleAction)
-                .end(VerbalizzazioneStatusEnum.VERBALE_CONSOLIDATO.name())
-                .end(VerbalizzazioneStatusEnum.VERBALE_ANNULLATO.name())
-                .end(VerbalizzazioneStatusEnum.PROTOCOLLO_ANNULLATO.name())
-                .states(Arrays.stream(VerbalizzazioneStatusEnum.values()).map(VerbalizzazioneStatusEnum::name).collect(Collectors.toSet()));
+                .initial(VerbalizzazioneStateEnum.INIT.name())
+                .state(VerbalizzazioneStateEnum.VERBALE_IN_BOZZA.name(),acquisciProtocolloAction)
+                .state(VerbalizzazioneStateEnum.DA_PERSISTERE_PROTOCOLLO.name(),persistiProcolloAction)
+                .state(VerbalizzazioneStateEnum.DA_ANNULLARE_PROTOCOLLO.name(),annullaProtocolloAction)
+                .state(VerbalizzazioneStateEnum.DA_ANNULLARE_VERBALE.name(),annullaVerbaleAction)
+                .end(VerbalizzazioneStateEnum.VERBALE_CONSOLIDATO.name())
+                .end(VerbalizzazioneStateEnum.VERBALE_ANNULLATO.name())
+                .end(VerbalizzazioneStateEnum.PROTOCOLLO_ANNULLATO.name())
+                .states(Arrays.stream(VerbalizzazioneStateEnum.values()).map(VerbalizzazioneStateEnum::name).collect(Collectors.toSet()));
     }
 
     /**
@@ -59,30 +59,30 @@ public class VerbalizzazioneStateMachineConfig extends StateMachineConfigurerAda
     public void configure(StateMachineTransitionConfigurer<String, String> transitions) throws Exception {
         transitions
                 .withExternal()
-                .source(VerbalizzazioneStatusEnum.INIT.name()).target(VerbalizzazioneStatusEnum.VERBALE_IN_BOZZA.name())
-                    .event(VerbalizzazioneChangeEventEnum.START.name())
+                .source(VerbalizzazioneStateEnum.INIT.name()).target(VerbalizzazioneStateEnum.VERBALE_IN_BOZZA.name())
+                    .event(VerbalizzazioneEventEnum.START.name())
                 .and().withExternal()
-                .source(VerbalizzazioneStatusEnum.VERBALE_IN_BOZZA.name()).target(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name())
-                    .event(VerbalizzazioneChangeEventEnum.PROTOCOLLO_ACQUISITO.name())
+                .source(VerbalizzazioneStateEnum.VERBALE_IN_BOZZA.name()).target(VerbalizzazioneStateEnum.DA_PERSISTERE_PROTOCOLLO.name())
+                    .event(VerbalizzazioneEventEnum.PROTOCOLLO_ACQUISITO.name())
                 .and().withExternal()
-                .source(VerbalizzazioneStatusEnum.VERBALE_IN_BOZZA.name()).target(VerbalizzazioneStatusEnum.DA_ANNULLARE_VERBALE.name())
-                    .event(VerbalizzazioneChangeEventEnum.PROTOCOLLO_NON_ACQUISTO.name())
+                .source(VerbalizzazioneStateEnum.VERBALE_IN_BOZZA.name()).target(VerbalizzazioneStateEnum.DA_ANNULLARE_VERBALE.name())
+                    .event(VerbalizzazioneEventEnum.PROTOCOLLO_NON_ACQUISTO.name())
                 .and().withExternal()
-                .source(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name()).target(VerbalizzazioneStatusEnum.VERBALE_CONSOLIDATO.name())
-                    .event(VerbalizzazioneChangeEventEnum.PROTOCOLLO_IMPOSTATO_SU_VERBALE.name())
+                .source(VerbalizzazioneStateEnum.DA_PERSISTERE_PROTOCOLLO.name()).target(VerbalizzazioneStateEnum.VERBALE_CONSOLIDATO.name())
+                    .event(VerbalizzazioneEventEnum.PROTOCOLLO_IMPOSTATO_SU_VERBALE.name())
                 .and().withExternal()
-                .source(VerbalizzazioneStatusEnum.DA_PERSISTERE_PROTOCOLLO.name()).target(VerbalizzazioneStatusEnum.DA_ANNULLARE_PROTOCOLLO.name())
-                    .event(VerbalizzazioneChangeEventEnum.PRTOCOLLO_NON_IMPOSTATO_SU_VERBALE.name())
+                .source(VerbalizzazioneStateEnum.DA_PERSISTERE_PROTOCOLLO.name()).target(VerbalizzazioneStateEnum.DA_ANNULLARE_PROTOCOLLO.name())
+                    .event(VerbalizzazioneEventEnum.PRTOCOLLO_NON_IMPOSTATO_SU_VERBALE.name())
                 .and().withExternal()
-                .source(VerbalizzazioneStatusEnum.DA_ANNULLARE_VERBALE.name()).target(VerbalizzazioneStatusEnum.VERBALE_ANNULLATO.name())
-                    .event(VerbalizzazioneChangeEventEnum.CAMBIATO_STATO_VERBALE.name())
+                .source(VerbalizzazioneStateEnum.DA_ANNULLARE_VERBALE.name()).target(VerbalizzazioneStateEnum.VERBALE_ANNULLATO.name())
+                    .event(VerbalizzazioneEventEnum.CAMBIATO_STATO_VERBALE.name())
                 .and().withExternal()
-                .source(VerbalizzazioneStatusEnum.DA_ANNULLARE_PROTOCOLLO.name()).target(VerbalizzazioneStatusEnum.PROTOCOLLO_ANNULLATO.name())
-                    .event(VerbalizzazioneChangeEventEnum.CAMBIATO_STATO_PROTOCOLLO.name())
+                .source(VerbalizzazioneStateEnum.DA_ANNULLARE_PROTOCOLLO.name()).target(VerbalizzazioneStateEnum.PROTOCOLLO_ANNULLATO.name())
+                    .event(VerbalizzazioneEventEnum.CAMBIATO_STATO_PROTOCOLLO.name())
         ;
     }
 
-    public enum VerbalizzazioneStatusEnum{
+    public enum VerbalizzazioneStateEnum {
         INIT,
         VERBALE_IN_BOZZA,
         DA_PERSISTERE_PROTOCOLLO,
@@ -93,7 +93,7 @@ public class VerbalizzazioneStateMachineConfig extends StateMachineConfigurerAda
         PROTOCOLLO_ANNULLATO
     }
 
-    public enum VerbalizzazioneChangeEventEnum{
+    public enum VerbalizzazioneEventEnum {
         START,
         PROTOCOLLO_ACQUISITO,
         PROTOCOLLO_NON_ACQUISTO,

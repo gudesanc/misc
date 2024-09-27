@@ -24,6 +24,6 @@ public class NotificazioneAnnullaVerbaleAction extends GenericStateMachineAction
                     .addArgument(uuid)
                     .addArgument(businessCtx.getIdNotifica()).log();
         return new ActionResult<>(uuid,
-                NotificazioneStateMachineConfig.NotificazioneChangeEventEnum.CAMBIATO_STATO_NOTIFICA.name(),businessCtx,BusinessStatus.FAILED);
+                NotificazioneStateMachineConfig.NotificazioneEventEnum.CAMBIATO_STATO_NOTIFICA.name(),businessCtx,BusinessStatus.FAILED);
     }
 }
