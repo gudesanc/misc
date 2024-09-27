@@ -65,4 +65,11 @@ public class OrchestratorManagerController {
                 .body(new ProcessResultResponse(uuid,result));
     }
 
+    @GetMapping(value = "/{uuid}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ProcessDetailResponse> getDettaglio(@PathVariable("uuid") @NotBlank String uuid){
+        ProcessDetailResponse result = orchestrationProcessService.getDetail(uuid);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(result);
+    }
 }

@@ -62,7 +62,8 @@ public abstract class GenericSateMachineController<T,R> {
         StateMachine<String, String> machine = getMachine(uuid);
         producerTemplate.sendBody("seda:processo-avviato",creationNotification);
         //Avviamo la macchia
-        machine.startReactively().subscribe();
+        machine.startReactively()//.tap(Micrometer.ob)
+                .subscribe();
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         log.atInfo().setMessage("Tempo creazione ed avvio state machine: {} (ms)").addArgument(duration).log();

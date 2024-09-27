@@ -11,13 +11,6 @@
     <name>ssma-orchestration-factory</name>
     <description>Gestione Orchestrazione con Spring Statemachine</description>
 
-<!--    <parent>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
-<!--        <version>3.3.2</version>-->
-<!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
-<!--    </parent>-->
-
     <properties>
         <spring-boot-version>3.3.2</spring-boot-version>
         <spring-statemachine.version>4.0.0</spring-statemachine.version>
@@ -69,7 +62,25 @@
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-spring-boot-starter</artifactId>
         </dependency>
-
+        <!-- use spring rabbitmq -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-spring-rabbitmq-starter</artifactId>
+        </dependency>
+        <!-- Serializzazione JSON -->
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-jackson-starter</artifactId>
+        </dependency>
+        <!-- ... gestione di Date/Time JSR310 (LocalDate etc)-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -112,6 +123,11 @@
                     <artifactId>loki-logback-appender</artifactId>
                     <version>1.5.2</version>
                 </dependency>
+                <!-- Observability-->
+                <dependency>
+                    <groupId>org.apache.camel.springboot</groupId>
+                    <artifactId>camel-observation-starter</artifactId>
+                </dependency>
             </dependencies>
         </profile>
     </profiles>
@@ -121,6 +137,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <mainClass>org.gds.poc.orch.ssm.Application</mainClass>
                 </configuration>

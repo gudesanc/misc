@@ -32,6 +32,13 @@ public class StateMachineLogListener extends StateMachineListenerAdapter<String,
             String nuovoStato = getInfoStato(stateContext.getTarget());
             String ctx = getStringExtendedVariable(stateContext,GenericSateMachineController.X_BUSINESS_CTX);
             String result = getStringExtendedVariable(stateContext,GenericSateMachineController.X_PROCESS_RESULT);
+            if(uuid==null){
+                log.atWarn().setMessage("Impossibile notificare stato {}  per machine {} => UUID è null")
+                        .addArgument(nuovoStato)
+                        .addArgument(stateContext.getStateMachine().getId())
+                        .log();
+                return;
+            }
             log.atInfo().setMessage("Entring: {} - UUID: {} - ctx {} - BS {} - Risultato {}")
                     .addArgument(nuovoStato)
                     .addArgument(uuid)

@@ -1,8 +1,6 @@
 package org.gds.poc.orch.manager;
 
-import org.gds.poc.orch.manager.library.BusinessState;
-import org.gds.poc.orch.manager.library.CreateOrchProcessRequest;
-import org.gds.poc.orch.manager.library.UpdateOrchProcessRequest;
+import org.gds.poc.orch.manager.library.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -11,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -130,6 +129,31 @@ public class OrchestrationProcessServiceImpl implements OrchestrationProcessServ
                     .addArgument(result)
                     .log();
             return result;
+        }
+    }
+
+    @Override
+    public ProcessDetailResponse getDetail(String uuid) {
+        Optional<OrchestrationProcess> oProcess = processRepository.findById(uuid);
+        if(oProcess.isEmpty()){
+            manageProcessNotFound(uuid);
+            return null; //Ma in realtà lancia eccezione... santa paziena
+        }else {
+            OrchestrationProcess process = oProcess.get();
+            List<ProcessEventDetail> eventi = historyRepository.findByProcessUUIDOrderByEventTime(uuid)
+                    .stream().map(e -> new ProcessEventDetail(
+                            e.getEventTime(),
+                            e.getBusinessStateSource(), e.getBusinessStateTarget(),
+                            e.getStateMachineSourceState(), e.getStateMachineTargetState())).toList();
+            return  new ProcessDetailResponse(
+                    process.getUuid(),
+                    process.getBusinessState(),
+                    process.getStateMachinCurrentState(),
+                    process.getContext(),
+                    process.getResult(),
+                    process.getStartTime(),
+                    process.getEndTime(),
+                    eventi);
         }
     }
 

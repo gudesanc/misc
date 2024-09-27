@@ -76,3 +76,23 @@ spec:
                 name: grafana
                 port:
                   number: 3000                                    
+    - host: rabbitmq.minikube
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rabbitmq
+                port:
+                  number: 80                                    
+    - host: orch-manager.minikube
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: orch-manager-service
+                port:
+                  number: 8080                                                      

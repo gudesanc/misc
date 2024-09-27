@@ -2,6 +2,7 @@ package org.gds.poc.orch.manager;
 
 import org.gds.poc.orch.manager.library.BusinessState;
 import org.gds.poc.orch.manager.library.CreateOrchProcessRequest;
+import org.gds.poc.orch.manager.library.ProcessDetailResponse;
 import org.gds.poc.orch.manager.library.UpdateOrchProcessRequest;
 
 public interface OrchestrationProcessService {
@@ -12,5 +13,7 @@ public interface OrchestrationProcessService {
     BusinessState getBusinessState(String uuid);
 
     String getResult(String uuid);
+
+    ProcessDetailResponse getDetail(String uuid);
 
 }
