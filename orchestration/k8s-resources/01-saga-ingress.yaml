@@ -55,7 +55,17 @@ spec:
               service:
                 name: ssma-orchestration-factory
                 port:
-                  number: 80                                    
+                  number: 80 
+    - host: saga-ssm-v2.minikube
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ssm-factory-v2
+                port:
+                  number: 80                                                      
     - host: prometheus.minikube
       http:
         paths:

@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: ssm-orchestator
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: rabbit
+    password: pwd
+
+# turn on auto declare so the exchange,
+# queues are automatic created if not already present in rabbitmq broker
+#camel:
+#  component:
+#    spring-rabbitmq.auto-declare: true
+#  # Consentiamo di scoprire l'object mapper per gestire il java 8 Date/Time
+#  dataformat:
+#    jackson:
+#      auto-discover-object-mapper: true
+server:
+  port: 8080
+client:
+  protocollo:
+    endpoint: http://localhost:8280
+  verbale:
+    endpoint: http://localhost:8180
+management:
+  server:
+    port: 9080
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  otlp:
+    metrics:
+      export:
+        url: http://otel-collector:4318/v1/metrics
+        step: 10s
+    tracing:
+      endpoint: http://otel-collector:4318/v1/traces
+      export:
+        step: 10s # Export interval set to 10 seconds
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoint:
+    health:
+      show-details: always

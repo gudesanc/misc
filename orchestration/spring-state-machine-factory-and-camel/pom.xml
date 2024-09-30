@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.gds.misc.poc</groupId>
-    <artifactId>ssma-orchestration-factory</artifactId>
+    <artifactId>ssma-orchestration-factory-and-camel</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>ssma-orchestration-factory</name>
-    <description>Gestione Orchestrazione con Spring Statemachine</description>
+    <description>Gestione Orchestrazione con Spring Statemachine e Camel per coda</description>
 
     <properties>
         <spring-boot-version>3.3.2</spring-boot-version>
