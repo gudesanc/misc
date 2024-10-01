@@ -1,0 +1,95 @@
+@startuml
+actor       "Single Page App"       as spa
+
+participant "BFF jHome\n <<bff>  " as home
+participant "jDomain\n <<bff>  " as bff
+
+control "jEnteManager\n<<ms-domain-common>>" as mgr
+control "Domain jHome\n<<ms-domain-multi-tenant>>" as mshome
+control "Domain jXXXX\n<<ms-domain-multi-tenant>>" as msgenerico
+
+database "jEnteManager\n<<db condiviso>>" as db_common
+database "jEnteUtenti\n<<db tenant>>" as db_domain
+collections    "Cache\nBFF"    as cache
+
+queue queue as queue
+database    "Storage\nOrchestratorManager\n<Common>"    as db
+
+/'
+  Accesso
+'/
+group Accesso ed inizializzazione
+spa -> home: GET /user \n(get informazioni utente)
+activate home
+home --> home: estrai realm e valida jwt \n(tramite libreria)
+home -> mgr: ottieni enti associati realm/(tenant?)
+mgr -> db_common: leggi enti
+home --> spa: UserDTO\n (info da jwt + lista enti )
+deactivate
+
+/'
+Inizializzazione "Sessione Utente"
+'/
+
+spa -> home: POST /ente-selezionato \n (in: ente selezionato)
+activate home
+home --> home: validata ente/realm )
+home -> cache: aggiungi dati utente + ente selezionato +jwt \n CAPIRE LA CHIAVE: jwt (no), username (uhm), UUID?, (username+ente)
+home --> spa: UUID? Codice Ente? \n (Alessandro :)\nCookie? Header?
+deactivate home
+
+end group
+/'
+Acquisizione menu
+'/
+group opzione 1 UUID + validazione jwt prima su cache (non utilizzerebbe spring multitenat)
+spa -> home: GET /menu/
+activate home
+home -> cache: get info utente by UUID
+home --> home: verifica jwt dalla cache
+group jwt non presente in cache
+home --> home: valida jwt da keycloak
+home -> cache: aggiorna jwt nella cache
+end group
+home -> mshome: GET /menu \n Username, Ente, Tenant(?), CorrelationID
+mshome -> mgr: GET /datasouce \n Username, Ente, Tenant(?), CorrelationID
+mgr -> db_common: leggi datasouce per ente
+mshome -> db_domani: leggi menu su database ente
+mshome --> home: menù utente
+deactivate
+end group
+
+/'
+ Invocazione servizio di dominio
+ Ipotesi BFF Home mette in cache
+'/
+group invocazione su bff di dominio
+spa -> home: GET /funzioni/<procedura> (UUID)
+activate home
+home --> home: validata jwt\nleggi dati in cache
+home -> mshome: GET /funzioni/<procedura> \n Username, Ente, Tenant(?), CorrelationID
+mshome -->mshome: ottieni datasouce
+mshome -> db_domain: leggi funzioni utente
+mshome --> home: restiusci funzioni utente per procedura
+home -> cache: aggiungi funzioni per procedura alla chace
+home --> spa: funzioni utente...
+deactivate
+spa -> bff: /<do qualcosa> (UUID)
+activate bff
+bff --> bff: validata jwt\nleggi dati in cache
+group funzioni per procedura non presenti nella cache
+bff -> mshome: GET /funzioni/<procedura>  \n Username, Ente, Tenant(?), CorrelationID
+mshome -> db_domain: leggi funzioni utente
+mshome --> bff: restiusci funzioni utente per procedura
+bff -> cache: aggiungi funzioni per procedura alla chace
+end group
+bff -->bff: verifica grant utenti\nper operazione richiesta
+bff-> msgenerico
+msgenerico -->msgenerico: recupra datasouce
+msgenerico -> db_domain: esegui
+bff--> spa: esito operaziopne
+deactivate
+end group
+
+
+@enduml
