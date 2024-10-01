@@ -1,35 +1,37 @@
 package org.gds.poc.orch.camel.vebalizzazione;
 
-import jakarta.annotation.Resource;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
-import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.SagaPropagation;
 import org.apache.camel.model.dataformat.JsonLibrary;
 import org.apache.camel.saga.InMemorySagaService;
+import org.gds.pkg.orch.camel.OrchestrationRouteBuilder;
 import org.gds.poc.orch.camel.client.protocollo.DtoCreaProtocollo;
 import org.gds.poc.orch.camel.client.protocollo.DtoProtocollo;
 import org.gds.poc.orch.camel.client.verbale.DtoVerbale;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
 @Component
-public class VerbalizzazioneRoute extends RouteBuilder {
+public class VerbalizzazioneRoute extends OrchestrationRouteBuilder {
 
     public static final String X_UUID_OPERAZIONE = "X_UUID_OPERAZIONE";
     public static final String X_CTX_OPERAZIONE = "X_CTX_OPERAZIONE";
 
 
-    @Resource
+    @Autowired
     private CamelContext camelContext;
     @Override
-    public void configure() throws Exception {
+        public void configure() throws Exception {
         //per la in memory
         camelContext.addService(new InMemorySagaService());
 
-        from("seda:start-verbalizzazione")
-                .routeId("orchestrazione-verbalizzazione")
+//        from("seda:start-verbalizzazione")
+//                .routeId("orchestrazione-verbalizzazione")
+//                ;
+        orchestrazioneFrom("seda:start-verbalizzazione","orchestrazione-verbalizzazione")
                 .saga()
                     .timeout(2, TimeUnit.MINUTES)
                     .option(X_UUID_OPERAZIONE,simple("${header."+X_UUID_OPERAZIONE+"}"))
@@ -47,8 +49,7 @@ public class VerbalizzazioneRoute extends RouteBuilder {
                 .to("direct:verbalizzazione-consolida-verbale")
                 .end();
 
-        from("direct:verbalizzazione-creazione-verbale").
-                routeId("verbalizzazione-creazione-verbale")
+        stepFrom("direct:verbalizzazione-creazione-verbale","verbalizzazione-creazione-verbale")
                 .saga()
                     .propagation(SagaPropagation.MANDATORY)
                     .option(X_CTX_OPERAZIONE,simple("${header."+X_CTX_OPERAZIONE+"}"))
@@ -70,8 +71,7 @@ public class VerbalizzazioneRoute extends RouteBuilder {
                 .end();
 
 
-        from("direct:verbalizzazione-protocolla-verbale")
-                .routeId("verbalizzazione-protocolla-verbale")
+        stepFrom("direct:verbalizzazione-protocolla-verbale","verbalizzazione-protocolla-verbale")
                 .saga()
                     .propagation(SagaPropagation.MANDATORY)
                     .option(X_CTX_OPERAZIONE,simple("${header."+X_CTX_OPERAZIONE+"}"))
@@ -94,8 +94,7 @@ public class VerbalizzazioneRoute extends RouteBuilder {
                 .end();
 
 
-        from("direct:verbalizzazione-consolida-verbale")
-                .routeId("verbalizzazione-consolida-verbale")
+        stepFrom("direct:verbalizzazione-consolida-verbale","verbalizzazione-consolida-verbale")
                 .setHeader(Exchange.HTTP_METHOD, constant("POST"))
                 .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
                 .setHeader(Exchange.HTTP_PATH, simple("/verbali/${header." + X_CTX_OPERAZIONE + ".idVerbale}/protocollo"))
@@ -107,8 +106,7 @@ public class VerbalizzazioneRoute extends RouteBuilder {
                 .log("${header." + X_UUID_OPERAZIONE + "} - Verbale consolidato - ${body}")
                 .end();
 
-        from("direct:verbalizzazione-annulla-verbale")
-                .routeId("verbalizzazione-annulla-verbale")
+        stepFrom("direct:verbalizzazione-annulla-verbale","verbalizzazione-annulla-verbale")
                 .choice()
                 .when(simple("${header." + X_CTX_OPERAZIONE + ".idVerbale}  != null"))
                     .setHeader(Exchange.HTTP_METHOD, constant("POST"))
@@ -122,8 +120,7 @@ public class VerbalizzazioneRoute extends RouteBuilder {
                 .end()
         ;
 
-        from("direct:verbalizzazione-annulla-protocollo")
-                .routeId("verbalizzazione-annulla-protocollo")
+        stepFrom("direct:verbalizzazione-annulla-protocollo","verbalizzazione-annulla-protocollo")
                 .choice()
                 .when(simple("${header." + X_CTX_OPERAZIONE + ".protocollo}  != null"))
                     .setHeader(Exchange.HTTP_METHOD, constant("DELETE"))
@@ -139,16 +136,13 @@ public class VerbalizzazioneRoute extends RouteBuilder {
         ;
 
 
-        from("direct:verbalizzazione-avvio")
-                .routeId("db-job-verbalizzazione-start")
+        stepFrom("direct:verbalizzazione-avvio","db-job-verbalizzazione-start")
                 .log("${header." + X_UUID_OPERAZIONE + "} - SALVARE SUL DB L'AVVIO DEL PROCESSO")
                 .end();
-        from("direct:verbalizzazione-concluso-successo")
-                .routeId("db-job-verbalizzazione-ok")
+        stepFrom("direct:verbalizzazione-concluso-successo","db-job-verbalizzazione-ok")
                 .log("${header." + X_UUID_OPERAZIONE + "} - SALVARE SUL DB L'ESITO POSITIVO DEL PROCESSO")
                 .end();
-        from("direct:verbalizzazione-concluso-fallimento")
-                .routeId("db-job-verbalizzazione-ko")
+        stepFrom("direct:verbalizzazione-concluso-fallimento","db-job-verbalizzazione-ko")
                 .log("${header." + X_UUID_OPERAZIONE + "} - SALVARE SUL DB L'ESITO NEGATIVO DEL PROCESSO")
                 .end();
     }

@@ -1,0 +1,29 @@
+spec:
+  template:
+    spec:
+      containers:
+        - env:
+            - name: CAMEL_LRA_COORDINATOR_URL
+              value: http://lra-coordinator:8080
+            - name: CAMEL_LRA_LOCAL_PARTICIPANT_URL
+              value: http://${project.artifactId}:8080/api
+            - name: CLIENT_PROTOCOLLO_ENDPOINT
+              value: http://protocollo
+            - name: CLIENT_VERBALE_ENDPOINT
+              value: http://jpl
+            - name: SERVER_PORT
+              value: 8080
+            - name: MANAGEMENT_SERVER_PORT
+              value: 8180
+          readinessProbe:
+            httpGet:
+              port: 8180
+              path: actuator/health/readiness
+            initialDelaySeconds: 15
+          livenessProbe:
+            httpGet:
+              port: 8180
+              path: actuator/health/liveness
+            initialDelaySeconds: 15
+
+
