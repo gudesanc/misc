@@ -61,7 +61,7 @@
 						<labels>
 							<all>
 								<property>
-									<name>csbexample</name>
+										<name>csbexample</name>
 									<value>saga</value>
 								</property>
 							</all>

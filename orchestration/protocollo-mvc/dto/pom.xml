@@ -10,4 +10,10 @@
     <artifactId>ms-domain-protocollo-dto</artifactId>
     <name>protocollo-mvc dto</name>
     <description>protocollo service poc dto</description>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+    </dependencies>
 </project>

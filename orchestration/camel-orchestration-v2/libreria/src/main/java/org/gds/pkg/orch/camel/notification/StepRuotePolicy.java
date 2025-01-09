@@ -9,28 +9,15 @@ import org.springframework.stereotype.Component;
 public class StepRuotePolicy extends RoutePolicySupport {
     @Override
     public void onExchangeBegin(Route route, Exchange exchange) {
-        System.out.println(msg("STEP AVVIO: "+route.getRouteId()));
+        System.out.println(RuotePolicyUtil.msg("STEP AVVIO: "+route.getRouteId(),exchange));
     }
 
     @Override
     public void onExchangeDone(Route route, Exchange exchange) {
-        System.out.println(msg("STEP FINE: "+route.getRouteId()
+        System.out.println(RuotePolicyUtil.msg("STEP FINE: "+route.getRouteId()
                 +"--- FALLITO? "+exchange.isFailed()
-                + " --- Eccezione" + exchange.getException()) );
+                + " --- Eccezione" + exchange.getException(),exchange) );
 
     }
 
-    private String msg(String what){
-        return """
-                
-                *****************************************
-                """
-                +what+
-                """
-                   
-                   *******************************************
-                   
-                   
-                   """;
-    }
 }

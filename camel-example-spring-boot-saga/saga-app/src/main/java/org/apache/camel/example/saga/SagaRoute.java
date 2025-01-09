@@ -46,7 +46,7 @@ public class SagaRoute extends RouteBuilder {
         from("direct:start-orchestation")
                 //generiamo il job id
                 .process(exchange -> {exchange.setProperty("job-id", "JID: "+((long)(Math.random()*10000000)));})
-                .log("Impostato id ${header.job-id}")
+                .log("Impostato id ${header.job-id} ")
                 //avviamo la saga
                 .wireTap("direct:saga")
                 .setBody(simple("{\"id\":\"${header.job-id}\"}"));

@@ -19,7 +19,7 @@
     </appender>
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
-        <appender-ref ref="LOKI"/>
+<!--        <appender-ref ref="LOKI"/>-->
     </root>
     <logger name="org.gds" level="INFO"/>
     <logger name="reactor.netty.http.client" level="OFF"/>

@@ -1,23 +1,17 @@
 package org.gds.poc.orch.camel.vebalizzazione;
 
+import org.gds.pkg.orch.camel.OrchestrationContext;
 import org.gds.poc.orch.camel.client.protocollo.DtoProtocollo;
 import org.gds.poc.orch.camel.client.verbale.DtoCreaVerbale;
 
 /**
  * Contesto per la gestione del processo di verbalizzazione
  */
-public class VerbalizzazioneContext {
-    private final String uuid;
+public class VerbalizzazioneContext implements OrchestrationContext {
+    private  String uuid;
     private String idVerbale;
     private String oggettoVerbale;
     private DtoProtocollo protocollo;
-
-    public VerbalizzazioneContext(String uuid) {
-        if(uuid==null){
-            throw new NullPointerException("UUID non può essere null sul contesto dell'orchestrazione");
-        }
-        this.uuid = uuid;
-    }
 
 
     @Override
@@ -28,6 +22,11 @@ public class VerbalizzazioneContext {
                 ", oggettoVerbale='" + oggettoVerbale + '\'' +
                 ", protocollo=" + protocollo +
                 '}';
+    }
+
+    @Override
+    public void uuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getIdVerbale() {
