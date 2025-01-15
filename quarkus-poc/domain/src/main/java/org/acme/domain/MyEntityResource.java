@@ -1,5 +1,6 @@
 package org.acme.domain;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -21,26 +22,34 @@ import java.util.List;
 @Path("/entities")
 public class MyEntityResource {
     Logger log = LoggerFactory.getLogger(MyEntityResource.class);
+
+    private final MyEntityMapper mapper;
+
+    public MyEntityResource(MyEntityMapper mapper) {
+        this.mapper = mapper;
+    }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<MyEntity> getAll() {
+    public List<MyEntityDTO> getAll() {
         log.debug("Inizio richiesta caricamento ");
         PanacheQuery<MyEntity> list100 = MyEntity.findAll();
-        list100.page(1,100);
+        list100.page(0,100);
         List<MyEntity> result = list100.list();
         log.info("Caricati: {} record",result.size());
-        return result;
+        return mapper.toDTOList(result);
     }
     @GET
     @Path("/{id}")
-    public MyEntity get(Long id) {
+    public MyEntityDTO get(Long id) {
         log.debug("Inizio richiesta caricamento risorsa {}",id);
-        return MyEntity.findById(id);
+        return mapper.toDTO(MyEntity.findById(id));
     }
 
     @POST
     @Transactional
-    public Response create(MyEntity myentities) {
+    public Response create(MyEntityDTO dto) {
+        MyEntity myentities = mapper.toEntity(dto);
         myentities.persist();
         log.info("Persistito record: {} ",myentities);
         return Response.created(URI.create("/myentities/" + myentities.id)).build();
@@ -49,16 +58,16 @@ public class MyEntityResource {
     @PUT
     @Path("/{id}")
     @Transactional
-    public MyEntity update(Long id, MyEntity myentities) {
+    public MyEntityDTO update(Long id, MyEntityDTO myentities) {
         MyEntity entity = MyEntity.findById(id);
         if(entity == null) {
             throw new NotFoundException();
         }
 
         // map all fields from the person parameter to the existing entity
-        entity.field = myentities.field;
+        entity.field = myentities.field();
 
-        return entity;
+        return mapper.toDTO(entity);
     }
 
     @DELETE
