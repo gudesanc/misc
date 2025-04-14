@@ -1,5 +1,7 @@
 package org.acme.domain;
 
+import exception.JEnteConfigurationException;
+import exception.JEnteExceptionFactory;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -37,6 +39,9 @@ public class MyEntityResource {
         list100.page(0,100);
         List<MyEntity> result = list100.list();
         log.info("Caricati: {} record",result.size());
+        if(true){
+            throw new JEnteConfigurationException("Errore di configurazione");
+        }
         return mapper.toDTOList(result);
     }
     @GET
